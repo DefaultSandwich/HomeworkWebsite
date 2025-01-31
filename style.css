@@ -1,5 +1,12 @@
-html body {
+html h1 {
   margin: 50;
+  padding: 0;
+  background-color: white;
+  font-family: Arial;
+}
+
+html body {
+  margin: 100;
   padding: 0;
   background-color: white;
   font-family: Arial;
