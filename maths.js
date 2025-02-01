@@ -1,3 +1,4 @@
+//python -m http.server 8000
 
 let x
 let y
@@ -6,11 +7,11 @@ newQuestion()
 
 function newQuestion(){
 
- x = Math.floor(Math.random(1,10)*10)
- y = Math.floor(Math.random(1,10)*10)
+ x = Math.floor(Math.random()*10)+1
+ y = Math.floor(Math.random()*10)+1
  document.getElementById("check").hidden = false
 
-document.getElementById("demo").innerHTML = String(x) + "+" +String(y);
+ document.getElementById("demo").innerHTML = String(x) + "+" + String(y);
 }
 
 function showAnswer() {
