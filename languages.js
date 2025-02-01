@@ -38,7 +38,7 @@ let wordbank
     
         x = Math.floor(Math.random() * words.length)
     
-        document.getElementById("check").style.visibility = "visible"
+        document.getElementById("check").hidden = false
 
         document.getElementById("question").innerHTML = String(words[x]);
         document.getElementById("answer").innerHTML = "<b>"+ String(wordbank[words[x]]);
@@ -48,7 +48,7 @@ let wordbank
     function showAnswer() {
         document.getElementById("answer").style.visibility = "visible"
         
-        document.getElementById("check").style.visibility = "hidden"
+        document.getElementById("check").hidden = true
     }
 
     async function startQuiz(language) {

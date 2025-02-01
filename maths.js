@@ -8,8 +8,10 @@ let answer;
 
 
 function newQuestion(){
-    document.getElementById("check").style.visibility = "visible"
+    document.getElementById("check").hidden = false
+    document.getElementById("next").innerHTML = "Skip"
     document.getElementById("answer").style.visibility = "hidden"
+    document.getElementById("input").style.visibility = "visible"
 
      operation = Math.floor(Math.random()*4)
    
@@ -52,7 +54,16 @@ function newQuestion(){
 }
 
 function showAnswer() {
+   
     document.getElementById("answer").innerHTML = "<b>="+String(answer);
+    if(document.getElementById("input").value == answer){
+      document.getElementById("answer").innerHTML += "✓";
+    }else{
+      document.getElementById("answer").innerHTML += "X";
+    }
+    document.getElementById("input").value = null
     document.getElementById("answer").style.visibility = "visible"
-    document.getElementById("check").style.visibility = "hidden"
+    document.getElementById("input").style.visibility = "hidden"
+    document.getElementById("check").hidden = true
+    document.getElementById("next").innerHTML = "Next"
 }
