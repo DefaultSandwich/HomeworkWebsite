@@ -12,14 +12,30 @@
   <body>
     <h1>Maths</h1>
     <main>
+      
       <a href="index.html">Home</a>
-      <p id="question">question</p>
+      <h3 id="counter">Question 1 of 10</h3>
+      <p id = "statement"> What is 
+      <span id="question">question</span>?</p>
       <p id="answer">answer</p>
       <input type="number" id="input"></input><br>
-      <button type = button id="check" onclick = "showAnswer()" > Check </button>
-      <button type = button id="next" onclick = "newQuestion()" > Next </button>
+      <script>// Get the input field
+        let input = document.getElementById("input");
+        // Execute a function when the user presses a key on the keyboard
       
-      <script>newQuestion() </script>
+        input.addEventListener("keypress", function(event) {
+          // If the user presses the "Enter" key on the keyboard
+          if (event.key === "Enter") {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("check").click();
+          }
+        });  </script>
+      <button type = button id="check" onclick = "showAnswer()" > Check </button>
+      <button type = button id="next" onclick = "nextQuestion()" > Next </button>
+      
+      <script>startQuiz() </script>
     </main>
     
   </body>

@@ -7,6 +7,8 @@
   font-family: Inter, Arial;
   font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
   font-size: 1em;
+  height: 100%; 
+  overflow: hidden
   
 }
 
@@ -31,8 +33,8 @@ button{
   font-family: inherit;
   font-size: 1em;
   border-style: solid;
-  border-color: cornflowerblue;
-  background-color: cornflowerblue;
+  border-color: royalblue;
+  background-color: royalblue;
   color: white;
   border-radius: 0.1em;
   border-width: 0.1em;
@@ -46,7 +48,7 @@ button:hover {
   color: black;
   border-style: solid;
   background-color: white;
-  border-color: cornflowerblue; 
+  border-color: royalblue; 
   
 }
 
@@ -64,7 +66,7 @@ a{
   border-color: black;
   background-color: white;
   color: black;
-  border-radius: 0.1em;
+  border-radius: 0.2em;
   border-width: 0.1em;
   
   text-decoration: none;
@@ -78,5 +80,13 @@ a:hover {
 }
 
 input{
-  font-family: inherit
+  font-family: inherit;
+  font-size: 1em;
+  border:.1em solid cornflowerblue;
+  border-radius: 0.2em;
 }
+
+input.error {
+  border: .1em solid red;
+}
+

@@ -41,11 +41,13 @@ let wordbank
         document.getElementById("check").hidden = false
 
         document.getElementById("question").innerHTML = String(words[x]);
+        document.getElementById("next").innerHTML = "Skip"
         document.getElementById("answer").innerHTML = "<b>"+ String(wordbank[words[x]]);
         document.getElementById("answer").style.visibility = "hidden"
     }
     
     function showAnswer() {
+        document.getElementById("next").innerHTML = "Next"
         document.getElementById("answer").style.visibility = "visible"
         
         document.getElementById("check").hidden = true
