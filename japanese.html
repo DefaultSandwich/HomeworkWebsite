@@ -11,12 +11,14 @@
   
   <body>
     <h1>Japanese</h1>
-    <main> <a href="index.html">Home</a>
+    <main> 
+      <a href="index.html">Home</a>
+      <h3 id="counter">Question 1 of 10</h3>
       <p>Translate "<span id="question">question</span>"</p>
       <p id="answer">answer</p>
       
       <button type = button id="check" onclick = "showAnswer()" > Check </button>
-      <button type = button id="next" onclick = "newQuestion('JP')" > Next </button>
+      <button type = button id="next" onclick = "nextQuestion('JP')" > Next </button>
       
       <script>startQuiz("JP")</script>
     </main>

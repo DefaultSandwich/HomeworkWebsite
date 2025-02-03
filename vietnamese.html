@@ -10,12 +10,15 @@
   </head>
   <h1>Vietnamese</h1>
   <body>
-    <main> <a href="index.html">Home</a>
-        <p>Translate "<span id="question">question</span>"</p>
-        <p id="answer">answer</p>
+    <main> 
+      <a href="index.html">Home</a>
+      <h3 id="counter">Question 1 of 10</h3>
+      <p>Translate "<span id="question">question</span>"</p>
+      <p id="answer">answer</p>
+        
         
         <button type = button id="check" onclick = "showAnswer()" > Check </button>
-        <button type = button id="next" onclick = "newQuestion('VI')" > Next </button>
+        <button type = button id="next" onclick = "nextQuestion('VI')" > Next </button>
         
         <script>startQuiz("VI")</script>
     </main>
