@@ -6,12 +6,20 @@ let quiz = []
 
 //Generate start and setup quiz
 async function startQuiz() {
-   // Wait until wordbankJP and wordbankVI are loaded
+   // Wait until quiz generated
    if (quiz.length<10) {
        
        await newQuiz();
    }
+   //Start quiz
    console.log("start")
+   document.getElementById("retry").hidden = true
+   document.getElementById("results").hidden = true
+   document.getElementById("statement").hidden = false
+   document.getElementById("input").style.visibility = "visible"
+   document.getElementById("next").hidden = false
+   questionID = -1
+
    nextQuestion();
 }
 
@@ -21,12 +29,12 @@ let operation
 let x 
 let y 
 let answer
-let questionID = -1
+let questionID
 let userInput
 let symbols = ["+","-","×","÷","<span style = 'color :forestGreen'>✓</span>","<span style = 'color :red'>✗</span>"]
 
 async function newQuiz(){
-  
+   quiz = []
    
   
   
@@ -94,14 +102,16 @@ function nextQuestion(){
   
    
    if(questionID < 10){
-   document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of 10"
+     
+      document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of 10"
+      document.getElementById("input").value = null
 
 
-   document.getElementById("input").classList.remove("error");
-   document.getElementById("check").hidden = false
-   document.getElementById("next").innerHTML = "Skip"
-   document.getElementById("answer").style.visibility = "hidden"
-   document.getElementById("input").style.visibility = "visible"
+      document.getElementById("input").classList.remove("error");
+      document.getElementById("check").hidden = false
+      document.getElementById("next").innerHTML = "Skip"
+      document.getElementById("answer").style.visibility = "hidden"
+      document.getElementById("input").disabled = false
 
     //select input
     document.getElementById("input").focus();
@@ -131,7 +141,7 @@ function showAnswer() {
    
    
    //show answer
-    document.getElementById("answer").innerHTML = "<b>="+String(answer);
+    document.getElementById("answer").innerHTML = "<b>"+String(answer);
     
     userInput = document.getElementById("input").value
     //check if input filled
@@ -144,9 +154,9 @@ function showAnswer() {
       document.getElementById("answer").innerHTML += symbols[checkAnswer()];
     
        //Update elements
-    document.getElementById("input").value = null
+   
     document.getElementById("answer").style.visibility = "visible"
-    document.getElementById("input").style.visibility = "hidden"
+    document.getElementById("input").disabled = true
     document.getElementById("check").hidden = true
     document.getElementById("next").innerHTML = "Next"
 
@@ -166,13 +176,14 @@ function showAnswer() {
 }
 
 function showResults(){
-      document.getElementById("answer").innerHTML = ""
+      document.getElementById("results").innerHTML = ""
       document.getElementById("counter").innerHTML = "Results"
-      document.getElementById("next").innerHTML = "Retry"
+      document.getElementById("next").hidden = true
+      document.getElementById("retry").hidden = false
       document.getElementById("statement").hidden = true
       document.getElementById("check").hidden = true
       document.getElementById("input").style.visibility = "hidden"
-      document.getElementById("answer").style.visibility = "visible"
+      document.getElementById("results").hidden = false
      
 for(let i = 0;i<quiz.length;i++){
    
@@ -187,10 +198,10 @@ for(let i = 0;i<quiz.length;i++){
   y = quiz[i]["y"];
   answer = quiz[i]["answer"];
 
-   document.getElementById("answer").innerHTML += String(x)+symbols[operation]+String(y);
-  document.getElementById("answer").innerHTML += "<b> ="+String(userInput);
-  document.getElementById("answer").innerHTML += symbols[checkAnswer()];
-  document.getElementById("answer").innerHTML += "<br>";
+   document.getElementById("results").innerHTML += String(x)+symbols[operation]+String(y);
+  document.getElementById("results").innerHTML += "<b> ="+String(userInput);
+  document.getElementById("results").innerHTML += symbols[checkAnswer()];
+  document.getElementById("results").innerHTML += "<br>";
   console.log("done")
 }
 }

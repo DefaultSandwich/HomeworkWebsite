@@ -4,6 +4,7 @@
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script src="maths.js"> </script>
+    <script src="buttons.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
     
@@ -15,51 +16,26 @@
       
       <a href="index.html">Home</a>
       <h3 id="counter">Question 1 of 10</h3>
-      <p id = "statement"> What is 
-      <span id="question">question</span>?</p>
-      <p id="answer">answer</p>
-      <input type="number" id="input"></input><br>
+      
+      <p id = "statement">
+      <span id="question">question</span>
+       = 
+      <span><input type="number" id="input"></input></span>
+      <span id="answer"> answer</span>
+       </p>
+
+      
+   
+      <p id="results">Results</p>
 
       <button type = button id="check" onclick = "showAnswer()" > Check </button>
       <button type = button id="next" onclick = "nextQuestion()" > Next </button>
+      <button type = button id="retry" onclick = "startQuiz()" > Retry </button>
 
 
-      <script>
-        let skip = document.getElementById("next");
-        skip.addEventListener("keypress", function(event) {
-          if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("next").click();
-          }
-        });
-      </script>
-
-      <script>
-        let next = document.getElementById("next");
-        next.addEventListener("keypress", function(event) {
-          if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("next").click();
-          }
-        });
-      </script>
-
-      <script>
       
-      // Get the input field
-        let input = document.getElementById("input");
-        // Execute a function when the user presses a key on the keyboard
-      
-        input.addEventListener("keypress", function(event) {
-          // If the user presses the "Enter" key on the keyboard
-          if (event.key === "Enter") {
-            // Cancel the default action, if needed
-            event.preventDefault();
-            // Trigger the button element with a click
-            document.getElementById("check").click();
-          }
-        });  </script>
-      
+      <script> next(); input()</script>
+     
       
       <script>startQuiz() </script>
 

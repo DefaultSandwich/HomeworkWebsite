@@ -4,7 +4,13 @@
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" type="text/css" href="style.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    
     <script src="languages.js" ></script>
+    <script  src = "buttons.js"></script>
     <meta charset="utf-8" />
     
   </head>
@@ -14,11 +20,16 @@
     <main> 
       <a href="index.html">Home</a>
       <h3 id="counter">Question 1 of 10</h3>
-      <p>Translate "<span id="question">question</span>"</p>
+      <p>Write "<span id="question">question</span>" in hiragana</p>
       <p id="answer">answer</p>
       
+    
+
       <button type = button id="check" onclick = "showAnswer()" > Check </button>
       <button type = button id="next" onclick = "nextQuestion('JP')" > Next </button>
+
+     
+      <script>next();check()</script>
       
       <script>startQuiz("JP")</script>
     </main>

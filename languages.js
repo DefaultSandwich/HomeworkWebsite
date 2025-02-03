@@ -3,29 +3,34 @@ let quiz = []
 
 let wordbankJP = null
 let wordbankVI = null
-let wordbank = []
+let wordbank = null
 
 
- async function loadWordbanks() {
+ async function loadWordbank(language) {
     try {
-        const responseJP = await fetch("wordbankJP.json");
-        wordbankJP = await responseJP.json();
+        const response = await fetch("wordbank"+language+".json");
+        wordbank = {"JP":null,"VI":null}
+        wordbank[language] =  await response.json();
+        
 
-        const responseVI = await fetch("wordbankVI.json");
-        wordbankVI = await responseVI.json();
+     
 
-        console.log("Wordbanks loaded successfully.");
+        console.log("Wordbank loaded successfully.");
     } catch (error) {
-        console.error("Error loading wordbanks:", error);
+        console.error("Error loading wordbank:", error);
     }
+    
+    
 }
 
 
 async function startQuiz(language) {
     
-    if (!wordbankJP || !wordbankVI) {
+    quiz = []
+    
+    if (!wordbank) {
         // Wait until wordbankJP and wordbankVI are loaded
-        await loadWordbanks();
+        await loadWordbank(language);
         
     }
     if(quiz.length<10){
@@ -36,6 +41,7 @@ async function startQuiz(language) {
     }
 
     console.log("start")
+    questionID = -1
     nextQuestion(language);
 }
 
@@ -43,11 +49,12 @@ async function startQuiz(language) {
 // x = word index
 let x
 let answer
-let questionID = -1
+let questionID
 
 
 async function newQuiz(language){
-    wordbank = {JP:wordbankJP,VI:wordbankVI}
+    
+    
    let question
   
   
@@ -76,6 +83,9 @@ let words
 
 
     function nextQuestion(){
+
+        
+
         // change to next question
         questionID++
 
@@ -96,6 +106,7 @@ let words
             document.getElementById("check").hidden = false
             document.getElementById("next").innerHTML = "Skip"
             document.getElementById("answer").style.visibility = "hidden"
+            document.getElementById("check").focus()
 
          
             //x is word not index
@@ -128,6 +139,7 @@ let words
     }
     
     function showAnswer() {
+        document.getElementById("next").focus()
         answer = quiz[questionID]["answer"]
 
         document.getElementById("next").innerHTML = "Next"
