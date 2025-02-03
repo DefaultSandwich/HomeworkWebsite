@@ -20,7 +20,7 @@ async function startQuiz() {
    document.getElementById("next").hidden = false
    questionID = -1
 
-   nextQuestion();
+   nextMathsQuestion();
 }
 
 //Create quiz
@@ -79,101 +79,18 @@ async function newQuiz(){
       }
 
     question = {
-      "operation":operation,
-      "x":x,
-      "y":y,
+      "mode":operation,
+      "question":[x,y],
       "answer":answer,
       "userInput":null
       
     }
-      console.log(question)
+      
       quiz.push(question)
    }
 }
 
 
-
-
-function nextQuestion(){
-   // change to next question
-   
-   questionID++
-
-  
-   
-   if(questionID < 10){
-     
-      document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of 10"
-      document.getElementById("input").value = null
-
-
-      document.getElementById("input").classList.remove("error");
-      document.getElementById("check").hidden = false
-      document.getElementById("next").innerHTML = "Skip"
-      document.getElementById("answer").style.visibility = "hidden"
-      document.getElementById("input").disabled = false
-
-    //select input
-    document.getElementById("input").focus();
-
-   operation = quiz[questionID]["operation"]
-   x = quiz[questionID]["x"]
-   y = quiz[questionID]["y"]
-
-   document.getElementById("question").innerHTML = String(x) + symbols[operation] + String(y);
-
- 
-   
-
- 
-  
-}else{
-   console.log("a")
-   showResults();
-}
-}
-
-function showAnswer() {
-   operation = quiz[questionID]["operation"]
-   x = quiz[questionID]["x"]
-   y = quiz[questionID]["y"]
-   answer = quiz[questionID]["answer"]
-   
-   
-   //show answer
-    document.getElementById("answer").innerHTML = "<b>"+String(answer);
-    
-    userInput = document.getElementById("input").value
-    //check if input filled
-    if(userInput.trim() !== ""){
-      //make input not red
-      document.getElementById("input").classList.remove("error");
-      //check answer
-      
-      quiz[questionID]["userInput"] = userInput
-      document.getElementById("answer").innerHTML += symbols[checkAnswer()];
-    
-       //Update elements
-   
-    document.getElementById("answer").style.visibility = "visible"
-    document.getElementById("input").disabled = true
-    document.getElementById("check").hidden = true
-    document.getElementById("next").innerHTML = "Next"
-
-    //focus next button
-    document.getElementById("next").focus();
-     
-    
-   }else{
-      //make input red
-      document.getElementById("input").classList.add("error");
-      //focus on skip button
-      document.getElementById("next").focus();
-       
-   }
-    
-   
-}
 
 function showResults(){
       document.getElementById("results").innerHTML = ""
@@ -193,9 +110,9 @@ for(let i = 0;i<quiz.length;i++){
   }
   console.log(userInput)
    
-  operation = quiz[i]["operation"];
-  x = quiz[i]["x"];
-  y = quiz[i]["y"];
+  operation = quiz[i]["mode"];
+  x = quiz[i]["question"][0];
+  y = quiz[i]["question"][1];
   answer = quiz[i]["answer"];
 
    document.getElementById("results").innerHTML += String(x)+symbols[operation]+String(y);
@@ -212,4 +129,44 @@ return(4)
    }else{
       return(5)
    }
+}
+
+
+function nextMathsQuestion(){
+   nextQuestion();
+   operation = quiz[questionID]["mode"]
+   x = quiz[questionID]["question"][0]
+   y = quiz[questionID]["question"][1]
+   document.getElementById("question").innerHTML = String(x) + symbols[operation] + String(y);
+}
+
+function showAnswer(){
+   //fetch question
+   operation = quiz[questionID]["mode"];
+   x = quiz[questionID]["question"][0];
+   y = quiz[questionID]["question"][1];
+   
+
+   submitAnswer();
+
+   //check if input filled
+   if(userInput.trim() !== ""){
+      
+      //make input blue
+      document.getElementById("input").classList.remove("error");
+      //render answer
+      document.getElementById("answer").innerHTML = "<b>"+String(answer);
+      document.getElementById("answer").innerHTML += symbols[checkAnswer()];
+      
+
+   }else{
+      //make input red
+      document.getElementById("input").classList.add("error");
+      //focus on skip button
+      document.getElementById("next").focus();
+       
+   }
+
+   
+   
 }

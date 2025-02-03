@@ -9,6 +9,11 @@
   font-family: Inter,"Noto Sans JP", Arial, sans-serif;
   font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
   font-size: 18px;
+  @media (min-device-width:320px) and (max-device-width:768px) {
+    #nav {
+        font-size: 20px;
+    }
+}
   height: 100%; 
   
   
@@ -38,7 +43,7 @@ button{
   border-color: royalblue;
   background-color: royalblue;
   color: white;
-  border-radius: 0.1em;
+  border-radius: 0.2em;
   border-width: 0.1em;
   
   transition: color .2s ease, background-color .2s ease;

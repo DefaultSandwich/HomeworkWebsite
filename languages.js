@@ -42,7 +42,7 @@ async function startQuiz(language) {
 
     console.log("start")
     questionID = -1
-    nextQuestion(language);
+    nextLanguageQuestion();
 }
 
 //Create Quiz
@@ -69,9 +69,10 @@ async function newQuiz(language){
        
  
      question = {
-       
-       "x":x,
-       "answer":answer
+       "mode":language,
+       "question":[x],
+       "answer":answer,
+       "userInput":null
        
      }
        console.log(question)
@@ -79,42 +80,38 @@ async function newQuiz(language){
     }
  }
 
-let words
 
 
-    function nextQuestion(){
+
+    // function nextQuestion(){
 
         
 
-        // change to next question
-        questionID++
+    //     // change to next question
+    //     questionID++
 
 
        
         
-        if (!wordbank || Object.keys(wordbank).length === 0) {
-            console.error("Wordbank not loaded yet.");
-            document.getElementById("question").innerHTML = "Loading...";
-            return;
-        }
+      
         
-        if(questionID < 10){
-            document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of 10"
+    //     if(questionID < 10){
+    //         document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of 10"
          
          
            
-            document.getElementById("check").hidden = false
-            document.getElementById("next").innerHTML = "Skip"
-            document.getElementById("answer").style.visibility = "hidden"
-            document.getElementById("check").focus()
+    //         document.getElementById("check").hidden = false
+    //         document.getElementById("next").innerHTML = "Skip"
+    //         document.getElementById("answer").style.visibility = "hidden"
+    //         document.getElementById("check").focus()
 
          
-            //x is word not index
-            x = quiz[questionID]["x"]
+    //         //x is a word not index
+    //         x = quiz[questionID]["question"][0]
             
          
             
-            document.getElementById("question").innerHTML = x;
+    //         document.getElementById("question").innerHTML = x;
                
            
          
@@ -122,29 +119,35 @@ let words
          
           
            
-         }else{
-            alert("no more questions")
-         }
+    //      }else{
+    //         alert("no more questions")
+    //      }
          
 
 
-
-
-
-
-
-
-
-
-    }
+    // }
     
     function showAnswer() {
-        document.getElementById("next").focus()
-        answer = quiz[questionID]["answer"]
-
-        document.getElementById("next").innerHTML = "Next"
-        document.getElementById("answer").style.visibility = "visible"
+        
+        submitAnswer();
         document.getElementById("answer").innerHTML = "<b>="+String(answer);
-        document.getElementById("check").hidden = true
+        
     }
 
+
+
+function nextLanguageQuestion(){
+    //check if wordbank loaded
+    if (!wordbank || Object.keys(wordbank).length === 0) {
+        console.error("Wordbank not loaded yet.");
+        document.getElementById("question").innerHTML = "Loading...";
+        return;
+    }
+    //load next question
+    nextQuestion()
+    document.getElementById("question").innerHTML = quiz[questionID]["question"][0];
+}
+
+function showResults(){
+
+}
