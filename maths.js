@@ -22,6 +22,8 @@ let x
 let y 
 let answer
 let questionID = -1
+let userInput
+let symbols = ["+","-","×","÷","<span style = 'color :forestGreen'>✓</span>","<span style = 'color :red'>✗</span>"]
 
 async function newQuiz(){
   
@@ -30,6 +32,7 @@ async function newQuiz(){
   
 
    for(let i=0; i <10; i++){
+      let question
          answer=null;
          x=Math.floor(Math.random()*10)+1;
          y=Math.floor(Math.random()*10)+1;
@@ -71,7 +74,8 @@ async function newQuiz(){
       "operation":operation,
       "x":x,
       "y":y,
-      "answer":answer
+      "answer":answer,
+      "userInput":null
       
     }
       console.log(question)
@@ -84,7 +88,10 @@ async function newQuiz(){
 
 function nextQuestion(){
    // change to next question
+   
    questionID++
+
+  
    
    if(questionID < 10){
    document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of 10"
@@ -96,39 +103,23 @@ function nextQuestion(){
    document.getElementById("answer").style.visibility = "hidden"
    document.getElementById("input").style.visibility = "visible"
 
+    //select input
+    document.getElementById("input").focus();
+
    operation = quiz[questionID]["operation"]
    x = quiz[questionID]["x"]
    y = quiz[questionID]["y"]
 
-   if (operation == 0){
-      //addition
-      document.getElementById("question").innerHTML = String(x) + "+" + String(y);
-      
-   }
-   if (operation == 1){
-      //subtraction
-      
-      document.getElementById("question").innerHTML = String(x) + "−" + String(y);
-      
-   }
-   if (operation == 2){
-      //multiplication
-      document.getElementById("question").innerHTML = String(x) + "×" + String(y);
-      
-   }
-   if (operation == 3){
-      //division
-      
-      document.getElementById("question").innerHTML = String(x) + "÷" + String(y);
-      
-   }
+   document.getElementById("question").innerHTML = String(x) + symbols[operation] + String(y);
 
+ 
    
 
  
   
 }else{
-   alert("no more questions")
+   console.log("a")
+   showResults();
 }
 }
 
@@ -142,30 +133,72 @@ function showAnswer() {
    //show answer
     document.getElementById("answer").innerHTML = "<b>="+String(answer);
     
+    userInput = document.getElementById("input").value
     //check if input filled
-    if(document.getElementById("input").value != ""){
+    if(userInput.trim() !== ""){
+      //make input not red
+      document.getElementById("input").classList.remove("error");
       //check answer
-      if(document.getElementById("input").value == answer){
-         document.getElementById("answer").innerHTML += "<span style = 'color :forestGreen'>✓</span>";
-      }  
-      else{
-         document.getElementById("answer").innerHTML += "<span style = 'color :red'>✗</span>";
-      }
+      
+      quiz[questionID]["userInput"] = userInput
+      document.getElementById("answer").innerHTML += symbols[checkAnswer()];
+    
        //Update elements
     document.getElementById("input").value = null
     document.getElementById("answer").style.visibility = "visible"
     document.getElementById("input").style.visibility = "hidden"
     document.getElementById("check").hidden = true
     document.getElementById("next").innerHTML = "Next"
+
+    //focus next button
+    document.getElementById("next").focus();
+     
     
    }else{
       //make input red
-      if (document.getElementById("input").value.trim() === "") {
-         document.getElementById("input").classList.add("error");
-       } else {
-         document.getElementById("input").classList.remove("error");
-       }
+      document.getElementById("input").classList.add("error");
+      //focus on skip button
+      document.getElementById("next").focus();
+       
    }
     
    
+}
+
+function showResults(){
+      document.getElementById("answer").innerHTML = ""
+      document.getElementById("counter").innerHTML = "Results"
+      document.getElementById("next").innerHTML = "Retry"
+      document.getElementById("statement").hidden = true
+      document.getElementById("check").hidden = true
+      document.getElementById("input").style.visibility = "hidden"
+      document.getElementById("answer").style.visibility = "visible"
+     
+for(let i = 0;i<quiz.length;i++){
+   
+  userInput = quiz[i]["userInput"]
+  if(!userInput){
+   userInput = "skipped"
+  }
+  console.log(userInput)
+   
+  operation = quiz[i]["operation"];
+  x = quiz[i]["x"];
+  y = quiz[i]["y"];
+  answer = quiz[i]["answer"];
+
+   document.getElementById("answer").innerHTML += String(x)+symbols[operation]+String(y);
+  document.getElementById("answer").innerHTML += "<b> ="+String(userInput);
+  document.getElementById("answer").innerHTML += symbols[checkAnswer()];
+  document.getElementById("answer").innerHTML += "<br>";
+  console.log("done")
+}
+}
+
+function checkAnswer(){
+   if(userInput==answer){
+return(4)
+   }else{
+      return(5)
+   }
 }

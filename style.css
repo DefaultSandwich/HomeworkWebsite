@@ -1,23 +1,16 @@
 
 
  body {
-  -moz-text-size-adjust: none;
-  -ms-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  
-  -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
 
 
   margin: 5em;
   padding: 1em;
   background-color: white;
-  font-family: Inter, Arial;
+  font-family: Inter,"Noto Sans JP", Arial, sans-serif;
   font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
-  font-size: 1em;
+  font-size: 18px;
   height: 100%; 
-  overflow: hidden
+  
   
 }
 
@@ -84,8 +77,8 @@ a{
 }
 
 a:hover {
-  transform:  translateY(-0.1em);
-  box-shadow:  0 0.1em rgba(0,0,0,0.2);
+  transform:  translateY(-0.2em);
+  box-shadow:  0 0.2em rgba(0,0,0,0.2);
 }
 
 input{

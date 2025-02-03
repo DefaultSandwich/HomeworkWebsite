@@ -19,7 +19,34 @@
       <span id="question">question</span>?</p>
       <p id="answer">answer</p>
       <input type="number" id="input"></input><br>
-      <script>// Get the input field
+
+      <button type = button id="check" onclick = "showAnswer()" > Check </button>
+      <button type = button id="next" onclick = "nextQuestion()" > Next </button>
+
+
+      <script>
+        let skip = document.getElementById("next");
+        skip.addEventListener("keypress", function(event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("next").click();
+          }
+        });
+      </script>
+
+      <script>
+        let next = document.getElementById("next");
+        next.addEventListener("keypress", function(event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("next").click();
+          }
+        });
+      </script>
+
+      <script>
+      
+      // Get the input field
         let input = document.getElementById("input");
         // Execute a function when the user presses a key on the keyboard
       
@@ -32,28 +59,12 @@
             document.getElementById("check").click();
           }
         });  </script>
-      <button type = button id="check" onclick = "showAnswer()" > Check </button>
-      <button type = button id="next" onclick = "nextQuestion()" > Next </button>
+      
       
       <script>startQuiz() </script>
 
 
-      <script>const MyNumberInput = () => {
-        const numberInputOnWheelPreventChange = (e) => {
-          // Prevent the input value change
-          e.target.blur()
       
-          // Prevent the page/container scrolling
-          e.stopPropagation()
-      
-          // Refocus immediately, on the next tick (after the current function is done)
-            setTimeout(() => {
-              e.target.focus()
-          }, 0)
-      }
-      
-        return <input type="number" onWheel={numberInputOnWheelPreventChange}/>
-      }</script>
     </main>
     
   </body>
