@@ -60,14 +60,14 @@ async function newQuiz(){
       if (operation == 2){
          //multiplication
          x = Math.floor(x*10)+2
-         y = Math.floor(y)+2
+         y = Math.floor(y*10)+2
         
          answer = x * y;
       }
       if (operation == 3){
          //division
-         x = Math.floor(x)+2
-         y = Math.floor(y)+2
+         x = Math.floor(x*10)+2
+         y = Math.floor(y*10)+2
        
          x = x * y
          

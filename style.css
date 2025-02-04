@@ -3,13 +3,13 @@
  body {
 
 
-  margin: 5em;
+  margin: 2em;
   padding: 1em;
   background-color: white;
-  font-family: Inter,"Noto Sans JP", Arial, sans-serif;
+  font-family: "Inter","Sawarabi Gothic", Arial, sans-serif;
   font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
   font-size: 18px;
- 
+  font-optical-sizing: auto;
 }
   
   
@@ -23,7 +23,7 @@
 
 
 h1 {
-  margin: 0em;
+  margin: 1em;
   padding: 0;
   background-color: white;
   
@@ -62,11 +62,10 @@ button:hover {
 
 
 a{
-  display: inline-block;
-  
-  
-  
-  padding: 0.1em;
+  display: flex;
+  line-height: normal;
+ 
+  padding: 0.5em;
   padding-left: 0.5em;
   padding-right: 0.5em;
   font-size: 1em;
@@ -76,15 +75,20 @@ a{
   color: black;
   border-radius: 0.2em;
   border-width: 0.1em;
+
   
   text-decoration: none;
   transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+
+  justify-content: space-between; 
+  width: auto;
   
 }
 
 a:hover {
   transform:  translateY(-0.2em);
   box-shadow:  0 0.2em rgba(0,0,0,0.2);
+  
 }
 
 input{
@@ -104,16 +108,36 @@ input.error {
   border: .1em solid red;
 }
 
-
 .container {
+  display: grid;
+  grid-template-columns: auto auto ;
+  grid-column-gap: 1em;
+
+  line-height: 0.5em;
+ 
+  
+  
+
+}
+.container > div {
+  padding: 1em;
+  text-align: left;
+  border: 0.1em solid black;
+  border-radius: 0.2em;
+  box-shadow:  0 0.2em cornflowerblue;
+ 
+}
+
+.container.report {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-column-gap: 1em;
   
 
 }
-.container > div {
+.container.report > div {
 
   text-align: left;
   border-bottom: 0.08em solid rgba(0,0,0,0.2);
 }
+

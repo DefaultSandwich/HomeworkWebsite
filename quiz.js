@@ -1,6 +1,6 @@
 
 
-let symbols = ["+","-","×","÷","<span style = 'color :forestGreen'>✓</span>","<span style = 'color :red'>✗</span>"]
+let symbols = ["+","−","×","÷","<span style = 'color :forestGreen'>✓</span>","<span style = 'color :red'>✗</span>"]
 
 function nextQuestion(){
     // change to next question
@@ -16,7 +16,9 @@ function nextQuestion(){
       document.getElementById("next").hidden = true
       document.getElementById("answer").style.visibility = "hidden"
 
-      if(document.getElementById("input")){
+
+      userInput = document.getElementById("input")
+      if(userInput &&  ! String(userInput.value).length < 9){
          //make input blue
          document.getElementById("input").classList.remove("error");
          //clear input
@@ -47,7 +49,7 @@ function checkQuestion(){
    userInput = document.getElementById("input").value
       
    //check if input filled
-      if(userInput.trim() !== ""){
+      if(userInput.trim() !== "" & String(userInput).length<9){
          //submit and show answer
          submitAnswer();
          showAnswer();
@@ -125,6 +127,7 @@ function submitInput(){
 }
 
 function showResults(){
+
   
    document.getElementById("results").innerHTML = ""
    document.getElementById("counter").innerHTML = "Results"
@@ -137,34 +140,42 @@ function showResults(){
    document.getElementById("check").hidden = true
    document.getElementById("input").style.visibility = "hidden"
    document.getElementById("results").hidden = false
-  
+   let score = 0
    for(let i = 0;i<10;i++){
-      console.log("e")
+      
       userInput = quiz[i]["userInput"]
       if(!userInput){
       userInput = "skipped"
+      }
+      console.log(userInput)
+
+
+      answer = quiz[i]["answer"];
+
+      let results
+      results = "<div>"+quiz[i]["statement"]+"</div>"
+      document.getElementById("results").innerHTML += results
+
+      userInput = "<div><b>"+String(userInput)+symbols[checkAnswer(i)]+"</div>"
+      document.getElementById("results").innerHTML += userInput
+
+      if(checkAnswer(i) == 4){
+         score++
+      }
+
+      let answers
+      if(checkAnswer(i) == 5){
+      answers = "<div><b>="+quiz[i]["answer"]+"</div>"}else{
+         answers = "<div></div>"
+      }
+      document.getElementById("results").innerHTML += answers
+      
+      console.log("done")
    }
-   console.log(userInput)
 
+   
+   document.getElementById("results").innerHTML += "<div style = 'border-bottom :none'><h3>Total = "+String(score)+"/10</h3></div>"
 
-   answer = quiz[i]["answer"];
-
-   let results
-   results = "<div>"+quiz[i]["statement"]+"</div>"
-   document.getElementById("results").innerHTML += results
-
-   userInput = "<div><b>"+String(userInput)+symbols[checkAnswer(i)]+"</div>"
-   document.getElementById("results").innerHTML += userInput
-
-   let answers
-   if(checkAnswer(i) == 5){
-   answers = "<div><b>="+quiz[i]["answer"]+"</div>"}else{
-      answers = "<div></div>"
-   }
-   document.getElementById("results").innerHTML += answers
-
-   console.log("done")
-   }
 }
 
 function setupQuiz(){
