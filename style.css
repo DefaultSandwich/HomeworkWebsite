@@ -17,6 +17,7 @@
 @media (min-device-width:320px) and (max-device-width:768px) {
   body {
       font-size: 27px;
+      margin: 2em;
 }}
 
 

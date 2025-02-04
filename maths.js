@@ -39,38 +39,37 @@ async function newQuiz(){
    for(let i=0; i <10; i++){
       let question
          answer=null;
-         x=Math.floor(Math.random()*10)+1;
-         y=Math.floor(Math.random()*10)+1;
+         //generate 1 digit number with decimals
+         x = Math.random();
+         y = Math.random();
          operation = Math.floor(Math.random()*4);
 
       if (operation == 0){
          //addition
-         
+         x = Math.floor(x*100)
+         y = Math.floor(y*10)
          answer = x +y;
       }
       if (operation == 1){
          //subtraction
-         if (x < y){
-             //swap x and y
-             let z
-             z = x
-             x = y
-             y = z
-         }
-         
-         answer = x -y;
+         x = Math.floor(x*10)+10
+         y = Math.floor(y*10)+2
+
+         answer = x - y;
       }
       if (operation == 2){
          //multiplication
+         x = Math.floor(x*10)+2
+         y = Math.floor(y)+2
         
-         answer = x *y;
+         answer = x * y;
       }
       if (operation == 3){
          //division
-         y+=2
-         y= Math.floor(y/2)
-         x+=3
-         x = x*y
+         x = Math.floor(x)+2
+         y = Math.floor(y)+2
+       
+         x = x * y
          
          answer = x / y;
       }
