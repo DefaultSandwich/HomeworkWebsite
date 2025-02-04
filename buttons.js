@@ -13,7 +13,7 @@ function next(){
 
 
 function check(){
-  console.log("b")
+
 let check = document.getElementById("check");
 
 check.addEventListener("keydown", function(event) {

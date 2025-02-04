@@ -108,7 +108,7 @@ input.error {
   border: .1em solid red;
 }
 
-.container {
+.container.menu {
   display: grid;
   grid-template-columns: auto auto ;
   grid-column-gap: 1em;
@@ -119,7 +119,7 @@ input.error {
   
 
 }
-.container > div {
+.container.menu > div {
   padding: 1em;
   text-align: left;
   border: 0.1em solid black;

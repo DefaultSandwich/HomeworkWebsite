@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="quiz.js"> </script>
+    <script src="buttons.js"></script>
+    <script src="maths.js"> </script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+    
+  </head>
+  
+  <body>
+   
+    <main>
+      
+     
+      <h3 id="counter">Question 1 of 10</h3>
+      
+      <p id = "statement">
+      <span id="question">question</span>
+       = 
+      <span><input inputmode="numeric" type="number" id="input"   max="9999"></input></span>
+      <span id="answer"> answer</span>
+       </p>
+
+      
+   <div id="results" class="container report">
+   
+   </div>
+      
+
+      <button type = button id="check" onclick = "checkQuestion()" > Check </button>
+      <button type = button id="skip" onclick = "skipQuestion()" > Skip </button>
+      <button type = button id="next" onclick = "nextMathsQuestion()" > Next </button>
+      <button type = button id="retry" onclick = "startQuiz('mul+div')" > Retry </button>
+
+
+      
+      <script> next(); input()</script>
+     
+      
+      <script>startQuiz("mul+div") </script>
+
+
+      
+    </main>
+    
+  </body>
+</html>

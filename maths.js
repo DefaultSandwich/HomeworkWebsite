@@ -5,11 +5,11 @@
 let quiz = []
 
 //Generate start and setup quiz
-async function startQuiz() {
+async function startQuiz(mode) {
    // Wait until quiz generated
    if (quiz.length<10) {
        
-       await newQuiz();
+       await newQuiz(mode);
    }
    //Start quiz
 
@@ -30,7 +30,7 @@ let questionID
 let userInput
 
 
-async function newQuiz(){
+async function newQuiz(mode){
    quiz = []
    
   
@@ -42,7 +42,12 @@ async function newQuiz(){
          //generate 1 digit number with decimals
          x = Math.random();
          y = Math.random();
-         operation = Math.floor(Math.random()*4);
+         operation = Math.floor(Math.random()*2);
+        
+         if(mode=="mul+div"){
+            operation += 2
+            
+         }
 
       if (operation == 0){
          //addition
