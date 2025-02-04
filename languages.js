@@ -27,6 +27,7 @@ let wordbank = null
 async function startQuiz(language) {
     
     quiz = []
+    document.getElementById("retry").hidden = true
     
     if (!wordbank) {
         // Wait until wordbankJP and wordbankVI are loaded
@@ -80,59 +81,6 @@ async function newQuiz(language){
     }
  }
 
-
-
-
-    // function nextQuestion(){
-
-        
-
-    //     // change to next question
-    //     questionID++
-
-
-       
-        
-      
-        
-    //     if(questionID < 10){
-    //         document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of 10"
-         
-         
-           
-    //         document.getElementById("check").hidden = false
-    //         document.getElementById("next").innerHTML = "Skip"
-    //         document.getElementById("answer").style.visibility = "hidden"
-    //         document.getElementById("check").focus()
-
-         
-    //         //x is a word not index
-    //         x = quiz[questionID]["question"][0]
-            
-         
-            
-    //         document.getElementById("question").innerHTML = x;
-               
-           
-         
-            
-         
-          
-           
-    //      }else{
-    //         alert("no more questions")
-    //      }
-         
-
-
-    // }
-    
-    function showAnswer() {
-        
-        submitAnswer();
-        document.getElementById("answer").innerHTML = "<b>="+String(answer);
-        
-    }
 
 
 

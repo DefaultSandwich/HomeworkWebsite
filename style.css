@@ -9,15 +9,15 @@
   font-family: Inter,"Noto Sans JP", Arial, sans-serif;
   font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
   font-size: 18px;
-  @media (min-device-width:320px) and (max-device-width:768px) {
-    #nav {
-        font-size: 36px;
-    }
+ 
 }
-  height: 100%; 
   
   
-}
+  
+@media (min-device-width:320px) and (max-device-width:768px) {
+  body {
+      font-size: 36px;
+}}
 
 
 

@@ -31,7 +31,7 @@ let y
 let answer
 let questionID
 let userInput
-let symbols = ["+","-","×","÷","<span style = 'color :forestGreen'>✓</span>","<span style = 'color :red'>✗</span>"]
+
 
 async function newQuiz(){
    quiz = []
@@ -123,13 +123,7 @@ for(let i = 0;i<quiz.length;i++){
 }
 }
 
-function checkAnswer(){
-   if(userInput==answer){
-return(4)
-   }else{
-      return(5)
-   }
-}
+
 
 
 function nextMathsQuestion(){
@@ -140,33 +134,9 @@ function nextMathsQuestion(){
    document.getElementById("question").innerHTML = String(x) + symbols[operation] + String(y);
 }
 
-function showAnswer(){
-   //fetch question
-   operation = quiz[questionID]["mode"];
-   x = quiz[questionID]["question"][0];
-   y = quiz[questionID]["question"][1];
-   
 
-   submitAnswer();
 
-   //check if input filled
-   if(userInput.trim() !== ""){
-      
-      //make input blue
-      document.getElementById("input").classList.remove("error");
-      //render answer
-      document.getElementById("answer").innerHTML = "<b>"+String(answer);
-      document.getElementById("answer").innerHTML += symbols[checkAnswer()];
-      
 
-   }else{
-      //make input red
-      document.getElementById("input").classList.add("error");
-      //focus on skip button
-      document.getElementById("next").focus();
-       
-   }
 
-   
-   
-}
+
+

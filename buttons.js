@@ -13,6 +13,7 @@ function next(){
 
 
 function check(){
+  console.log("b")
 let check = document.getElementById("check");
 
 check.addEventListener("keydown", function(event) {
@@ -27,7 +28,7 @@ function input(){
 
 let input = document.getElementById("input");
 // Execute a function when the user presses a key on the keyboard
-console.log("e")
+
 
 input.addEventListener("keydown", function(event) {
     // If the user presses the "Enter" key on the keyboard
@@ -35,7 +36,7 @@ input.addEventListener("keydown", function(event) {
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
-    document.getElementById("check").click();
+    submitInput();
     }
 }); 
 }

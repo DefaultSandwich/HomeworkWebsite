@@ -4,8 +4,8 @@
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script src="quiz.js"> </script>
-    <script src="maths.js"> </script>
     <script src="buttons.js"></script>
+    <script src="maths.js"> </script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
     
@@ -29,7 +29,8 @@
    
       <p id="results">Results</p>
 
-      <button type = button id="check" onclick = "showAnswer()" > Check </button>
+      <button type = button id="check" onclick = "checkQuestion()" > Check </button>
+      <button type = button id="skip" onclick = "skipQuestion()" > Skip </button>
       <button type = button id="next" onclick = "nextMathsQuestion()" > Next </button>
       <button type = button id="retry" onclick = "startQuiz()" > Retry </button>
 

@@ -21,16 +21,20 @@
     <main> 
       <a href="index.html">Home</a>
       <h3 id="counter">Question 1 of 10</h3>
-      <p>Write "<span id="question">question</span>" in hiragana</p>
+      <p id="statement">Write "<span id="question">question</span>" in hiragana</p>
       <p id="answer">answer</p>
-      
+      <input type="text" id="input"></input>
+      <br>
     
 
-      <button type = button id="check" onclick = "showAnswer()" > Check </button>
+      <button type = button id="check" onclick = "checkQuestion()" > Check </button>
+      <button type = button id="skip" onclick = "skipQuestion()" > Skip </button>
       <button type = button id="next" onclick = "nextLanguageQuestion()" > Next </button>
+      <button type = button id="retry" onclick = "startQuiz()" > Retry </button>
+      
 
      
-      <script>next();check()</script>
+      <script>next();input()</script>
       
       <script>startQuiz("JP")</script>
     </main>
