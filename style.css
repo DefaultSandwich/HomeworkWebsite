@@ -91,6 +91,7 @@ input{
   font-size: 1em;
   border:.1em solid cornflowerblue;
   border-radius: 0.2em;
+  width: 10em;
   
 }
 
@@ -102,3 +103,16 @@ input.error {
   border: .1em solid red;
 }
 
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 1em;
+  
+
+}
+.container > div {
+
+  text-align: left;
+  border-bottom: 0.08em solid rgba(0,0,0,0.2);
+}

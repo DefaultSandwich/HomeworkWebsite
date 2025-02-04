@@ -25,9 +25,11 @@ let wordbank = null
 
 
 async function startQuiz(language) {
+
+
+
     
-    quiz = []
-    document.getElementById("retry").hidden = true
+
     
     if (!wordbank) {
         // Wait until wordbankJP and wordbankVI are loaded
@@ -40,9 +42,8 @@ async function startQuiz(language) {
         console.log("Generate quiz")
         await newQuiz(language);
     }
+    setupQuiz()
 
-    console.log("start")
-    questionID = -1
     nextLanguageQuestion();
 }
 
@@ -72,6 +73,7 @@ async function newQuiz(language){
      question = {
        "mode":language,
        "question":[x],
+       "statement":String(x),
        "answer":answer,
        "userInput":null
        
@@ -93,7 +95,7 @@ function nextLanguageQuestion(){
     }
     //load next question
     nextQuestion()
-    document.getElementById("question").innerHTML = quiz[questionID]["question"][0];
+
 }
 
 function showResults(){

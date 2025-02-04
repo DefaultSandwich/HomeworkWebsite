@@ -12,13 +12,10 @@ async function startQuiz() {
        await newQuiz();
    }
    //Start quiz
-   console.log("start")
-   document.getElementById("retry").hidden = true
-   document.getElementById("results").hidden = true
-   document.getElementById("statement").hidden = false
-   document.getElementById("input").style.visibility = "visible"
-   document.getElementById("next").hidden = false
-   questionID = -1
+
+   setupQuiz()
+
+
 
    nextMathsQuestion();
 }
@@ -80,6 +77,7 @@ async function newQuiz(){
 
     question = {
       "mode":operation,
+      "statement":String(x)+symbols[operation]+String(y),
       "question":[x,y],
       "answer":answer,
       "userInput":null
@@ -92,46 +90,11 @@ async function newQuiz(){
 
 
 
-function showResults(){
-      document.getElementById("results").innerHTML = ""
-      document.getElementById("counter").innerHTML = "Results"
-      document.getElementById("next").hidden = true
-      document.getElementById("retry").hidden = false
-      document.getElementById("statement").hidden = true
-      document.getElementById("check").hidden = true
-      document.getElementById("input").style.visibility = "hidden"
-      document.getElementById("results").hidden = false
-     
-for(let i = 0;i<quiz.length;i++){
-   
-  userInput = quiz[i]["userInput"]
-  if(!userInput){
-   userInput = "skipped"
-  }
-  console.log(userInput)
-   
-  operation = quiz[i]["mode"];
-  x = quiz[i]["question"][0];
-  y = quiz[i]["question"][1];
-  answer = quiz[i]["answer"];
-
-   document.getElementById("results").innerHTML += String(x)+symbols[operation]+String(y);
-  document.getElementById("results").innerHTML += "<b> ="+String(userInput);
-  document.getElementById("results").innerHTML += symbols[checkAnswer()];
-  document.getElementById("results").innerHTML += "<br>";
-  console.log("done")
-}
-}
-
-
-
 
 function nextMathsQuestion(){
    nextQuestion();
-   operation = quiz[questionID]["mode"]
-   x = quiz[questionID]["question"][0]
-   y = quiz[questionID]["question"][1]
-   document.getElementById("question").innerHTML = String(x) + symbols[operation] + String(y);
+
+
 }
 
 
