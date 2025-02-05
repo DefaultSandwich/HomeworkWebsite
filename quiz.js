@@ -100,7 +100,6 @@ function showAnswer(){
 
    //render answer
    document.getElementById("answer").innerHTML = "<b>"+String(answer);
-   console.log(checkAnswer(questionID))
    document.getElementById("answer").innerHTML += symbols[checkAnswer(questionID)];
 
    //focus next button
@@ -131,15 +130,18 @@ function showResults(){
   
    document.getElementById("results").innerHTML = ""
    document.getElementById("counter").innerHTML = "Results"
+
    document.getElementById("next").hidden = true
    document.getElementById("answer").hidden = true
-   document.getElementById("retry").hidden = false
    document.getElementById("statement").hidden = true
-  
    document.getElementById("input").hidden = true
    document.getElementById("check").hidden = true
-   document.getElementById("input").style.visibility = "hidden"
+
+   document.getElementById("home").hidden = false
+   document.getElementById("retry").hidden = false
    document.getElementById("results").hidden = false
+  
+ 
    let score = 0
    for(let i = 0;i<10;i++){
       
@@ -147,7 +149,6 @@ function showResults(){
       if(!userInput){
       userInput = "skipped"
       }
-      console.log(userInput)
 
 
       answer = quiz[i]["answer"];
@@ -170,23 +171,61 @@ function showResults(){
       }
       document.getElementById("results").innerHTML += answers
       
-      console.log("done")
+
    }
 
-   
+   console.log("done")
    document.getElementById("results").innerHTML += "<div style = 'border-bottom :none'><h3>Total = "+String(score)+"/10</h3></div>"
 
 }
 
-function setupQuiz(){
+function setupQuiz(paramaters){
    console.log("start")
    document.getElementById("retry").hidden = true
+   document.getElementById("home").hidden = true
    document.getElementById("results").innerHTML = ""
    document.getElementById("answer").hidden = false
   
    document.getElementById("statement").hidden = false
    document.getElementById("input").hidden = false
-   document.getElementById("input").style.visibility = "visible"
    document.getElementById("next").hidden = false
    questionID = -1
+
+   //Append elements to statement
+   document.getElementById("statement").innerHTML = ""
+   
+   if(paramaters["subject"]=="maths"){
+      document.getElementById("statement").innerHTML += "<span id='question'>question</span>";
+      document.getElementById("statement").innerHTML += " = ";
+
+      document.getElementById("statement").innerHTML += "<span><input id='input'></input></span>";
+      document.getElementById("input").type = "number"
+      document.getElementById("input").inputMode = "numeric"
+      document.getElementById("input").max = "9999"
+
+      document.getElementById("statement").innerHTML += " <span id='answer'> answer</span>"
+   }
+   if(paramaters["subject"]=="lang"){
+
+      if(paramaters["lang"] == "VI"){
+         document.getElementById("statement").innerHTML += 'Translate "';
+      }else{
+         document.getElementById("statement").innerHTML += 'Write in "';
+      }
+      
+      document.getElementById("statement").innerHTML += "<span id='question'>question</span>";
+
+      if(paramaters["lang"] == "JP"){
+         document.getElementById("statement").innerHTML += '" hirigana';
+      } else{
+         document.getElementById("statement").innerHTML += '" '
+      }
+      
+      document.getElementById("statement").innerHTML += '<br>';
+      
+      document.getElementById("statement").innerHTML += "<span><input autocorrect='off' type='text' id='input'></input></span>";
+      document.getElementById("input").lang = paramaters["lang"]
+
+      document.getElementById("statement").innerHTML += "<br> <span id='answer'> answer</span>"
+   }
 }

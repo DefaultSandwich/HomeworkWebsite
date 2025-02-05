@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="quiz.js"> </script>
+    <script src="buttons.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+
+    <script>
+        // Get the question mode from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+      
+        // Extract specific parameters
+        const mode = urlParams.get("mode");
+        const subject = urlParams.get("subject");
+    
+    </script>       
+
+
+  
+
+
+    
+  </head>
+  
+  <body>
+   
+    <main>
+      
+     
+      <h3 id="counter">Question 1 of 10</h3>
+          
+      <p id = "statement">
+       
+        = 
+        <span><input inputmode="numeric" type="number" id="input"   max="9999"></input></span>
+        <span id="answer"> answer</span>
+      </p>
+
+    
+      <div id="results" class="container report"></div>
+  
+
+      <button type = button id="check" onclick = "checkQuestion()" > Check </button>
+      <button type = button id="skip" onclick = "skipQuestion()" > Skip </button>
+      <button type = button id="next" onclick = "nextQuestion()" > Next </button>
+      <button type = button id="retry" onclick = "startQuiz(mode)" > Retry </button>
+      <button type = button id="home" onclick = "document.location='index.html'" > Home </button>
+
+      <script>
+    
+            var script = document.createElement("script");
+            script.src = subject + ".js";  // Dynamically set the script source
+            script.async = true;  // Ensures non-blocking load
+            
+            script.onload = async function() {
+                console.log("Script loaded:", script.src);
+                if (typeof startQuiz === "function") {
+                    console.log("Function  found ", script.src);
+                    // Call the function after it is loaded
+                    await startQuiz(mode); 
+                    next(); 
+                    input();
+                } else {
+                    console.error("Function not found in", script.src);
+                }
+            };
+            
+            script.onerror = function () {
+                console.error("Failed to load script:", script.src);
+            };
+    
+            document.head.appendChild(script);
+        </script>
+    
+      
+      <script></script>    
+
+    </main>
+    
+  </body>
+</html>

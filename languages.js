@@ -26,25 +26,18 @@ let wordbank = null
 
 async function startQuiz(language) {
 
-
-
-    
-
+    setupQuiz({"subject":"lang","lang":language})
     
     if (!wordbank) {
         // Wait until wordbankJP and wordbankVI are loaded
         await loadWordbank(language);
         
     }
-    if(quiz.length<10){
-        //Wait until quiz generated
-        
-        console.log("Generate quiz")
-        await newQuiz(language);
-    }
-    setupQuiz()
 
-    nextLanguageQuestion();
+    console.log("Generate quiz")
+    await newQuiz(language);
+
+    nextQuestion();
 }
 
 //Create Quiz
@@ -78,7 +71,7 @@ async function newQuiz(language){
        "userInput":null
        
      }
-       console.log(question)
+
        quiz.push(question)
     }
  }
@@ -86,18 +79,3 @@ async function newQuiz(language){
 
 
 
-function nextLanguageQuestion(){
-    //check if wordbank loaded
-    if (!wordbank || Object.keys(wordbank).length === 0) {
-        console.error("Wordbank not loaded yet.");
-        document.getElementById("question").innerHTML = "Loading...";
-        return;
-    }
-    //load next question
-    nextQuestion()
-
-}
-
-function showResults(){
-
-}
