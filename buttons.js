@@ -1,6 +1,5 @@
 
 function next(){
-    console.log("e")
     let next = document.getElementById("next")
 
     next.addEventListener("keydown", function(event) {
@@ -12,17 +11,17 @@ function next(){
 }
 
 
-function check(){
+// function check(){
 
-let check = document.getElementById("check");
+// let check = document.getElementById("check");
 
-check.addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    document.getElementById("check").click();
-  }
-});
-}
+// check.addEventListener("keydown", function(event) {
+//   if (event.key === "Enter") {
+//     event.preventDefault();
+//     document.getElementById("check").click();
+//   }
+// });
+// }
 
 function input(){
 

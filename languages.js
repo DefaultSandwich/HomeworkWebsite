@@ -27,9 +27,6 @@ let wordbank = null
 async function startQuiz(language) {
 
 
-
-    
-
     
     if (!wordbank) {
         // Wait until wordbankJP and wordbankVI are loaded
@@ -44,7 +41,7 @@ async function startQuiz(language) {
     }
     setupQuiz()
 
-    nextLanguageQuestion();
+    nextQuestion();
 }
 
 //Create Quiz
@@ -86,18 +83,3 @@ async function newQuiz(language){
 
 
 
-function nextLanguageQuestion(){
-    //check if wordbank loaded
-    if (!wordbank || Object.keys(wordbank).length === 0) {
-        console.error("Wordbank not loaded yet.");
-        document.getElementById("question").innerHTML = "Loading...";
-        return;
-    }
-    //load next question
-    nextQuestion()
-
-}
-
-function showResults(){
-
-}

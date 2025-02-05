@@ -100,7 +100,6 @@ function showAnswer(){
 
    //render answer
    document.getElementById("answer").innerHTML = "<b>"+String(answer);
-   console.log(checkAnswer(questionID))
    document.getElementById("answer").innerHTML += symbols[checkAnswer(questionID)];
 
    //focus next button
@@ -147,7 +146,6 @@ function showResults(){
       if(!userInput){
       userInput = "skipped"
       }
-      console.log(userInput)
 
 
       answer = quiz[i]["answer"];
@@ -170,10 +168,10 @@ function showResults(){
       }
       document.getElementById("results").innerHTML += answers
       
-      console.log("done")
+
    }
 
-   
+   console.log("done")
    document.getElementById("results").innerHTML += "<div style = 'border-bottom :none'><h3>Total = "+String(score)+"/10</h3></div>"
 
 }

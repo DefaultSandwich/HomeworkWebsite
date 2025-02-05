@@ -7,17 +7,13 @@ let quiz = []
 //Generate start and setup quiz
 async function startQuiz(mode) {
    // Wait until quiz generated
-   if (quiz.length<10) {
-       
-       await newQuiz(mode);
-   }
+
+   await newQuiz(mode);
+
    //Start quiz
 
    setupQuiz()
-
-
-
-   nextMathsQuestion();
+   nextQuestion();
 }
 
 //Create quiz
@@ -32,6 +28,7 @@ let userInput
 
 async function newQuiz(mode){
    quiz = []
+   console.log("new quiz")
    
   
   
@@ -44,7 +41,7 @@ async function newQuiz(mode){
          y = Math.random();
          operation = Math.floor(Math.random()*2);
         
-         if(mode=="mul+div"){
+         if(mode=="'mul_div'"){
             operation += 2
             
          }
@@ -52,13 +49,13 @@ async function newQuiz(mode){
       if (operation == 0){
          //addition
          x = Math.floor(x*100)
-         y = Math.floor(y*10)
+         y = Math.floor(y*8)+2
          answer = x +y;
       }
       if (operation == 1){
          //subtraction
          x = Math.floor(x*10)+10
-         y = Math.floor(y*10)+2
+         y = Math.floor(y*8)+2
 
          answer = x - y;
       }
@@ -93,13 +90,6 @@ async function newQuiz(mode){
 }
 
 
-
-
-function nextMathsQuestion(){
-   nextQuestion();
-
-
-}
 
 
 
