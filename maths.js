@@ -12,7 +12,7 @@ async function startQuiz(mode) {
 
    //Start quiz
 
-   setupQuiz()
+   await setupQuiz({"subject":"maths"})
    nextQuestion();
 }
 

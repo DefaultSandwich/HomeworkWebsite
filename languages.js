@@ -26,20 +26,16 @@ let wordbank = null
 
 async function startQuiz(language) {
 
-
+    setupQuiz({"subject":"lang","lang":language})
     
     if (!wordbank) {
         // Wait until wordbankJP and wordbankVI are loaded
         await loadWordbank(language);
         
     }
-    if(quiz.length<10){
-        //Wait until quiz generated
-        
-        console.log("Generate quiz")
-        await newQuiz(language);
-    }
-    setupQuiz()
+
+    console.log("Generate quiz")
+    await newQuiz(language);
 
     nextQuestion();
 }
@@ -75,7 +71,7 @@ async function newQuiz(language){
        "userInput":null
        
      }
-       console.log(question)
+
        quiz.push(question)
     }
  }

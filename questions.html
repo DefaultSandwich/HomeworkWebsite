@@ -31,26 +31,24 @@
     <main>
       
      
-    <h3 id="counter">Question 1 of 10</h3>
-         <p id = "statement">
-            <span id="question">question</span>
-             = 
-            <span><input inputmode="numeric" type="number" id="input"   max="9999"></input></span>
-            <span id="answer"> answer</span>
-        </p>
+      <h3 id="counter">Question 1 of 10</h3>
+          
+      <p id = "statement">
+       
+        = 
+        <span><input inputmode="numeric" type="number" id="input"   max="9999"></input></span>
+        <span id="answer"> answer</span>
+      </p>
 
-      
-        <div id="results" class="container report">
-        </div>
-      
-
- 
+    
+      <div id="results" class="container report"></div>
+  
 
       <button type = button id="check" onclick = "checkQuestion()" > Check </button>
       <button type = button id="skip" onclick = "skipQuestion()" > Skip </button>
       <button type = button id="next" onclick = "nextQuestion()" > Next </button>
-    
       <button type = button id="retry" onclick = "startQuiz(mode)" > Retry </button>
+      <button type = button id="home" onclick = "document.location='index.html'" > Home </button>
 
       <script>
     
@@ -58,11 +56,14 @@
             script.src = subject + ".js";  // Dynamically set the script source
             script.async = true;  // Ensures non-blocking load
             
-            script.onload = function () {
+            script.onload = async function() {
                 console.log("Script loaded:", script.src);
-                if (typeof startQuiz(mode) === "function") {
+                if (typeof startQuiz === "function") {
                     console.log("Function  found ", script.src);
-                    startQuiz(mode); // Call the function after it is loaded
+                    // Call the function after it is loaded
+                    await startQuiz(mode); 
+                    next(); 
+                    input();
                 } else {
                     console.error("Function not found in", script.src);
                 }
@@ -76,7 +77,7 @@
         </script>
     
       
-      <script> next(); input()</script>    
+      <script></script>    
 
     </main>
     
