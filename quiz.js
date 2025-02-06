@@ -18,7 +18,7 @@ function nextQuestion(){
 
 
       userInput = document.getElementById("input")
-      if(userInput &&  ! String(userInput.value).length < 9){
+      if(userInput &&  (userInput.value >= userInput.max)){
          //make input blue
          document.getElementById("input").classList.remove("error");
          //clear input
