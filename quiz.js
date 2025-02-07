@@ -1,6 +1,9 @@
 
 
-let symbols = ["+","−","×","÷","<span style = 'color :forestGreen'>✓</span>","<span style = 'color :red'>✗</span>"]
+let symbols = [
+   "+","−","×","÷",
+   "<span style = 'color :forestGreen; font-family: inter'>✓</span>",
+   "<span style = 'color :red; font-family: inter'>✗</span>"]
 
 function nextQuestion(){
     // change to next question
@@ -18,7 +21,7 @@ function nextQuestion(){
 
 
       userInput = document.getElementById("input")
-      if(userInput &&  (userInput.value >= userInput.max)){
+      if(userInput){
          //make input blue
          document.getElementById("input").classList.remove("error");
          //clear input
@@ -38,7 +41,7 @@ function nextQuestion(){
  }else{
     
     showResults();
-
+submitAnswer
  }
 }
 
@@ -46,10 +49,12 @@ function nextQuestion(){
 function checkQuestion(){
    
    //fetch userInput
-   userInput = document.getElementById("input").value
+   let input = document.getElementById("input")
+   userInput = input.value.trim()
+   
       
    //check if input filled
-      if(userInput.trim() !== "" & String(userInput).length<9){
+      if(userInput !== "" && (userInput < Number(input.max) || input.type != "number")){
          //submit and show answer
          submitAnswer();
          showAnswer();
