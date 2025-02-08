@@ -64,7 +64,7 @@ async function newQuiz(language){
        
  
      question = {
-       "mode":language,
+       "questionType":language,
        "question":[x],
        "statement":String(x),
        "answer":answer,

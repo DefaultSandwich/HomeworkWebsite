@@ -22,8 +22,11 @@
         const urlParams = new URLSearchParams(window.location.search);
       
         // Extract specific parameters
-        const mode = urlParams.get("mode");
+        const questionType = urlParams.getAll("questionType");
+        console.log(questionType)
         const subject = urlParams.get("subject");
+        const gameMode = urlParams.get("gameMode");
+        const quizLength = Number(urlParams.get("quizLength"));
     
     </script>       
 
@@ -55,7 +58,7 @@
       <button type = button id="check" onclick = "checkQuestion()" > Check </button>
       <button type = button id="skip" onclick = "skipQuestion()" > Skip </button>
       <button type = button id="next" onclick = "nextQuestion()" > Next </button>
-      <button type = button id="retry" onclick = "startQuiz(mode)" > Retry </button>
+      <button type = button id="retry" onclick = "startQuiz(questionType)" > Retry </button>
       <button type = button id="home" onclick = "document.location='index.html'" > Home </button>
 
       <script>
@@ -69,7 +72,7 @@
                 if (typeof startQuiz === "function") {
                     console.log("Function  found ", script.src);
                     // Call the function after it is loaded
-                    await startQuiz(mode); 
+                    await startQuiz(questionType); 
                     next(); 
                     input();
                 } else {

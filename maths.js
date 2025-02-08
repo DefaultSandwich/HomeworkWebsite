@@ -5,10 +5,10 @@
 let quiz = []
 
 //Generate start and setup quiz
-async function startQuiz(mode) {
+async function startQuiz(questionType) {
    // Wait until quiz generated
 
-   await newQuiz(mode);
+   await newQuiz(questionType);
 
    //Start quiz
 
@@ -26,25 +26,24 @@ let questionID
 let userInput
 
 
-async function newQuiz(mode){
+async function newQuiz(questionType){
    quiz = []
    console.log("new quiz")
    
   
   
 
-   for(let i=0; i <10; i++){
+   for(let i=0; i <quizLength; i++){
       let question
          answer=null;
          //generate 1 digit number with decimals
          x = Math.random();
          y = Math.random();
-         operation = Math.floor(Math.random()*2);
-        
-         if(mode=="'mul_div'"){
-            operation += 2
-            
-         }
+         operation = Math.floor(Math.random()*questionType.length);
+         console.log(operation)
+         operation = questionType[operation]
+         console.log(operation)
+         
 
       if (operation == 0){
          //addition
@@ -77,7 +76,7 @@ async function newQuiz(mode){
       }
 
     question = {
-      "mode":operation,
+      "questionType":operation,
       "statement":String(x)+symbols[operation]+String(y),
       "question":[x,y],
       "answer":answer,

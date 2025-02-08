@@ -10,9 +10,9 @@ function nextQuestion(){
     
     questionID++
     
-    if(questionID < 10){
+    if(questionID < quizLength){
 
-      document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of 10"
+      document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of "+String(quizLength)
        document.getElementById("question").innerHTML = quiz[questionID]["statement"]
       document.getElementById("check").hidden = false
       document.getElementById("skip").hidden = false
@@ -148,7 +148,7 @@ function showResults(){
   
  
    let score = 0
-   for(let i = 0;i<10;i++){
+   for(let i = 0;i<quizLength;i++){
       
       userInput = quiz[i]["userInput"]
       if(!userInput){
@@ -180,7 +180,10 @@ function showResults(){
    }
 
    console.log("done")
-   document.getElementById("results").innerHTML += "<div style = 'border-bottom :none'><h3>Total = "+String(score)+"/10</h3></div>"
+   let results = "<div style = 'border-bottom :none'>"
+   results += "<h3>Total = "+String(score)+"/"+String(quizLength)
+   results += "</h3></div>"
+   document.getElementById("results").innerHTML += results
 
 }
 

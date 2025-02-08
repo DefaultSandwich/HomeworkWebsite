@@ -3,7 +3,7 @@
   <head>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <script src="quiz.js"> </script>
+    <script src="newQuiz.js"></script>
     <script src="buttons.js"></script>
     
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -14,8 +14,7 @@
         const urlParams = new URLSearchParams(window.location.search);
       
         // Extract specific parameters
-        const mode = urlParams.get("mode");
-        const subject = urlParams.get("subject");
+         subject = urlParams.get("subject");
     
     </script>       
 
@@ -23,13 +22,49 @@
   
   <body>
    
-    <main>
+    <form onsubmit="return validateCheckboxes()" action="questions.html?">
       
-     Questions<br>
-     <input type="number"></input>
-     
+      <p>Questions</p>
+      <input type="number" min="1" value="10" name="quizLength"> </input>
+
+      <p>Mode</p>
+      <input type="radio" id="normal" name="gameMode" value="normal" required>
+      <label for="normal">Normal</label><br>
+      <input type="radio" id="timed" name="gameMode" value="timed">
+      <label for="timed">Timed</label><br>
+
       
-    </main>
-    
+
+      <p>Subjects</p>
+      <input type="checkbox" id="addition" name="questionType" value="0">
+      <label for="addition">Addition</label><br>
+      <input type="checkbox" id="subtraction" name="questionType" value="1">
+      <label for="subtraction">Subtraction</label><br>
+      <input type="checkbox" id="multiplication" name="questionType" value="2">
+      <label for="multiplication">Multiplication</label><br>
+      <input type="checkbox" id="division" name="questionType" value="3" >
+      <label for="division">Division</label>
+
+     <br>
+     <br>
+     <input type="submit" value="Start"></input>
+     <input id="subject" type="hidden" name="subject"></input>
+      <script>document.getElementById("subject").value = subject</script>
+      
+    </form>
+   
+    <script>
+      function validateCheckboxes() {
+          const checkboxes = document.querySelectorAll('input[name="questionType"]');
+          for (let checkbox of checkboxes) {
+              if (checkbox.checked) {
+                  return true; // At least one is checked
+              }
+          }
+          alert("Please select at least one option.");
+          return false; // Prevent form submission
+      }
+      </script>
+
   </body>
 </html>
