@@ -24,6 +24,7 @@
         // Extract specific parameters
         const questionType = urlParams.getAll("questionType");
         console.log(questionType)
+        const category = urlParams.get("category");
         const subject = urlParams.get("subject");
         const gameMode = urlParams.get("gameMode");
         const quizLength = Number(urlParams.get("quizLength"));
@@ -58,13 +59,13 @@
       <button type = button id="check" onclick = "checkQuestion()" > Check </button>
       <button type = button id="skip" onclick = "skipQuestion()" > Skip </button>
       <button type = button id="next" onclick = "nextQuestion()" > Next </button>
-      <button type = button id="retry" onclick = "startQuiz(questionType)" > Retry </button>
+      <button type = button id="retry" onclick = "startQuiz()" > Retry </button>
       <button type = button id="home" onclick = "document.location='index.html'" > Home </button>
 
       <script>
     
             var script = document.createElement("script");
-            script.src = subject + ".js";  // Dynamically set the script source
+            script.src = category + ".js";  // Dynamically set the script source
             script.async = true;  // Ensures non-blocking load
             
             script.onload = async function() {
@@ -72,7 +73,7 @@
                 if (typeof startQuiz === "function") {
                     console.log("Function  found ", script.src);
                     // Call the function after it is loaded
-                    await startQuiz(questionType); 
+                    await startQuiz(); 
                     next(); 
                     input();
                 } else {

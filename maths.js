@@ -5,14 +5,14 @@
 let quiz = []
 
 //Generate start and setup quiz
-async function startQuiz(questionType) {
+async function startQuiz() {
    // Wait until quiz generated
 
-   await newQuiz(questionType);
+   await newQuiz();
 
    //Start quiz
 
-   await setupQuiz({"subject":"maths"})
+   await setupQuiz({"category":"maths"})
    nextQuestion();
 }
 
@@ -26,7 +26,7 @@ let questionID
 let userInput
 
 
-async function newQuiz(questionType){
+async function newQuiz(){
    quiz = []
    console.log("new quiz")
    
@@ -45,27 +45,27 @@ async function newQuiz(questionType){
          console.log(operation)
          
 
-      if (operation == 0){
+      if (operation == "add"){
          //addition
          x = Math.floor(x*100)
          y = Math.floor(y*8)+2
          answer = x +y;
       }
-      if (operation == 1){
+      if (operation == "sub"){
          //subtraction
          x = Math.floor(x*10)+10
          y = Math.floor(y*8)+2
 
          answer = x - y;
       }
-      if (operation == 2){
+      if (operation == "mul"){
          //multiplication
          x = Math.floor(x*10)+2
          y = Math.floor(y*10)+2
         
          answer = x * y;
       }
-      if (operation == 3){
+      if (operation == "div"){
          //division
          x = Math.floor(x*10)+2
          y = Math.floor(y*10)+2
@@ -77,7 +77,7 @@ async function newQuiz(questionType){
 
     question = {
       "questionType":operation,
-      "statement":String(x)+symbols[operation]+String(y),
+      "statement":String(x)+symbols[questionType.indexOf(operation)]+String(y),
       "question":[x,y],
       "answer":answer,
       "userInput":null

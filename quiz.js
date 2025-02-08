@@ -41,7 +41,7 @@ function nextQuestion(){
  }else{
     
     showResults();
-submitAnswer
+   submitAnswer()
  }
 }
 
@@ -82,7 +82,12 @@ function skipQuestion(){
 function submitAnswer() {
 
    //log user answer
-   quiz[questionID]["userInput"] = userInput
+if(userInput == null){
+   quiz[questionID]["userInput"] = null
+}else{
+   quiz[questionID]["userInput"] = userInput.trim().toLowerCase()
+}
+   
    //Make input uneditable
    document.getElementById("input").disabled = true
 
@@ -125,6 +130,7 @@ function checkAnswer(questionID){
 }
 
 function submitInput(){
+   //used in button js
    userInput = document.getElementById("input").value
    checkQuestion()
 
@@ -202,7 +208,7 @@ function setupQuiz(paramaters){
    //Append elements to statement
    document.getElementById("statement").innerHTML = ""
    
-   if(paramaters["subject"]=="maths"){
+   if(paramaters["category"]=="maths"){
       document.getElementById("statement").innerHTML += "<span id='question'>question</span>";
       document.getElementById("statement").innerHTML += " = ";
 
@@ -213,7 +219,7 @@ function setupQuiz(paramaters){
 
       document.getElementById("statement").innerHTML += " <span id='answer'> answer</span>"
    }
-   if(paramaters["subject"]=="lang"){
+   if(paramaters["category"]=="lang"){
 
       if(paramaters["lang"] == "VI"){
          document.getElementById("statement").innerHTML += 'Translate "';
