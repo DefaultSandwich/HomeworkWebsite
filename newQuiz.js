@@ -7,16 +7,24 @@ const options ={
     "maths":{
         "category":"maths",   
         "modes":["add","sub","mul","div"],
-        "modeLabel":["+","-"]
+        "modeLabel":["+","−","×","÷"]
     },
     "JP":{
         "category":"lang",
-        "modes":["eng-hir","hir-eng","hir"]
+        "modes":["eng-hir","hir-eng","hir"],
+        "modeLabel":[
+            "English to Hirigana",
+            "Hirigana to English",
+            "Hirigana"
+        ]
 
     },
     "VI":{
         "category":"lang",
-        "modes":["conj"]
+        "modes":["eng-vi"],
+        "modeLabel":[
+            "English to Viet"
+        ]
 
     }
 }
@@ -41,7 +49,7 @@ radio.innerHTML = ""
        
 
         //add label
-        radio.innerHTML +=  "<label for="+String(modes[i])+">"+String(modes[i])+"</label><br>"
+        radio.innerHTML +=  "<label for="+String(modes[i])+">"+String(options[subject]["modeLabel"][i])+"</label><br>"
         
         
 

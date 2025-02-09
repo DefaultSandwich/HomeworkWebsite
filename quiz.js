@@ -41,7 +41,7 @@ function nextQuestion(){
  }else{
     
     showResults();
-   submitAnswer()
+
  }
 }
 
