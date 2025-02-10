@@ -3,7 +3,7 @@
   <head>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <script src="newQuiz.js"></script>
+    <script src="quizMenu.js"></script>
     <script src="buttons.js"></script>
     
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -25,7 +25,7 @@
     <form id="form" onsubmit="return validateCheckboxes()" action="questions.html?">
       
       <p>Questions</p>
-      <input type="number" min="1" value="10" name="quizLength"> </input>
+      <input type="number" min="1" max="100" value="10" name="quizLength"> </input>
 
       <p>Mode</p>
       <input type="radio" id="normal" name="gameMode" value="normal"  checked="true" required>
@@ -71,4 +71,6 @@
       </script>
 
   </body>
+
+  
 </html>

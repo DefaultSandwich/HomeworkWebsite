@@ -11,9 +11,11 @@ function next(){
     });
 }
 
-function input(){
+let input
+
+function checkInput(){
     
-let input = document.getElementById("input");
+input = document.getElementById("input");
 console.log(input)
 // Execute a function when the user presses a key on the keyboard
 

@@ -1,11 +1,27 @@
+
+
 {   
-    "train":"でんしあ",
-    "thank you very much":"ありがとうございます",
-    "water":"みず",
-    "tokyo":"とうきう",
-    "person":"ひと",
-    "I'm fine":"だいじょうぶ",
-    "Good morning":"おはよう",
-    "takoyaki":"たこやき"
+    
+        "words":[
+        {"train":"でんしあ"},
+        {"thank you very much":"ありがとうございます"},
+        {"water":"みず"},
+        {"tokyo":"とうきう"},
+        {"person":"ひと"},
+        {"I'm fine":"だいじょうぶ"},
+        {"Good morning":"おはよう"},
+        {"takoyaki":"たこやき"},
+        {"Excuse me":"すみません"},
+        {"gloomy":"くらい "},
+        {"magic":"まほう"}],
+
+        "kana":[
+                ["hir","kata","ro"],
+                ["hir","kata","ro"],
+                [],
+                [],
+                []
+        ]
+
     
 }
