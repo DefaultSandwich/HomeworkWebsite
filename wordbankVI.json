@@ -1,12 +1,16 @@
 
 
 {
-    "and":"và",
-    "with":"với",
-    "which":"cái nào",
-    "but":"nhưng",
-    "because":"tại vì",
-    "so":"nên",
-    "if":"nếu mà",
-    "then":"sau đó"
+    "words":[
+    {"and":"và"},
+    {"with":"với"},
+    {"which":"cái nào"},
+    {"but":"nhưng"},
+    {"because":"tại vì"},
+    {"so":"nên"},
+    {"if":"nếu mà"},
+    {"then":"sau đó"},
+    {"":""},
+    {"":""}
+    ]
 }

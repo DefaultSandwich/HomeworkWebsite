@@ -3,6 +3,7 @@
 
 
 let quiz = []
+let timer = false
 
 //Generate start and setup quiz
 async function startQuiz() {
@@ -13,6 +14,8 @@ async function startQuiz() {
    //Start quiz
 
    await setupQuiz({"category":"maths"})
+
+   //start question
    nextQuestion();
 }
 
@@ -24,6 +27,9 @@ let y
 let answer
 let questionID
 let userInput
+
+const operations = ["add","sub","mul","div"]
+
 
 
 async function newQuiz(){
@@ -75,14 +81,24 @@ async function newQuiz(){
          answer = x / y;
       }
 
-    question = {
+      statement = ""
+      statement += "<span id = 'question'></span>"
+      statement += '<span> = </span>'
+      statement += "<input id = 'input'></input>"
+      statement += '<span> </span>'
+      statement += "<span id = 'answer'></span>"
+      
+
+      question = {
       "questionType":operation,
-      "statement":String(x)+symbols[questionType.indexOf(operation)]+String(y),
+      "statement": statement,
+      "phrase":String(x)+symbols[operations.indexOf(operation)]+String(y),
       "question":[x,y],
       "answer":answer,
-      "userInput":null
+      "userInput":null,
+      "time":[]
       
-    }
+      }
       
       quiz.push(question)
    }

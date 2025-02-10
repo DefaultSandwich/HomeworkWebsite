@@ -5,21 +5,32 @@ let symbols = [
    "<span style = 'color :forestGreen; font-family: inter'>✓</span>",
    "<span style = 'color :red; font-family: inter'>✗</span>"]
 
-function nextQuestion(){
+async function nextQuestion(){
+   
     // change to next question
     
     questionID++
+
+
+
     
     if(questionID < quizLength){
-
+      await appendInput({"category":"lang"})
+      if(gameMode == "timed"){
+         resetStopwatch()
+         timer = true
+         stopWatch()
+      }
       document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of "+String(quizLength)
-       document.getElementById("question").innerHTML = quiz[questionID]["statement"]
+      document.getElementById("question").innerHTML = quiz[questionID]["phrase"]
       document.getElementById("check").hidden = false
       document.getElementById("skip").hidden = false
       document.getElementById("next").hidden = true
       document.getElementById("answer").style.visibility = "hidden"
 
 
+
+      //Check if input is empty
       userInput = document.getElementById("input")
       if(userInput){
          //make input blue
@@ -48,6 +59,8 @@ function nextQuestion(){
 
 function checkQuestion(){
    
+
+
    //fetch userInput
    let input = document.getElementById("input")
    userInput = input.value.trim()
@@ -86,6 +99,7 @@ if(userInput == null){
    quiz[questionID]["userInput"] = null
 }else{
    quiz[questionID]["userInput"] = userInput.trim().toLowerCase()
+   quiz[questionID]["time"] = [hrString,minString,secString,countString]
 }
    
    //Make input uneditable
@@ -97,7 +111,8 @@ if(userInput == null){
 
 
 function showAnswer(){
-
+   //pause stopwatch
+   timer = false
    //fetch answer
    answer = quiz[questionID]["answer"];
 
@@ -147,6 +162,7 @@ function showResults(){
    document.getElementById("statement").hidden = true
    document.getElementById("input").hidden = true
    document.getElementById("check").hidden = true
+   document.getElementById("stopwatch").hidden = true
 
    document.getElementById("home").hidden = false
    document.getElementById("retry").hidden = false
@@ -154,6 +170,7 @@ function showResults(){
   
  
    let score = 0
+   let totalTime = [0,0,0,0]
    for(let i = 0;i<quizLength;i++){
       
       userInput = quiz[i]["userInput"]
@@ -165,7 +182,7 @@ function showResults(){
       answer = quiz[i]["answer"];
 
       let results
-      results = "<div>"+quiz[i]["statement"]+"</div>"
+      results = "<div>"+quiz[i]["phrase"]+"</div>"
       document.getElementById("results").innerHTML += results
 
       userInput = "<div><b>"+String(userInput)+symbols[checkAnswer(i)]+"</div>"
@@ -181,15 +198,55 @@ function showResults(){
          answers = "<div></div>"
       }
       document.getElementById("results").innerHTML += answers
+    
+      if(gameMode=="timed"){
+         document.getElementById("results").style =   "grid-template-columns: auto auto auto auto;"
+
+         console.log("e")
+         let time
+
+         if(userInput){
+            time = quiz[i]["time"]
+            totalTime[0] += Number(time[0])
+            totalTime[1] += Number(time[1])
+            totalTime[2] += Number(time[2])
+            totalTime[3] += Number(time[3])
+
+            time = "<div style= 'font-family: Space Mono''>"+String(time[0])+":" + String(time[1])+":"  + String(time[2])+":"  + String(time[3]) + "</div>"
+            
+         }else{
+            time = "<br>"
+         }
+         
+         document.getElementById("results").innerHTML += time
+      }
       
 
    }
 
    console.log("done")
+
+
+   //total
    let results = "<div style = 'border-bottom :none'>"
    results += "<h3>Total = "+String(score)+"/"+String(quizLength)
    results += "</h3></div>"
+
+   //percentage
+   results += "<div style = 'border-bottom :none'>"
+   results += "<h3>= "+String(((score/quizLength)*100).toFixed(0))+"%"
+   results += "</h3></div>"
    document.getElementById("results").innerHTML += results
+
+   if(gameMode=="timed"){
+      totalTime = String(totalTime[0])+":" + String(totalTime[1])+":"  + String(totalTime[2])+":"  + String(totalTime[3])
+
+      time = "<div style= 'font-family: Space Mono; border-bottom: none'><h3>"
+      time += totalTime
+      time += "</h3></div>"
+      
+      document.getElementById("results").innerHTML += time
+   }
 
 }
 
@@ -205,41 +262,41 @@ function setupQuiz(paramaters){
    document.getElementById("next").hidden = false
    questionID = -1
 
-   //Append elements to statement
-   document.getElementById("statement").innerHTML = ""
-   
-   if(paramaters["category"]=="maths"){
-      document.getElementById("statement").innerHTML += "<span id='question'>question</span>";
-      document.getElementById("statement").innerHTML += " = ";
 
-      document.getElementById("statement").innerHTML += "<span><input id='input'></input></span>";
+   //start stopwatch
+   if( gameMode =="timed"){
+      document.getElementById("stopwatch").hidden = false
+   } else {
+      document.getElementById("stopwatch").hidden = true
+   }
+}
+
+async function appendInput(paramaters){
+   //Append elements to statement
+   document.getElementById("statement").innerHTML = quiz[questionID]["statement"]
+   
+
+      
+   if(paramaters["category"]=="maths"){
+    
+      
       document.getElementById("input").type = "number"
       document.getElementById("input").inputMode = "numeric"
       document.getElementById("input").max = "9999"
 
-      document.getElementById("statement").innerHTML += " <span id='answer'> answer</span>"
+
    }
    if(paramaters["category"]=="lang"){
 
-      if(paramaters["lang"] == "VI"){
-         document.getElementById("statement").innerHTML += 'Translate "';
-      }else{
-         document.getElementById("statement").innerHTML += 'Write in "';
-      }
-      
-      document.getElementById("statement").innerHTML += "<span id='question'>question</span>";
 
-      if(paramaters["lang"] == "JP"){
-         document.getElementById("statement").innerHTML += '" hirigana';
-      } else{
-         document.getElementById("statement").innerHTML += '" '
-      }
-      
-      document.getElementById("statement").innerHTML += '<br>';
-      
-      document.getElementById("statement").innerHTML += "<span><input autocorrect='off' type='text' id='input'></input></span>";
+
+      document.getElementById("input").type = "text"
       document.getElementById("input").lang = paramaters["lang"]
+      document.getElementById("input").autocapitalize = "off"
+      document.getElementById("input").autocorrect = "off"
 
-      document.getElementById("statement").innerHTML += "<br> <span id='answer'> answer</span>"
+      
    }
+
+   checkInput();
 }

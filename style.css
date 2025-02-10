@@ -12,15 +12,19 @@ html{
 }
 
  body {
-
   margin : 4em;
   font-size: 1.5em;
   line-height: 2em;
 }
   
+
+
+h3 {
+  font-family: "Space Mono","Sawarabi Gothic", Arial, sans-serif;
+}
   
   
-@media (min-device-width:370px) and (max-device-width:768px) {
+@media (min-device-width:500px) and (max-device-width:768px) {
   html {
     margin: 0em;
     font-size: 32px;
@@ -43,7 +47,8 @@ h1 {
 
 
 button{
-  font-family: inherit;
+  line-height: 1.2em;
+  font-family: "Space Mono", Arial, sans-serif;
   font-size: 1em;
   border-style: solid;
   border-color: royalblue;
@@ -162,7 +167,7 @@ input.error {
 
 }
 
-@media (min-device-width:370px) and (max-device-width:768px) {
+@media (min-device-width:500px) and (max-device-width:768px) {
   .container.report {
     font-size: 0.75em;
   }
@@ -190,3 +195,4 @@ footer{
   text-shadow: 0.1em 0em 0 white;
   text-align: right;
 }
+
