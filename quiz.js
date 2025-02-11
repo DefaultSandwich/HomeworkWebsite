@@ -15,7 +15,7 @@ async function nextQuestion(){
 
     
     if(questionID < quizLength){
-      await appendInput({"category":"lang"})
+      await appendInput()
       if(gameMode == "timed"){
          resetStopwatch()
          timer = true
@@ -62,12 +62,15 @@ function checkQuestion(){
 
 
    //fetch userInput
-   let input = document.getElementById("input")
+   input = document.getElementById("input")
    userInput = input.value.trim()
+   console.log(userInput)
    
       
    //check if input filled
-      if(userInput !== "" && (userInput < Number(input.max) || input.type != "number")){
+      if(userInput !== "" && userInput < Number(input.max)){
+
+
          //submit and show answer
          submitAnswer();
          showAnswer();
@@ -78,9 +81,7 @@ function checkQuestion(){
          //make input red
          document.getElementById("input").classList.add("error");
          //focus on skip button
-         document.getElementById("skip").focus();
-            
-      }
+         document.getElementById("skip").focus();}
 
 
 }
@@ -98,7 +99,7 @@ function submitAnswer() {
 if(userInput == null){
    quiz[questionID]["userInput"] = null
 }else{
-   quiz[questionID]["userInput"] = userInput.trim().toLowerCase()
+   quiz[questionID]["userInput"] = userInput.trim().toLowerCase().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')
    quiz[questionID]["time"] = [hrString,minString,secString,countString]
 }
    
@@ -136,8 +137,7 @@ function showAnswer(){
 function checkAnswer(questionID){
    userInput = quiz[questionID]["userInput"];
   
-
-   if(userInput==answer){
+   if(userInput == String(answer).toLowerCase().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')){
       return(4)
    }else{
       return(5)
@@ -147,7 +147,7 @@ function checkAnswer(questionID){
 function submitInput(){
    //used in button js
    userInput = document.getElementById("input").value
-   checkQuestion()
+   document.getElementById("check").click()
 
 }
 
@@ -250,7 +250,7 @@ function showResults(){
 
 }
 
-function setupQuiz(paramaters){
+function setupQuiz(){
    console.log("start")
    document.getElementById("retry").hidden = true
    document.getElementById("home").hidden = true
@@ -271,23 +271,25 @@ function setupQuiz(paramaters){
    }
 }
 
-async function appendInput(paramaters){
+async function appendInput(){
    //Append elements to statement
    document.getElementById("statement").innerHTML = quiz[questionID]["statement"]
    
 
       
-   if(paramaters["category"]=="maths"){
+   if(category=="maths"){
+      let input = document.getElementById("input")
     
       
-      document.getElementById("input").type = "number"
-      document.getElementById("input").inputMode = "numeric"
-      document.getElementById("input").max = "9999"
+      input.type = "number"
+      input.inputMode = "numeric"
+      input.max = "9999"
+     
 
 
    }
-   if(paramaters["category"]=="lang"){
-
+   if(category=="lang"){
+      console.log("l")
 
 
       document.getElementById("input").type = "text"
