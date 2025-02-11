@@ -293,7 +293,7 @@ async function appendInput(){
 
 
       document.getElementById("input").type = "text"
-      document.getElementById("input").lang = paramaters["lang"]
+      document.getElementById("input").lang = language
       document.getElementById("input").autocapitalize = "off"
       document.getElementById("input").autocorrect = "off"
 
