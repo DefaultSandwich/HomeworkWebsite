@@ -53,7 +53,7 @@ async function newQuiz(){
 
       if (operation == "add"){
          //addition
-         x = Math.floor(x*100)
+         x = Math.floor(x*89)+10
          y = Math.floor(y*8)+2
          answer = x +y;
       }

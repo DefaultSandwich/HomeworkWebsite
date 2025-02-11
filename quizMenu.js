@@ -36,8 +36,18 @@ const options ={
 // }
 
 function subjectOptions(){
-console.log(subject)
+   
+    if(!options[subject]){
+        //check if subject does not exist
+        window.alert("Still working on this... (´⌯ ω⌯`)")
+        window.location.href = "index.html"
+        return
+    }
+
 let modes = options[subject]["modes"]
+
+document.getElementById("category").value = options[subject]["category"]
+
 let radio = document.getElementById("subjects")
 radio.innerHTML = ""
     for(let i = 0 ; i < modes.length; i++){
