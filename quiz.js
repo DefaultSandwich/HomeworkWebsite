@@ -137,7 +137,7 @@ function showAnswer(){
 function checkAnswer(questionID){
    userInput = quiz[questionID]["userInput"];
   
-   if(userInput == String(answer).toLowerCase()){
+   if(userInput == String(answer).toLowerCase().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')){
       return(4)
    }else{
       return(5)
