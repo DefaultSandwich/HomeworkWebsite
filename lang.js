@@ -89,7 +89,7 @@ async function newQuiz(language){
             "statement": statement,
             "answer":answer,
             "userInput":null,
-            "time":[]
+            "time":null
        
         }
 

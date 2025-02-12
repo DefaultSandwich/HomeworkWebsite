@@ -10,54 +10,43 @@ let minString = minute;
 let secString = second;
 let countString = count;
 
+let start
+
 function stopWatch() {
+
+    start = Date.now()
+    startStopwatch()
+    
+
+
+    
+}
+
+function startStopwatch(){
     if (timer) {
-        count++;
-
-        if (count == 100) {
-            second++;
-            count = 0;
-        }
-
-        if (second == 60) {
-            minute++;
-            second = 0;
-        }
-
-        if (minute == 60) {
-            hour++;
-            minute = 0;
-            second = 0;
-        }
-
-         hrString = hour;
-         minString = minute;
-         secString = second;
-         countString = count;
-
-        if (hour < 10) {
-            hrString = "0" + hrString;
-        }
-
-        if (minute < 10) {
-            minString = "0" + minString;
-        }
-
-        if (second < 10) {
-            secString = "0" + secString;
-        }
-
-        if (count < 10) {
-            countString = "0" + countString;
-        }
-
-        document.getElementById('hr').innerHTML = hrString;
-        document.getElementById('min').innerHTML = minString;
-        document.getElementById('sec').innerHTML = secString;
-        document.getElementById('count').innerHTML = countString
-        setTimeout(stopWatch, 10);
         
-    }
+        console.log(start)
+       count = Date.now() - start;
+
+
+       countToTime((count))
+
+  
+
+        hrString = hour;
+        minString = minute;
+        secString = second;
+      
+
+    
+
+       document.getElementById('hr').innerHTML = hrString;
+       document.getElementById('min').innerHTML = minString;
+       document.getElementById('sec').innerHTML = secString;
+       document.getElementById('count').innerHTML = countString
+       
+       setTimeout(startStopwatch,1)
+   }
 }
 
 function resetStopwatch(){
@@ -71,3 +60,17 @@ function resetStopwatch(){
     document.getElementById('sec').innerHTML = "00";
     document.getElementById('count').innerHTML = "00";
 }
+
+function countToTime(count){
+    countString = Math.floor(count/10) % 100 
+    second = Math.floor(count/1000) % 60
+    minute = Math.floor(count/60000) % 60
+    hour = Math.floor(count/36000) % 60
+ 
+    countString = String(countString).padStart(2,"0")
+    second = String(second).padStart(2,"0")
+    minute = String(minute).padStart(2,"0")
+    hour = String(hour).padStart(2,"0")
+ 
+    return([hour,minute,second,countString])
+ }

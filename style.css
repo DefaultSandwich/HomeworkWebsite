@@ -24,7 +24,7 @@ h3 {
 }
   
   
-@media (min-device-width:500px) and (max-device-width:768px) {
+@media (min-device-width:300px) and (max-device-width:768px) {
   html {
     margin: 0em;
     font-size: 32px;
@@ -32,6 +32,14 @@ h3 {
   
   body{
     margin: 1em;
+  }
+
+    .tabContent {
+      display:none;
+  }
+
+  .container.report{
+    font-size: 0.75em;
   }
 }
 
