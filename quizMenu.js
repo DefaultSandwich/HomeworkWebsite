@@ -12,7 +12,11 @@ const options ={
     },
     "JP":{
         "category":"lang",
-        "modes":["eng-hir","hir-eng","hir"],
+        "modes":[
+            "eng-hir"
+            ,"hir-eng"
+            //,"hir"
+        ],
         "modeLabel":[
             "English to Hirigana",
             "Hirigana to English",
@@ -39,7 +43,7 @@ function subjectOptions(){
    
     if(!options[subject]){
         //check if subject does not exist
-        window.alert("Still working on this... (´⌯ ω⌯`)")
+        window.alert("Still working on this... <(´= ⩊ =`)>")
         window.location.href = "index.html"
         return
     }

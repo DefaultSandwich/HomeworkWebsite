@@ -19,6 +19,7 @@ async function nextQuestion(){
       if(gameMode == "timed"){
          resetStopwatch()
          timer = true
+         
          stopWatch()
       }
       document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of "+String(quizLength)
@@ -100,7 +101,7 @@ if(userInput == null){
    quiz[questionID]["userInput"] = null
 }else{
    quiz[questionID]["userInput"] = userInput.trim().toLowerCase().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')
-   quiz[questionID]["time"] = [hrString,minString,secString,countString]
+   quiz[questionID]["time"] = count
 }
    
    //Make input uneditable
@@ -170,7 +171,7 @@ function showResults(){
   
  
    let score = 0
-   let totalTime = [0,0,0,0]
+   let totalTime = 0
    for(let i = 0;i<quizLength;i++){
       
       userInput = quiz[i]["userInput"]
@@ -195,7 +196,7 @@ function showResults(){
       let answers
       if(checkAnswer(i) == 5){
       answers = "<div><b>="+quiz[i]["answer"]+"</div>"}else{
-         answers = "<div></div>"
+         answers = "<div class = 'empty'></div>"
       }
       document.getElementById("results").innerHTML += answers
     
@@ -207,15 +208,14 @@ function showResults(){
 
          if(userInput){
             time = quiz[i]["time"]
-            totalTime[0] += Number(time[0])
-            totalTime[1] += Number(time[1])
-            totalTime[2] += Number(time[2])
-            totalTime[3] += Number(time[3])
-
-            time = "<div style= 'font-family: Space Mono''>"+String(time[0])+":" + String(time[1])+":"  + String(time[2])+":"  + String(time[3]) + "</div>"
+            totalTime += Number(time)
+       
+i    
+            time = "<div style= 'font-family: Space Mono''>"+ countToTime(time)[0]+":" + countToTime(time)[1]+
+            ":"  + countToTime(time)[2]+"."  + countToTime(time)[3] + "</div>"
             
          }else{
-            time = "<br>"
+            time = "<div></div>"
          }
          
          document.getElementById("results").innerHTML += time
@@ -232,6 +232,8 @@ function showResults(){
    results += "<h3>Total = "+String(score)+"/"+String(quizLength)
    results += "</h3></div>"
 
+
+
    //percentage
    results += "<div style = 'border-bottom :none'>"
    results += "<h3>= "+String(((score/quizLength)*100).toFixed(0))+"%"
@@ -239,13 +241,25 @@ function showResults(){
    document.getElementById("results").innerHTML += results
 
    if(gameMode=="timed"){
-      totalTime = String(totalTime[0])+":" + String(totalTime[1])+":"  + String(totalTime[2])+":"  + String(totalTime[3])
+      //total time
+      totalTime = countToTime(totalTime)[0]+":" +countToTime(totalTime)[1]+":"  + countToTime(totalTime)[2]+"."  + countToTime(totalTime)[3]+"s"
 
-      time = "<div style= 'font-family: Space Mono; border-bottom: none'><h3>"
+      time = "<div style = 'border-bottom: none' class = 'empty'></div>"
+      time += "<div style= 'font-family: Space Mono; border-bottom: none'><h3>"
       time += totalTime
       time += "</h3></div>"
       
       document.getElementById("results").innerHTML += time
+   }
+
+   if(score/quizLength==1){
+
+      document.querySelectorAll('.empty').forEach(e => e.remove());
+
+      document.getElementById("results").style = 'grid-template-columns: auto auto'
+      if(gameMode == "timed"){
+         document.getElementById("results").style = 'grid-template-columns: auto auto auto'
+      }
    }
 
 }
@@ -302,3 +316,4 @@ async function appendInput(){
 
    checkInput();
 }
+

@@ -96,7 +96,7 @@ async function newQuiz(){
       "question":[x,y],
       "answer":answer,
       "userInput":null,
-      "time":[]
+      "time":null
       
       }
       
