@@ -25,7 +25,7 @@ function stopWatch() {
 function startStopwatch(){
     if (timer) {
         
-        console.log(start)
+        
        count = Date.now() - start;
 
 
@@ -65,7 +65,7 @@ function countToTime(count){
     countString = Math.floor(count/10) % 100 
     second = Math.floor(count/1000) % 60
     minute = Math.floor(count/60000) % 60
-    hour = Math.floor(count/36000) % 60
+    hour = Math.floor(count/3600000) % 60
  
     countString = String(countString).padStart(2,"0")
     second = String(second).padStart(2,"0")
