@@ -69,7 +69,7 @@ function checkQuestion(){
    
       
    //check if input filled
-      if(userInput !== "" && (userInput < Number(input.max) || input.type != "number")){
+      if(userInput !== "" && (userInput < Number(input.max) || input.type == "text")){
 
 
          //submit and show answer
