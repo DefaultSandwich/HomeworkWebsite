@@ -75,6 +75,8 @@
       <button type = button id="retry" onclick = "startQuiz()" > Retry </button>
       <button type = button id="home" onclick = "document.location='index.html'" > Home </button>
 
+
+
       <script>
     
             var script = document.createElement("script");
@@ -106,16 +108,19 @@
       
 
     </main>
-    
+    <footer id="stopwatch">
+      <div id="time" style="font-family: 'Space Mono', Arial, sans-serif; display: inline-flex;">
+        <span class="digit" id="hr">00</span><span class="txt">:</span>
+        <span class="digit" id="min">00</span><span class="txt">:</span>
+        <span class="digit" id="sec">00</span><span class="txt">.</span>
+        <span class="digit" id="count">00</span>
+      </div>
+    </footer>
   </body>
 
-  <footer id="stopwatch">
-    <div id="time" style="font-family: 'Space Mono', Arial, sans-serif; display: inline-flex;">
-      <span class="digit" id="hr">00</span><span class="txt">:</span>
-      <span class="digit" id="min">00</span><span class="txt">:</span>
-      <span class="digit" id="sec">00</span><span class="txt">.</span>
-      <span class="digit" id="count">00</span>
-    </div>
-  </footer>
+  <br style = "line-height: calc(100svh - 8em);">
+
+
+
   
 </html>
