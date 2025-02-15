@@ -1,6 +1,7 @@
 
 
 html{
+  scroll-behavior: smooth;
   margin: 0em;
   padding: 1em;
   background-color: white;
@@ -63,8 +64,8 @@ button{
   border-color: royalblue;
   background-color: royalblue;
   color: white;
-  border-radius: 0.2em;
-  border-width: 0.1em;
+  border-radius: 0.25rem;
+  border-width: 0.15rem;
   
   transition: color .2s ease, background-color .2s ease;
   text-decoration: none;
@@ -204,4 +205,25 @@ footer{
   text-shadow: 0.1em 0em 0 white;
   text-align: right;
 }
+
+header{
+  font-size: 0.75em;
+  font-weight: 500;
+  padding: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  border-width: 100%;
+  color: black;
+  text-shadow: 0.1em 0em 0 white;
+  text-align: right;
+}
+
+.fullscreen{margin:0; padding:0; background-color: white;border-color: white; line-height:0; 
+  transition:  color .2s ease, border-color .2s ease, background-color .2s ease;}
+
+:hover.fullscreen{margin:0; padding:0; background-color: white; line-height:0}
 
