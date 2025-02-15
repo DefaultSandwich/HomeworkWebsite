@@ -317,3 +317,17 @@ async function appendInput(){
    checkInput();
 }
 
+function goFullScreen() {
+   console.log("e")
+   if(!document.fullscreenElement){
+
+      document.getElementById("fullscreen icon").src = "Icons\\close_fullscreen.svg"
+
+      if (document.documentElement.requestFullscreen) {
+       document.documentElement.requestFullscreen();}
+}else
+   {
+      document.getElementById("fullscreen icon").src = "Icons\\fullscreen.svg"
+      document.exitFullscreen();
+   }
+}

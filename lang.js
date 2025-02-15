@@ -7,12 +7,21 @@ let wordbankVI = null
 let wordbank = null
 let language = null
 
+let words = {
+    ["eng-hir"]:[],
+    ["hir-eng"]:[],
+    ["kana"]:[],
+    ["eng-vi"]:[],
+    ["vi-eng"]:[]
+}
+
  async function loadWordbank(language) {
     try {
     
         const response = await fetch("wordbank"+language+".json");
         wordbank = {"JP":null,"VI":null}
         wordbank[language] =  await response.json();
+        console.log(wordbank)
         
 
      
@@ -28,18 +37,20 @@ let language = null
 
 async function startQuiz() {
     language = subject
-    console.log(language)
+
     setupQuiz({"category":"lang","lang":language})
     
     if (!wordbank) {
-        // Wait until wordbankJP and wordbankVI are loaded
+        // Load wordbanks if not already loaded
         await loadWordbank(language);
         
     }
-
+    
     console.log("Generate quiz")
     await newQuiz(language);
 
+    words = null
+    wordbank = null
     nextQuestion();
 }
 
@@ -60,27 +71,35 @@ async function newQuiz(language){
   
 
     for(let i=0; i <quizLength; i++){
+   
+
+
+
+
         answer=null;
 
         operation = Math.floor(Math.random()*questionType.length);
-        console.log(operation)
         operation = questionType[operation]
-        console.log(operation)
+
 
         statement = ""
         
 
+
+
         if(language == "JP"){
-            JPquestions(i)
+            JPquestions()
         }
 
         if(language == "VI"){
-            VIquestions(i)
+            VIquestions()
         }
+
+
 
   
 
-        console.log(statement)
+
  
         question = {
             "questionType":language,
@@ -97,6 +116,16 @@ async function newQuiz(language){
     }
  }
 
-
+ function nextWord(mode,operation_){
+    console.log(operation_)
+    if(words[operation_].length<2){ 
+        
+       words[operation_] = JSON.parse(JSON.stringify(wordbank[language][mode]))
+       console.log(words)
+    }
+ 
+    return Math.floor(Math.random()*words[operation_].length)
+    
+ }
 
 

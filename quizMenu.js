@@ -15,12 +15,14 @@ const options ={
         "modes":[
             "eng-hir"
             ,"hir-eng"
-            //,"hir"
+            ,"hir",
+            "kata"
         ],
         "modeLabel":[
             "English to Hirigana",
             "Hirigana to English",
-            "Hirigana"
+            "Hirigana",
+            "Katakana"
         ]
 
     },
