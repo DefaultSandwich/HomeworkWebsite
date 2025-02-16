@@ -19,6 +19,7 @@
     
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
+    <meta name = "viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1" />
 
     <script>
         // Get the question mode from the URL
@@ -26,7 +27,7 @@
       
         // Extract specific parameters
         const questionType = urlParams.getAll("questionType");
-        console.log(questionType)
+
         const category = urlParams.get("category");
         const subject = urlParams.get("subject");
         const gameMode = urlParams.get("gameMode");
@@ -118,7 +119,8 @@
     </footer>
   </body>
 
-  <br style = "line-height: max(calc(100svh - 8em),5em);">
+  <div style = "height: max(calc(100svh - 8em),5em);"></div>
+
 
 
 

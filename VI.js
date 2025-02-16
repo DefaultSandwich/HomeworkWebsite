@@ -19,7 +19,7 @@ function VIquestions(){
         x = Object.keys(words[operation][i])[0]
         answer = Object.values(words[operation][i])[0]
 
-        console.log(operation)
+
      }
      if (operation == "vi-eng"){
         //english to hiragana
@@ -34,6 +34,5 @@ function VIquestions(){
         x = Object.values(words[operation][i])[0]
         answer = Object.keys(words[operation][i])[0]
 
-        console.log(statement)
      }
 }
