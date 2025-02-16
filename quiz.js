@@ -65,7 +65,7 @@ function checkQuestion(){
    //fetch userInput
    input = document.getElementById("input")
    userInput = input.value.trim()
-   console.log(userInput)
+
    
       
    //check if input filled
@@ -203,7 +203,7 @@ function showResults(){
       if(gameMode=="timed"){
          document.getElementById("results").style =   "grid-template-columns: auto auto auto auto;"
 
-         console.log("e")
+  
          let time
 
          if(userInput){
@@ -303,7 +303,7 @@ async function appendInput(){
 
    }
    if(category=="lang"){
-      console.log("l")
+
 
 
       document.getElementById("input").type = "text"
@@ -318,7 +318,7 @@ async function appendInput(){
 }
 
 function goFullScreen() {
-   console.log("e")
+
    if(!document.fullscreenElement){
 
       document.getElementById("fullscreen icon").src = "Icons\\close_fullscreen.svg"

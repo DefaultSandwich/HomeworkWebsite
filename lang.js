@@ -21,7 +21,7 @@ let words = {
         const response = await fetch("wordbank"+language+".json");
         wordbank = {"JP":null,"VI":null}
         wordbank[language] =  await response.json();
-        console.log(wordbank)
+
         
 
      
@@ -121,7 +121,7 @@ async function newQuiz(language){
     if(words[operation_].length<2){ 
         
        words[operation_] = JSON.parse(JSON.stringify(wordbank[language][mode]))
-       console.log(words)
+
     }
  
     return Math.floor(Math.random()*words[operation_].length)
