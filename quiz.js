@@ -29,6 +29,9 @@ async function nextQuestion(){
       document.getElementById("next").hidden = true
       document.getElementById("answer").style.visibility = "hidden"
 
+      if(document.getElementById("image"))
+      {document.getElementById("image").innerHTML = quiz[questionID]["image"]}
+
 
 
       //Check if input is empty
