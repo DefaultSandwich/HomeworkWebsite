@@ -84,9 +84,9 @@ async function newQuiz(){
       statement = ""
       statement += "<span id = 'question'></span>"
       statement += '<span> = </span>'
-      statement += "<input id = 'input'></input>"
+      statement += "<input id = 'input0'></input>"
       statement += '<span> </span>'
-      statement += "<span id = 'answer'></span>"
+      statement += "<span id = 'answer0'></span>"
       
 
       question = {

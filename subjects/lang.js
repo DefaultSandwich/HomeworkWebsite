@@ -49,7 +49,13 @@ async function startQuiz() {
     console.log("Generate quiz")
     await newQuiz(language);
 
-    words = null
+    words = {
+        ["eng-hir"]:[],
+        ["hir-eng"]:[],
+        ["kana"]:[],
+        ["eng-vi"]:[],
+        ["vi-eng"]:[]
+    }
     wordbank = null
     nextQuestion();
 }

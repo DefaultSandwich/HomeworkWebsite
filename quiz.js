@@ -2,8 +2,8 @@
 
 let symbols = [
    "+","−","×","÷",
-   "<span style = 'color :forestGreen; font-family: inter'>✓</span>",
-   "<span style = 'color :red; font-family: inter'>✗</span>"]
+   "<img src = 'Icons\\tick.svg' style = 'height : 1.2em; width : 1.2em; vertical-align:text-top'>",
+   "<img src = 'Icons\\cross.svg' style = 'height : 1.2em; width : 1.2em; vertical-align:text-top' >"]
 
 async function nextQuestion(){
    
@@ -26,25 +26,30 @@ async function nextQuestion(){
       document.getElementById("question").innerHTML = quiz[questionID]["phrase"]
       document.getElementById("check").hidden = false
       document.getElementById("skip").hidden = false
+      document.getElementById("answer0").hidden = false
+      document.getElementById("input0").hidden = false
       document.getElementById("next").hidden = true
-      document.getElementById("answer").style.visibility = "hidden"
+      
+      document.getElementById("answer0").style.visibility = "hidden"
 
       if(document.getElementById("image"))
-      {document.getElementById("image").innerHTML = quiz[questionID]["image"]}
+      {
+         document.getElementById("image").innerHTML = quiz[questionID]["image"] 
+      }
 
 
 
-      //Check if input is empty
-      userInput = document.getElementById("input")
+      //Check if inputs is empty
+      userInput = document.getElementById("input0")
       if(userInput){
          //make input blue
-         document.getElementById("input").classList.remove("error");
+         document.getElementById("input0").classList.remove("error");
          //clear input
-         document.getElementById("input").value = null
+         document.getElementById("input0").value = null
          //make input editable
-         document.getElementById("input").disabled = false
+         document.getElementById("input0").disabled = false
          //select input
-         document.getElementById("input").focus();
+         document.getElementById("input0").focus();
       }else{
          document.getElementById("check").focus()
       }
@@ -66,7 +71,7 @@ function checkQuestion(){
 
 
    //fetch userInput
-   input = document.getElementById("input")
+   input = document.getElementById("input0")
    userInput = input.value.trim()
 
    
@@ -79,11 +84,11 @@ function checkQuestion(){
          submitAnswer();
          showAnswer();
          //make input blue
-         document.getElementById("input").classList.remove("error");
+         document.getElementById("input0").classList.remove("error");
    
       }else{
          //make input red
-         document.getElementById("input").classList.add("error");
+         document.getElementById("input0").classList.add("error");
          //focus on skip button
          document.getElementById("skip").focus();}
 
@@ -108,7 +113,7 @@ if(userInput == null){
 }
    
    //Make input uneditable
-   document.getElementById("input").disabled = true
+   document.getElementById("input0").disabled = true
 
    
 }
@@ -123,14 +128,26 @@ function showAnswer(){
 
 
    //show answer
-   document.getElementById("answer").style.visibility = "visible"
    document.getElementById("check").hidden = true
    document.getElementById("skip").hidden = true
    document.getElementById("next").hidden = false
 
    //render answer
-   document.getElementById("answer").innerHTML = "<b>"+String(answer);
-   document.getElementById("answer").innerHTML += symbols[checkAnswer(questionID)];
+   document.getElementById("answer0").style.visibility = "visible"
+   if(subject=="physics"){
+      answer = quiz[questionID]["answer"]["magnitude"]
+      document.getElementById("answer0").innerHTML = "<b>"+String(answer)+" N";
+      document.getElementById("answer0").innerHTML += symbols[checkAnswer(questionID)];
+
+      answer = quiz[questionID]["answer"]["angle"]
+      
+      document.getElementById("answer1").innerHTML = "<b>"+String(answer)+"°";
+      document.getElementById("answer1").innerHTML += symbols[checkAnswer(questionID)];
+
+   }else{
+      document.getElementById("answer0").innerHTML = "<b>"+String(answer);
+      document.getElementById("answer0").innerHTML += symbols[checkAnswer(questionID)];
+   }
 
    //focus next button
    document.getElementById("next").focus();
@@ -150,7 +167,7 @@ function checkAnswer(questionID){
 
 function submitInput(){
    //used in button js
-   userInput = document.getElementById("input").value
+   userInput = document.getElementById("input0").value
    document.getElementById("check").click()
 
 }
@@ -162,9 +179,9 @@ function showResults(){
    document.getElementById("counter").innerHTML = "Results"
 
    document.getElementById("next").hidden = true
-   document.getElementById("answer").hidden = true
+   document.getElementById("answer0").hidden = true
    document.getElementById("statement").hidden = true
-   document.getElementById("input").hidden = true
+   document.getElementById("input0").hidden = true
    document.getElementById("check").hidden = true
    document.getElementById("stopwatch").hidden = true
 
@@ -186,7 +203,13 @@ function showResults(){
       answer = quiz[i]["answer"];
 
       let results
-      results = "<div>"+quiz[i]["phrase"]+"</div>"
+      results = "<div>"+quiz[i]["phrase"]
+      if(quiz[i]["image"]){
+         results += "<br><div style='width: auto;height:5em;overflow:scroll'>"
+         results += quiz[i]["image"]+"</div>"
+
+      }
+      results += "</div>"
       document.getElementById("results").innerHTML += results
 
       userInput = "<div><b>"+String(userInput)+symbols[checkAnswer(i)]+"</div>"
@@ -198,9 +221,22 @@ function showResults(){
 
       let answers
       if(checkAnswer(i) == 5){
-      answers = "<div><b>="+quiz[i]["answer"]+"</div>"}else{
+
+         if(subject == "physics"){
+            answers = "<div>= <b>"+ String(quiz[i]["answer"]["magnitude"]) + " N<br>"
+            answers += "</b>= <b>" + String (quiz[i]["answer"]["angle"])+"°"
+            answers += "</div>"
+
+         }else{
+            answers = "<div>=<b>"+quiz[i]["answer"]+"</div>"
+         }
+
+      
+      }else{
          answers = "<div class = 'empty'></div>"
       }
+
+
       document.getElementById("results").innerHTML += answers
     
       if(gameMode=="timed"){
@@ -272,10 +308,10 @@ function setupQuiz(){
    document.getElementById("retry").hidden = true
    document.getElementById("home").hidden = true
    document.getElementById("results").innerHTML = ""
-   document.getElementById("answer").hidden = false
+   
   
    document.getElementById("statement").hidden = false
-   document.getElementById("input").hidden = false
+
    document.getElementById("next").hidden = false
    questionID = -1
 
@@ -291,34 +327,45 @@ function setupQuiz(){
 async function appendInput(){
    //Append elements to statement
    document.getElementById("statement").innerHTML = quiz[questionID]["statement"]
+
+   let input
+   let statement = document.getElementById("statement")
+   for(let i = 0;i<statement.getElementsByTagName("input").length;i++){
+      input = document.getElementById("input"+String(i))
+      input.required = "true"
+
+         
+      if(category=="maths"){
+         
+         input.type = "number"
+         input.inputMode = "numeric"
+         input.max = "9999"
    
+      }
 
-      
-   if(category=="maths"){
-      let input = document.getElementById("input")
-    
-      
-      input.type = "number"
-      input.inputMode = "numeric"
-      input.max = "9999"
-     
+      if(category =="physics"){
+         input.type = "number"
+         input.inputMode = "decimal"
+         input.max = "9999"
+         input.style.width = "3em"
+         input.step = "any"
+      }
 
 
-   }
-   if(category=="lang"){
+      if(category=="lang"){
 
 
 
-      document.getElementById("input").type = "text"
-      document.getElementById("input").lang = language
-      document.getElementById("input").autocapitalize = "off"
-      document.getElementById("input").autocorrect = "off"
+         input.type = "text"
+         input.lang = language
+         input.autocapitalize = "off"
+         input.autocorrect = "off"
 
-      
-   }
+         
+      }
 
-   checkInput();
-}
+      checkInput();
+   }}
 
 function goFullScreen() {
 

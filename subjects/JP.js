@@ -18,8 +18,8 @@ function JPquestions(){
       statement += '<span>Translate "</span>'
       statement += "<span id = 'question'></span>"
       statement += '<span>" into Hirigana </span>'
-      statement += "<br><span id = 'answer'></span>"
-      statement += "<br><input id = 'input'></input>"
+      statement += "<br><span id = 'answer0'></span>"
+      statement += "<br><input id = 'input0'></input>"
 
       x = Object.keys(words[operation][i])[0]
       answer = Object.values(words[operation][i])[0]
@@ -36,8 +36,8 @@ function JPquestions(){
       statement += '<span>Translate "</span>'
       statement += "<span id = 'question'></span>"
       statement += '<span>" into English </span>'
-      statement += "<br><span id = 'answer'></span>"
-      statement += "<br><input id = 'input'></input>"
+      statement += "<br><span id = 'answer0'></span>"
+      statement += "<br><input id = 'input0'></input>"
 
      
       x = Object.values(words[operation][i])[0]
@@ -55,8 +55,8 @@ function JPquestions(){
       statement += '<span>Translate "</span>'
       statement += "<span id = 'question'></span>"
       statement += '<span>" into Romaji </span>'
-      statement += "<br><span id = 'answer'></span>"
-      statement += "<br><input id = 'input'></input>"
+      statement += "<br><span id = 'answer0'></span>"
+      statement += "<br><input id = 'input0'></input>"
 
       if(operation == "hir"){
          x = words["kana"][i][0]}

@@ -37,7 +37,11 @@ const options ={
     },
     "physics":{
         "category":"physics",
-        "modes":["N","kN","g","kg"],
+        "modes":["N",
+            // "kN",
+            // "g",
+            // "kg"
+        ],
         "modeLabel":[
             "Newtons",
             "kN",

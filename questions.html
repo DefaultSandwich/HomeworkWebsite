@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
 
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <!-- <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> -->
     
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,23 +91,40 @@
      
       <h3 id="counter">Question 1 of 10</h3>
 
-
+      <form onsubmit="checkQuestion();return false">
       <div id = "statement" >
-       
-        = 
-        <span><input inputmode="numeric" type="number" id="input"   max="9999"></input></span>
-        <span id="answer"> answer</span>
+       loading...
       </div>
+
+      <!-- buttons -->
+      <input type = submit id="check" value="Check">  </input>
+      <button type = button id="skip" onclick = "skipQuestion()" > Skip </button>
+      <button type = button id="next" onclick = " nextQuestion()" > Next </button>
+      
+      <!-- quiz parramaters -->
+      <input id="subject" type="hidden" name="subject"></input>
+      <input id="quizLength" type="hidden" name="quizLength"></input>
+      <input id="gameMode" type="hidden" name="gameMode"></input>
+      <input id="category" type="hidden" name="category"></input>
+      <input id="questionType" type="hidden" name="questionType"></input>
+      
+      <script>
+        // set quiz parrameters
+      document.getElementById("subject").value = subject
+      document.getElementById("quizLength").value = quizLength
+      document.getElementById("gameMode").value = gameMode
+      document.getElementById("category").value = category
+      document.getElementById("questionType").value = questionType
+      </script>
+      </form>
+
 
     
       <div id="results" class="container report"></div>
   
-
-      <button type = button id="check" onclick = "checkQuestion()"> Check </input>
-      <button type = button id="skip" onclick = "skipQuestion()" > Skip </button>
-      <button type = button id="next" onclick = " nextQuestion()" > Next </button>
       <button type = button id="retry" onclick = "startQuiz()" > Retry </button>
       <button type = button id="home" onclick = "document.location='index.html'" > Home </button>
+      
 
 
 

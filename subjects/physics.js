@@ -46,8 +46,10 @@ async function newQuiz(){
         
       let question
       svg = null
-         answer=null;
+         answer={"magnitude":null,"angle":null};
          vectors = []
+
+         svg = "<svg width = 400 height = 400>"
    
 
          for(let i=0; i < 3; i++){
@@ -63,7 +65,7 @@ async function newQuiz(){
             }
             else {
                y = Math.floor(Math.random()*120) + 30
-               y = (y/360) * (2*Math.PI)
+               y = degToRad(y)
                y += vectors[i-1]["angle"];
                
             }
@@ -110,15 +112,15 @@ async function newQuiz(){
             for(let a=0;a<2;a++){
                vector = "<text "
                if(a==1){
-               vector += "  style = 'fill: hsl(" + String(i*100) + ",100%,20%)'"
+               vector += "  style = 'fill: hsl(" + String(i*100) + ",100%,20%) ; text-anchor:middle; dominant-baseline:middle '"
               
               }else{
-                  vector += "  style = 'fill: white; stroke: white;stroke-width:0.2em'"
+                  vector += "  style = 'fill: white; stroke: white;stroke-width:0.2em ; text-anchor:middle; dominant-baseline:middle'"
                }
                vector += "x="+String(x2+Math.cos(y)*20)
                vector += " y="+String(y2+Math.sin(y)*-20)
                vector += ">"
-               vector += String(convert(x,unit))+unit
+               vector += String(convertUnits(x,unit))+unit
                vector += "</text>"
                svg += vector
             }
@@ -130,7 +132,7 @@ async function newQuiz(){
             vector += "x="+String(x1+Math.cos((y + vectors[i-1]["angle"])/2)*50)
             vector += " y="+String(y1+Math.sin((y + vectors[i-1]["angle"])/2)*-50)
             vector += ">"
-            vector += String(Math.floor(((y-vectors[i-1]["angle"])/(2*Math.PI))*360))+"°"
+            vector += String(Math.floor(radToDeg(y-vectors[i-1]["angle"])))+"°"
             vector += "</text>"
             svg += vector}
 
@@ -138,23 +140,28 @@ async function newQuiz(){
         
          }
 
+         answer["angle"] = radToDeg(vectorTotal(vectors).angle).toFixed(0)
+         answer["magnitude"] = vectorTotal(vectors).magnitude.toFixed(2)
+
          //draw origin
          svg += "<circle cx=200 cy=200 r=3 />"
+         svg += "</svg>"
 
 
    
          statement = ""
       statement += "<span id = 'question'></span><br>"
 
-      statement += "<svg id = 'image' "
-      statement += "width= '400'  height='400'"
+      statement += "<div id = 'image' "
+      statement += "style= 'width: auto ; height:10em; overflow:scroll'"
    
-      statement += "> </svg><br>"
+      statement += "> </div><br>"
 
-      statement += "Magnitude = <input id = 'input'></input><br>"
-      statement += "Angle = <input id = 'input2'></input>"
+      statement += "Magnitude = <input id = 'input0'></input> "
+      statement += "<span id = 'answer0'></span><br>"
+      statement += "Angle = <input id = 'input1'></input>"
       statement += '<span> </span>'
-      statement += "<span id = 'answer'></span>"
+      statement += "<span id = 'answer1'></span>"
       
 
       question = {
@@ -176,7 +183,7 @@ async function newQuiz(){
    
 }
 
-function convert (value,unit){
+function convertUnits (value,unit){
    const G = 9.7803267715
 
    if(unit == "N"){
@@ -197,7 +204,27 @@ function convert (value,unit){
    
 }
 
+function vectorTotal(vectors){
 
+   let x = 0
+   let y = 0
+
+   for(let i = 0; i<vectors.length;i++){
+      x += vectors[i]["magnitude"]*Math.cos(vectors[i]["angle"])
+      y += vectors[i]["magnitude"]*Math.sin(vectors[i]["angle"])
+   }
+
+   return {"magnitude":Math.sqrt((x**2)+(y**2)),"angle":Math.atan(y/x)}
+   
+}
+
+function radToDeg(angle){
+ return angle/Math.PI*180
+}
+
+function degToRad(angle){
+   return angle/180*Math.PI
+}
 
 
 
