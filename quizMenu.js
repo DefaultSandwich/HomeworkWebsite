@@ -34,7 +34,28 @@ const options ={
             "Viet to English"
         ]
 
-    }
+    },
+    "physics":{
+        "category":"physics",
+        "modes":["N",
+            // "kN",
+            // "g",
+            // "kg"
+        ],
+        "modeLabel":[
+            "Newtons",
+            "kN",
+            "grams",
+            "kilograms"
+        ]
+    },
+    // "phyTools":{
+    //     "category":"physics",
+    //     "modes":["vectors"],
+    //     "modeLabel":[
+    //         "Vectors"
+    //     ]
+    // }
 }
 
 // function startQuiz(){

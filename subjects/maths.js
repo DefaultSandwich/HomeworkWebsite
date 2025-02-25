@@ -46,9 +46,9 @@ async function newQuiz(){
          x = Math.random();
          y = Math.random();
          operation = Math.floor(Math.random()*questionType.length);
-         console.log(operation)
+
          operation = questionType[operation]
-         console.log(operation)
+      
          
 
       if (operation == "add"){
@@ -84,9 +84,9 @@ async function newQuiz(){
       statement = ""
       statement += "<span id = 'question'></span>"
       statement += '<span> = </span>'
-      statement += "<input id = 'input'></input>"
+      statement += "<input id = 'input0'></input>"
       statement += '<span> </span>'
-      statement += "<span id = 'answer'></span>"
+      statement += "<span id = 'answer0'></span>"
       
 
       question = {
@@ -94,8 +94,8 @@ async function newQuiz(){
       "statement": statement,
       "phrase":String(x)+symbols[operations.indexOf(operation)]+String(y),
       "question":[x,y],
-      "answer":answer,
-      "userInput":null,
+      "answer":{"number":answer},
+      "userInput":[],
       "time":null
       
       }

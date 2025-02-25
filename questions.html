@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
 
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <!-- <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> -->
     
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,8 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-    <script src="VI.js"></script>
-    <script src="JP.js"></script>
+ 
     <script src="quiz.js"> </script>
     <script src="buttons.js"></script>
     <script src="stopwatch.js"></script>
@@ -20,6 +19,10 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
     <meta name = "viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1" />
+
+    <link rel="icon" type="image/x-icon" href="Icons\favicon.png">
+    <title>Alvin's Study Place</title>
+
 
     <script>
         // Get the question mode from the URL
@@ -36,7 +39,41 @@
     </script>       
 
 
-  
+    <script>
+        
+                
+
+      if(category == "lang"){
+        var langScript = document.createElement("script");
+        langScript.src = "subjects\\"+ subject + ".js";  // Dynamically set the script source
+        langScript.async = true;  // Ensures non-blocking load
+        document.head.appendChild(langScript);
+      }
+
+      var script = document.createElement("script");
+      script.src = "subjects\\"+ category + ".js";  // Dynamically set the script source
+      script.async = true;  // Ensures non-blocking load
+      
+      script.onload = async function() {
+          console.log("Script loaded:", script.src);
+          if (typeof startQuiz === "function") {
+              console.log("Function  found ", script.src);
+              // Call the function after it is loaded
+              await startQuiz(); 
+              next(); 
+              
+          } else {
+              console.error("Function not found in", script.src);
+          }
+      };
+      
+      script.onerror = function () {
+          console.error("Failed to load script:", script.src);
+      };
+
+      document.head.appendChild(script);
+      
+    </script>
 
 
     
@@ -58,54 +95,47 @@
      
       <h3 id="counter">Question 1 of 10</h3>
 
-
+      <form onsubmit="checkQuestion();return false">
       <div id = "statement" >
-       
-        = 
-        <span><input inputmode="numeric" type="number" id="input"   max="9999"></input></span>
-        <span id="answer"> answer</span>
+       loading...
       </div>
+
+      <!-- buttons -->
+      <input type = submit id="check" value="Check">  </input>
+      <button type = button id="skip" onclick = "skipQuestion()" > Skip </button>
+      <button type = button id="next" onclick = " nextQuestion()" > Next </button>
+      
+      <!-- quiz parramaters -->
+      <input id="subject" type="hidden" name="subject"></input>
+      <input id="quizLength" type="hidden" name="quizLength"></input>
+      <input id="gameMode" type="hidden" name="gameMode"></input>
+      <input id="category" type="hidden" name="category"></input>
+      <input id="questionType" type="hidden" name="questionType"></input>
+      
+      <script>
+        // set quiz parrameters
+      document.getElementById("subject").value = subject
+      document.getElementById("quizLength").value = quizLength
+      document.getElementById("gameMode").value = gameMode
+      document.getElementById("category").value = category
+      document.getElementById("questionType").value = questionType
+      </script>
+      </form>
+
 
     
       <div id="results" class="container report"></div>
   
-
-      <button type = button id="check" onclick = "checkQuestion()"> Check </input>
-      <button type = button id="skip" onclick = "skipQuestion()" > Skip </button>
-      <button type = button id="next" onclick = " nextQuestion()" > Next </button>
       <button type = button id="retry" onclick = "startQuiz()" > Retry </button>
       <button type = button id="home" onclick = "document.location='index.html'" > Home </button>
+      
 
 
 
-      <script>
-    
-            var script = document.createElement("script");
-            script.src = category + ".js";  // Dynamically set the script source
-            script.async = true;  // Ensures non-blocking load
-            
-            script.onload = async function() {
-                console.log("Script loaded:", script.src);
-                if (typeof startQuiz === "function") {
-                    console.log("Function  found ", script.src);
-                    // Call the function after it is loaded
-                    await startQuiz(); 
-                    next(); 
-                    
-                } else {
-                    console.error("Function not found in", script.src);
-                }
-            };
-            
-            script.onerror = function () {
-                console.error("Failed to load script:", script.src);
-            };
-    
-            document.head.appendChild(script);
-        </script>
+
     
       
-      <script></script>    
+    
       
 
     </main>
