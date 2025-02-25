@@ -22,7 +22,7 @@ function JPquestions(){
       statement += "<br><input id = 'input0'></input>"
 
       x = Object.keys(words[operation][i])[0]
-      answer = Object.values(words[operation][i])[0]
+      answer = {"hir":Object.values(words[operation][i])[0]}
       
       
    }
@@ -41,12 +41,12 @@ function JPquestions(){
 
      
       x = Object.values(words[operation][i])[0]
-      answer = Object.keys(words[operation][i])[0]
+      answer = {"eng":Object.keys(words[operation][i])[0]}
       
    }
 
    if (operation == "hir"||operation == "kata"){
-      //hiragana to romaji
+      //hiragana/kata to romaji
       
 
       
@@ -65,7 +65,7 @@ function JPquestions(){
       }
       operation = "kana"
 
-      answer = words["kana"][i][2]
+      answer = {"ro":words["kana"][i][2]}
    }
 
    words[operation].splice(i,1)

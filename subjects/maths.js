@@ -94,8 +94,8 @@ async function newQuiz(){
       "statement": statement,
       "phrase":String(x)+symbols[operations.indexOf(operation)]+String(y),
       "question":[x,y],
-      "answer":answer,
-      "userInput":null,
+      "answer":{"number":answer},
+      "userInput":[],
       "time":null
       
       }

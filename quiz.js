@@ -1,47 +1,46 @@
 
 
 let symbols = [
-   "+","−","×","÷",
-   "<img src = 'Icons\\tick.svg' style = 'height : 1.2em; width : 1.2em; vertical-align:text-top'>",
-   "<img src = 'Icons\\cross.svg' style = 'height : 1.2em; width : 1.2em; vertical-align:text-top' >"]
+   "+", "−", "×", "÷",
+   "<img src = 'Icons\\tick.svg' style = 'height : 1.2em; width : 1.2em; vertical-align:baseline ; position: relative; top: calc((1.2em - 0.735em) / 2)'>",
+   "<img src = 'Icons\\cross.svg' style = 'height : 1.2em; width : 1.2em; vertical-align:baseline;  position: relative; top: calc((1.2em - 0.735em) / 2)'>"]
 
-async function nextQuestion(){
-   
-    // change to next question
-    
-    questionID++
+async function nextQuestion() {
+
+   // change to next question
+
+   questionID++
 
 
 
-    
-    if(questionID < quizLength){
+
+   if (questionID < quizLength) {
       await appendInput()
-      if(gameMode == "timed"){
+      if (gameMode == "timed") {
          resetStopwatch()
          timer = true
-         
+
          stopWatch()
       }
-      document.getElementById("counter").innerHTML = "Question "+String(questionID+1)+" of "+String(quizLength)
+      document.getElementById("counter").innerHTML = "Question " + String(questionID + 1) + " of " + String(quizLength)
       document.getElementById("question").innerHTML = quiz[questionID]["phrase"]
       document.getElementById("check").hidden = false
       document.getElementById("skip").hidden = false
       document.getElementById("answer0").hidden = false
       document.getElementById("input0").hidden = false
       document.getElementById("next").hidden = true
-      
+
       document.getElementById("answer0").style.visibility = "hidden"
 
-      if(document.getElementById("image"))
-      {
-         document.getElementById("image").innerHTML = quiz[questionID]["image"] 
+      if (document.getElementById("image")) {
+         document.getElementById("image").innerHTML = quiz[questionID]["image"]
       }
 
 
 
       //Check if inputs is empty
       userInput = document.getElementById("input0")
-      if(userInput){
+      if (userInput) {
          //make input blue
          document.getElementById("input0").classList.remove("error");
          //clear input
@@ -50,77 +49,97 @@ async function nextQuestion(){
          document.getElementById("input0").disabled = false
          //select input
          document.getElementById("input0").focus();
-      }else{
+      } else {
          document.getElementById("check").focus()
       }
-    
-      
-      
- 
-   
- }else{
-    
-    showResults();
 
- }
+
+
+
+
+   } else {
+
+      showResults();
+
+   }
 }
 
 
-function checkQuestion(){
-   
+function checkQuestion() {
+
 
 
    //fetch userInput
    input = document.getElementById("input0")
    userInput = input.value.trim()
 
-   
-      
+
+
    //check if input filled
-      if(userInput !== "" && (userInput < Number(input.max) || input.type == "text")){
+   if (userInput !== "" && (userInput < Number(input.max) || input.type == "text")) {
 
 
-         //submit and show answer
-         submitAnswer();
-         showAnswer();
-         //make input blue
-         document.getElementById("input0").classList.remove("error");
-   
-      }else{
-         //make input red
-         document.getElementById("input0").classList.add("error");
-         //focus on skip button
-         document.getElementById("skip").focus();}
+      //submit and show answer
+      submitAnswer();
+      showAnswer();
+      //make input blue
+      document.getElementById("input0").classList.remove("error");
+
+   } else {
+      //make input red
+      document.getElementById("input0").classList.add("error");
+      //focus on skip button
+      document.getElementById("skip").focus();
+   }
 
 
 }
 
 
-function skipQuestion(){
-   userInput = null
-   submitAnswer();
+function skipQuestion() {
+   submitAnswer(true);
    showAnswer();
 }
 
-function submitAnswer() {
+function submitAnswer(skipped) {
 
-   //log user answer
-if(userInput == null){
-   quiz[questionID]["userInput"] = null
-}else{
-   quiz[questionID]["userInput"] = userInput.trim().toLowerCase().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')
+   let statement = document.getElementById("statement")
+
+
+   for (let i = 0; i < statement.getElementsByTagName("input").length; i++) {
+
+      //log all inputs
+
+      input = document.getElementById("input" + String(i))
+      userInput = input.value
+
+      //log user answer
+      if (skipped) {
+
+         quiz[questionID]["userInput"][i] = null
+
+      } else {
+         if (input.type == "text") {
+            quiz[questionID]["userInput"][i] = userInput.trim().toLowerCase().replace(/[!"#$%&'()*+,.-/:;<=>?@[\]^_`{|}~]/g, '')
+         }
+
+         if (input.type == "number") {
+            quiz[questionID]["userInput"][i] = Number(userInput)
+         }
+
+
+      }
+
+      //Make input uneditable
+      input.disabled = true
+   }
    quiz[questionID]["time"] = count
-}
-   
-   //Make input uneditable
-   document.getElementById("input0").disabled = true
 
-   
 }
 
 
 
-function showAnswer(){
+function showAnswer() {
    //pause stopwatch
    timer = false
    //fetch answer
@@ -133,48 +152,73 @@ function showAnswer(){
    document.getElementById("next").hidden = false
 
    //render answer
-   document.getElementById("answer0").style.visibility = "visible"
-   if(subject=="physics"){
-      answer = quiz[questionID]["answer"]["magnitude"]
-      document.getElementById("answer0").innerHTML = "<b>"+String(answer)+" N";
-      document.getElementById("answer0").innerHTML += symbols[checkAnswer(questionID)];
+   let answerElement
+   let statement = document.getElementById("statement")
+   let key
 
-      answer = quiz[questionID]["answer"]["angle"]
-      
-      document.getElementById("answer1").innerHTML = "<b>"+String(answer)+"°";
-      document.getElementById("answer1").innerHTML += symbols[checkAnswer(questionID)];
+   for (let i = 0; i < statement.getElementsByTagName("input").length; i++) {
+      console.log(String(statement))
+      answerElement = document.getElementById("answer" + String(i))
 
-   }else{
-      document.getElementById("answer0").innerHTML = "<b>"+String(answer);
-      document.getElementById("answer0").innerHTML += symbols[checkAnswer(questionID)];
+      answerElement.style.visibility = "visible"
+      answerElement.innerHTML = ""
+
+      key = Object.keys(quiz[questionID]["answer"])[i]
+
+      if (statement.getElementsByTagName("input")["input" + String(i)].type == "number") {
+         answerElement.innerHTML += "= "
+      }
+
+      answerElement.innerHTML += "<b>" + formatValue(quiz[questionID]["answer"][key], key) + "</b>"
+
+      if (quiz[questionID]["userInput"] != null) {
+         answerElement.innerHTML += symbols[checkAnswer(questionID, i)]
+      }
    }
-
    //focus next button
    document.getElementById("next").focus();
 
-   
+
 }
 
-function checkAnswer(questionID){
-   userInput = quiz[questionID]["userInput"];
-  
-   if(userInput == String(answer).toLowerCase().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')){
-      return(4)
-   }else{
-      return(5)
+function checkAnswer(questionID, answerID) {
+   // Check if question skipped
+   let userInput = quiz[questionID]["userInput"]
+   if (userInput == null) {
+      userInput = "skipped"
+      return (5)
+   }
+
+   let answer = Object.values(quiz[questionID]["answer"])[answerID]
+   userInput = quiz[questionID]["userInput"][answerID];
+
+   if (typeof answer == "string") {
+      //convert answer to lowercase and remove punctuation
+      answer = String(answer).toLowerCase().replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, '')
+   }
+
+   if (userInput == answer) {
+      //tick
+      return (4)
+   } else {
+      //cross
+      return (5)
    }
 }
 
-function submitInput(){
+function submitInput() {
    //used in button js
    userInput = document.getElementById("input0").value
+
+
+
    document.getElementById("check").click()
 
 }
 
-function showResults(){
+function showResults() {
 
-  
+
    document.getElementById("results").innerHTML = ""
    document.getElementById("counter").innerHTML = "Results"
 
@@ -188,78 +232,129 @@ function showResults(){
    document.getElementById("home").hidden = false
    document.getElementById("retry").hidden = false
    document.getElementById("results").hidden = false
-  
- 
+
+
    let score = 0
+   let questions = 0
    let totalTime = 0
-   for(let i = 0;i<quizLength;i++){
-      
-      userInput = quiz[i]["userInput"]
-      if(!userInput){
-      userInput = "skipped"
-      }
+   for (let i = 0; i < quizLength; i++) {
+      //run for every question
 
 
-      answer = quiz[i]["answer"];
+
+
+
 
       let results
-      results = "<div>"+quiz[i]["phrase"]
-      if(quiz[i]["image"]){
+
+      //add question
+      results = "<div>" + quiz[i]["phrase"]
+
+      if (quiz[i]["image"]) {
+         //add image
          results += "<br><div style='width: auto;height:5em;overflow:scroll'>"
-         results += quiz[i]["image"]+"</div>"
+         results += quiz[i]["image"] + "</div>"
 
       }
+
+
       results += "</div>"
       document.getElementById("results").innerHTML += results
 
-      userInput = "<div><b>"+String(userInput)+symbols[checkAnswer(i)]+"</div>"
-      document.getElementById("results").innerHTML += userInput
 
-      if(checkAnswer(i) == 4){
-         score++
+
+
+
+
+      let correct = true
+      let answers
+      answers = quiz[i]["answer"];
+
+      if (typeof answers !== "object") {
+         console.error("answer not object")
       }
 
-      let answers
-      if(checkAnswer(i) == 5){
+      userInput = "<div>"
+      answers = "<div>"
 
-         if(subject == "physics"){
-            answers = "<div>= <b>"+ String(quiz[i]["answer"]["magnitude"]) + " N<br>"
-            answers += "</b>= <b>" + String (quiz[i]["answer"]["angle"])+"°"
-            answers += "</div>"
 
-         }else{
-            answers = "<div>=<b>"+quiz[i]["answer"]+"</div>"
+      for (let a = 0; a < Object.keys(quiz[i]["answer"]).length; a++) {
+         // Run for every input
+         questions++
+
+
+         //write userInput
+         console.log(userInput)
+
+
+         key = Object.keys(quiz[i]["answer"])[a]
+         answers += "= " + formatValue(quiz[i]["answer"][key], key) + "<br>"
+
+         if (quiz[i]["userInput"][a] == null) {
+            if (a == 0) {
+               userInput += "skipped"
+            }
+            correct = false
+         } else {
+
+
+
+
+            userInput += formatValue(quiz[i]["userInput"][a], key)
+
+
+            userInput += symbols[checkAnswer(i, a)] + "<br>"
+
+            if (checkAnswer(i, a) == 4) {
+               //increase score
+               score++
+
+            } else {
+               correct = false
+            }
          }
 
-      
-      }else{
-         answers = "<div class = 'empty'></div>"
+
+
+
       }
 
+      console.log(userInput)
+      document.getElementById("results").innerHTML += userInput + "</div>"
 
+
+      if (correct) {
+         //if input correct dont display answer
+         answers = "<div class = 'empty'></div>"
+      } else {
+         answers += "</div>"
+      }
+
+      console.log(answers)
       document.getElementById("results").innerHTML += answers
-    
-      if(gameMode=="timed"){
-         document.getElementById("results").style =   "grid-template-columns: auto auto auto auto;"
 
-  
+
+      //add time
+      if (gameMode == "timed") {
+         document.getElementById("results").style = "grid-template-columns: auto auto auto auto;"
+
          let time
 
-         if(userInput){
+         if (userInput) {
             time = quiz[i]["time"]
             totalTime += Number(time)
-       
-i    
-            time = "<div style= 'font-family: Space Mono''>"+ countToTime(time)[0]+":" + countToTime(time)[1]+
-            ":"  + countToTime(time)[2]+"."  + countToTime(time)[3] + "</div>"
-            
-         }else{
+
+
+            time = "<div style= 'font-family: Space Mono''>" + countToTime(time)[0] + ":" + countToTime(time)[1] +
+               ":" + countToTime(time)[2] + "." + countToTime(time)[3] + "</div>"
+
+         } else {
             time = "<div></div>"
          }
-         
+
          document.getElementById("results").innerHTML += time
       }
-      
+
 
    }
 
@@ -268,48 +363,49 @@ i
 
    //total
    let results = "<div style = 'border-bottom :none'>"
-   results += "<h3>Total = "+String(score)+"/"+String(quizLength)
+   results += "<h3>Total = " + String(score) + "/" + String(questions)
    results += "</h3></div>"
 
 
 
    //percentage
    results += "<div style = 'border-bottom :none'>"
-   results += "<h3>= "+String(((score/quizLength)*100).toFixed(0))+"%"
+   results += "<h3>= " + String(((score / questions) * 100).toFixed(0)) + "%"
    results += "</h3></div>"
    document.getElementById("results").innerHTML += results
 
-   if(gameMode=="timed"){
+   if (gameMode == "timed") {
       //total time
-      totalTime = countToTime(totalTime)[0]+":" +countToTime(totalTime)[1]+":"  + countToTime(totalTime)[2]+"."  + countToTime(totalTime)[3]+"s"
+      totalTime = countToTime(totalTime)[0] + ":" + countToTime(totalTime)[1] + ":" + countToTime(totalTime)[2] + "." + countToTime(totalTime)[3] + "s"
 
       time = "<div style = 'border-bottom: none' class = 'empty'></div>"
       time += "<div style= 'font-family: Space Mono; border-bottom: none'><h3>"
       time += totalTime
       time += "</h3></div>"
-      
+
       document.getElementById("results").innerHTML += time
    }
 
-   if(score/quizLength==1){
+   if (score / questions == 1) {
+
 
       document.querySelectorAll('.empty').forEach(e => e.remove());
 
       document.getElementById("results").style = 'grid-template-columns: auto auto'
-      if(gameMode == "timed"){
+      if (gameMode == "timed") {
          document.getElementById("results").style = 'grid-template-columns: auto auto auto'
       }
    }
 
 }
 
-function setupQuiz(){
+function setupQuiz() {
    console.log("start")
    document.getElementById("retry").hidden = true
    document.getElementById("home").hidden = true
    document.getElementById("results").innerHTML = ""
-   
-  
+
+
    document.getElementById("statement").hidden = false
 
    document.getElementById("next").hidden = false
@@ -317,33 +413,33 @@ function setupQuiz(){
 
 
    //start stopwatch
-   if( gameMode =="timed"){
+   if (gameMode == "timed") {
       document.getElementById("stopwatch").hidden = false
    } else {
       document.getElementById("stopwatch").hidden = true
    }
 }
 
-async function appendInput(){
+async function appendInput() {
    //Append elements to statement
    document.getElementById("statement").innerHTML = quiz[questionID]["statement"]
 
    let input
    let statement = document.getElementById("statement")
-   for(let i = 0;i<statement.getElementsByTagName("input").length;i++){
-      input = document.getElementById("input"+String(i))
+   for (let i = 0; i < statement.getElementsByTagName("input").length; i++) {
+      input = document.getElementById("input" + String(i))
       input.required = "true"
 
-         
-      if(category=="maths"){
-         
+
+      if (category == "maths") {
+
          input.type = "number"
          input.inputMode = "numeric"
          input.max = "9999"
-   
+
       }
 
-      if(category =="physics"){
+      if (category == "physics") {
          input.type = "number"
          input.inputMode = "decimal"
          input.max = "9999"
@@ -352,7 +448,7 @@ async function appendInput(){
       }
 
 
-      if(category=="lang"){
+      if (category == "lang") {
 
 
 
@@ -361,23 +457,38 @@ async function appendInput(){
          input.autocapitalize = "off"
          input.autocorrect = "off"
 
-         
+
       }
 
       checkInput();
-   }}
+   }
+}
 
 function goFullScreen() {
 
-   if(!document.fullscreenElement){
+   if (!document.fullscreenElement) {
 
       document.getElementById("fullscreen icon").src = "Icons\\close_fullscreen.svg"
 
       if (document.documentElement.requestFullscreen) {
-       document.documentElement.requestFullscreen();}
-}else
-   {
+         document.documentElement.requestFullscreen();
+      }
+   } else {
       document.getElementById("fullscreen icon").src = "Icons\\fullscreen.svg"
       document.exitFullscreen();
+   }
+}
+
+function formatValue(value, key) {
+   if (key == "magnitude") {
+      return value.toFixed(2) + " N"
+   }
+
+   if (key == "angle") {
+      return String(value) + "°"
+   }
+
+   if (key != "magnitude" && key != "angle") {
+      return String(value)
    }
 }
