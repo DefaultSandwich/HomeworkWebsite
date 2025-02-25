@@ -154,11 +154,11 @@ async function newQuiz() {
       statement += "<span id = 'question'></span><br>"
 
       statement += "<div id = 'image' "
-      statement += "style= 'width: auto ; height:10em; overflow:scroll'"
+      statement += "style= 'width: auto ; height:10em; overflow:auto'"
 
       statement += "> </div><br>"
 
-      statement += "Magnitude = <input id = 'input0'></input> "
+      statement += "Force = <input id = 'input0'></input> "
       statement += "<span id = 'answer0'></span><br>"
       statement += "Angle = <input id = 'input1'></input>"
       statement += '<span> </span>'

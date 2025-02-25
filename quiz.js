@@ -252,14 +252,29 @@ function showResults() {
 
       if (quiz[i]["image"]) {
          //add image
-         results += "<br><div style='width: auto;height:5em;overflow:scroll'>"
+         results += "<br><div id= 'image" + String(i) + "' style='width: auto; max-width: 50vw; height:5em;overflow:scroll'>"
          results += quiz[i]["image"] + "</div>"
+
+
 
       }
 
 
       results += "</div>"
       document.getElementById("results").innerHTML += results
+
+
+      if (quiz[i]["image"]) {
+         requestAnimationFrame(() => {
+
+            document.getElementById("image" + String(i)).scrollTop = 150; // Scroll down
+            document.getElementById("image" + String(i)).scrollLeft = 100; // Scroll right
+
+         }
+         )
+      }
+
+
 
 
 
@@ -288,7 +303,8 @@ function showResults() {
 
 
          key = Object.keys(quiz[i]["answer"])[a]
-         answers += "= " + formatValue(quiz[i]["answer"][key], key) + "<br>"
+         answers += "<span style = 'white-space: nowrap'>"
+         answers += "= " + formatValue(quiz[i]["answer"][key], key) + "<br></span>"
 
          if (quiz[i]["userInput"][a] == null) {
             if (a == 0) {
@@ -435,6 +451,7 @@ async function appendInput() {
 
          input.type = "number"
          input.inputMode = "numeric"
+         input.style.width = "4em"
          input.max = "9999"
 
       }
@@ -443,7 +460,7 @@ async function appendInput() {
          input.type = "number"
          input.inputMode = "decimal"
          input.max = "9999"
-         input.style.width = "3em"
+         input.style.width = "4em"
          input.step = "any"
       }
 
