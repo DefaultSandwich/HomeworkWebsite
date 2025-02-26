@@ -4,45 +4,55 @@ let questionType = [] //add, kana, worded
 let quizLength = null //how many questions
 
 
-const options ={
-    "maths":{
-        "category":"maths",   
-        "modes":["add","sub","mul","div"],
-        "modeLabel":["+","−","×","÷"]
+const options = {
+    "maths": {
+        "category": "maths",
+        "modes": ["add", "sub", "mul", "div"],
+        "modeLabel": ["+", "−", "×", "÷"]
     },
-    "JP":{
-        "category":"lang",
-        "modes":[
+    "JP_vocab": {
+        "category": "lang",
+        "modes": [
             "eng-hir"
-            ,"hir-eng"
-            ,"hir",
-            "kata"
+            , "hir-eng"
+
         ],
-        "modeLabel":[
+        "modeLabel": [
             "English to Hirigana",
             "Hirigana to English",
+
+        ]
+    },
+    "JP_kana": {
+        "category": "lang",
+        "modes": [
+            "hir",
+            "kata"
+        ],
+        "modeLabel": [
+
             "Hirigana",
             "Katakana"
         ]
 
     },
-    "VI":{
-        "category":"lang",
-        "modes":["eng-vi","vi-eng"],
-        "modeLabel":[
+    "VI": {
+        "category": "lang",
+        "modes": ["eng-vi", "vi-eng"],
+        "modeLabel": [
             "English to Viet",
             "Viet to English"
         ]
 
     },
-    "physics":{
-        "category":"physics",
-        "modes":["N",
+    "physics": {
+        "category": "physics",
+        "modes": ["N",
             // "kN",
             // "g",
             // "kg"
         ],
-        "modeLabel":[
+        "modeLabel": [
             "Newtons",
             "kN",
             "grams",
@@ -62,35 +72,35 @@ const options ={
 
 // }
 
-function subjectOptions(){
-   
-    if(!options[subject]){
+function subjectOptions() {
+
+    if (!options[subject]) {
         //check if subject does not exist
         window.alert("Still working on this... <(´= ⩊ =`)>")
         window.location.href = "index.html"
         return
     }
 
-let modes = options[subject]["modes"]
+    let modes = options[subject]["modes"]
 
-document.getElementById("category").value = options[subject]["category"]
+    document.getElementById("category").value = options[subject]["category"]
 
-let radio = document.getElementById("subjects")
-radio.innerHTML = ""
-    for(let i = 0 ; i < modes.length; i++){
+    let radio = document.getElementById("subjects")
+    radio.innerHTML = ""
+    for (let i = 0; i < modes.length; i++) {
         //add checkbox
-        radio.innerHTML +=  "<input type='checkbox' id="+String(modes[i])+"></input>"
+        radio.innerHTML += "<input type='checkbox' id=" + String(modes[i]) + "></input>"
         document.getElementById(String(modes[i])).value = modes[i]
         document.getElementById(String(modes[i])).name = "questionType"
 
-       
-            
-       
+
+
+
 
         //add label
-        radio.innerHTML +=  "<label for="+String(modes[i])+">"+String(options[subject]["modeLabel"][i])+"</label><br>"
-        
-        
+        radio.innerHTML += "<label for=" + String(modes[i]) + ">" + String(options[subject]["modeLabel"][i]) + "</label><br>"
+
+
 
     }
     // make first checkbox on

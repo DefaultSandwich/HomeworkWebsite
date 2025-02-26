@@ -115,7 +115,7 @@ async function newQuiz() {
                vector += "  style = 'fill: hsl(" + String(i * 100) + ",100%,20%) ; text-anchor:middle; dominant-baseline:middle '"
 
             } else {
-               vector += "  style = 'fill: white; stroke: white;stroke-width:0.2em ; text-anchor:middle; dominant-baseline:middle'"
+               vector += "  style = 'fill: var(--background-color); stroke: var(--background-color);stroke-width:0.2em ; text-anchor:middle; dominant-baseline:middle'"
             }
             vector += "x=" + String(x2 + Math.cos(y) * 20)
             vector += " y=" + String(y2 + Math.sin(y) * -20)
