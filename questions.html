@@ -35,6 +35,11 @@
         const subject = urlParams.get("subject");
         const gameMode = urlParams.get("gameMode");
         const quizLength = Number(urlParams.get("quizLength"));
+        let language
+        if(category == "lang")
+        {language = urlParams.get("language");
+         
+        }
     
     </script>       
 
@@ -45,7 +50,7 @@
 
       if(category == "lang"){
         var langScript = document.createElement("script");
-        langScript.src = "subjects\\"+ subject + ".js";  // Dynamically set the script source
+        langScript.src = "subjects\\"+ language + ".js";  // Dynamically set the script source
         langScript.async = true;  // Ensures non-blocking load
         document.head.appendChild(langScript);
       }

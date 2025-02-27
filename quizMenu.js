@@ -12,6 +12,7 @@ const options = {
     },
     "JP_vocab": {
         "category": "lang",
+        "language":"JP",
         "modes": [
             "eng-hir"
             , "hir-eng"
@@ -25,6 +26,7 @@ const options = {
     },
     "JP_kana": {
         "category": "lang",
+        "language":"JP",
         "modes": [
             "hir",
             "kata"
@@ -38,6 +40,7 @@ const options = {
     },
     "VI": {
         "category": "lang",
+        "language":"VI",
         "modes": ["eng-vi", "vi-eng"],
         "modeLabel": [
             "English to Viet",
@@ -103,6 +106,16 @@ function subjectOptions() {
 
 
     }
+
+    //add language category
+    console.log("e")
+    console.log(options[subject]["language"])
+    if(options[subject]["language"] != null){
+        console.log("e")
+        document.getElementById("form").innerHTML += "<input type='hidden' name='language' value='"+String(options[subject]["language"])+"'></input>"
+    }
+
     // make first checkbox on
-    document.getElementById(String(modes[0])).checked = "true"
+    console.log(String(modes[0]))
+    document.getElementById(String(modes[0])).checked = true
 }

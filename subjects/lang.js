@@ -5,7 +5,7 @@ let quiz = []
 let wordbankJP = null
 let wordbankVI = null
 let wordbank = null
-let language = null
+// let language = null
 
 let words = {
     ["eng-hir"]:[],
@@ -36,7 +36,8 @@ let words = {
 
 
 async function startQuiz() {
-    language = subject
+    // language = subject
+    
 
     setupQuiz({"category":"lang","lang":language})
     
@@ -119,6 +120,7 @@ async function newQuiz(language){
         }
 
        quiz.push(question)
+    
     }
  }
 

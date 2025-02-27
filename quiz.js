@@ -19,8 +19,7 @@ async function nextQuestion() {
       if (gameMode == "timed") {
          resetStopwatch()
          timer = true
-
-         stopWatch()
+         startStopWatch()
       }
       document.getElementById("counter").innerHTML = "Question " + String(questionID + 1) + " of " + String(quizLength)
       document.getElementById("question").innerHTML = quiz[questionID]["phrase"]
@@ -133,7 +132,16 @@ function submitAnswer(skipped) {
       //Make input uneditable
       input.disabled = true
    }
-   quiz[questionID]["time"] = count
+
+   quiz[questionID]["time"] = Number(JSON.parse(JSON.stringify(count)));
+
+   //log quiz
+   // for (let a = 0; a < 5; a++) {
+   //    console.log(quiz[a]["time"])
+   // }
+
+
+
 
 }
 
@@ -157,7 +165,7 @@ function showAnswer() {
    let key
 
    for (let i = 0; i < statement.getElementsByTagName("input").length; i++) {
-      console.log(String(statement))
+
       answerElement = document.getElementById("answer" + String(i))
 
       answerElement.style.visibility = "visible"
