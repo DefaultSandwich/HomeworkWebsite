@@ -14,6 +14,6 @@ https://defaultsandwich.github.io/HomeworkWebsite/
 - Expanded Vietnamese wordbank
 - Fixed header blocking retry buttons
 
-### V1.34b 
+### V1.3.4b 
 *28/2/25*
 - Vietnamese bug fix
