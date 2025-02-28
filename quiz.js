@@ -429,91 +429,98 @@ function setupQuiz() {
    document.getElementById("home").hidden = true
    document.getElementById("results").innerHTML = ""
 
+   //scroll to the top
+   requestAnimationFrame(() => {
+     window.scrollTo( {top:"0", behavior: "instant"})
+      })
 
-   document.getElementById("statement").hidden = false
-
-   document.getElementById("next").hidden = false
-   questionID = -1
 
 
-   //start stopwatch
-   if (gameMode == "timed") {
-      document.getElementById("stopwatch").hidden = false
-   } else {
-      document.getElementById("stopwatch").hidden = true
+      document.getElementById("statement").hidden = false
+
+      document.getElementById("next").hidden = false
+      questionID = -1
+
+
+      //start stopwatch
+      if (gameMode == "timed") {
+         document.getElementById("stopwatch").hidden = false
+      } else {
+         document.getElementById("stopwatch").hidden = true
+      }
    }
-}
 
 async function appendInput() {
-   //Append elements to statement
-   document.getElementById("statement").innerHTML = quiz[questionID]["statement"]
+         //Append elements to statement
+         document.getElementById("statement").innerHTML = quiz[questionID]["statement"]
 
-   let input
-   let statement = document.getElementById("statement")
-   for (let i = 0; i < statement.getElementsByTagName("input").length; i++) {
-      input = document.getElementById("input" + String(i))
-      input.required = "true"
+         let input
+         let statement = document.getElementById("statement")
+         for (let i = 0; i < statement.getElementsByTagName("input").length; i++) {
+            input = document.getElementById("input" + String(i))
+            input.required = "true"
 
 
-      if (category == "maths") {
+            if (category == "maths") {
 
-         input.type = "number"
-         input.inputMode = "numeric"
-         input.style.width = "4em"
-         input.max = "9999"
+               input.type = "number"
+               input.inputMode = "numeric"
+               input.style.width = "4em"
+               input.max = "9999"
 
+            }
+
+            if (category == "physics") {
+               input.type = "number"
+               input.inputMode = "decimal"
+               input.max = "9999"
+               input.style.width = "4em"
+               input.step = "any"
+            }
+
+
+            if (category == "lang") {
+
+
+
+               input.type = "text"
+               input.lang = language
+               input.autocapitalize = "off"
+               input.autocorrect = "off"
+
+
+            }
+
+            checkInput();
+         }
       }
-
-      if (category == "physics") {
-         input.type = "number"
-         input.inputMode = "decimal"
-         input.max = "9999"
-         input.style.width = "4em"
-         input.step = "any"
-      }
-
-
-      if (category == "lang") {
-
-
-
-         input.type = "text"
-         input.lang = language
-         input.autocapitalize = "off"
-         input.autocorrect = "off"
-
-
-      }
-
-      checkInput();
-   }
-}
 
 function goFullScreen() {
 
-   if (!document.fullscreenElement) {
+         if (!document.fullscreenElement) {
 
-      document.getElementById("fullscreen icon").src = "Icons\\close_fullscreen.svg"
+            document.getElementById("fullscreen icon").src = "Icons\\close_fullscreen.svg"
 
-      if (document.documentElement.requestFullscreen) {
-         document.documentElement.requestFullscreen();
+            if (document.documentElement.requestFullscreen) {
+               document.documentElement.requestFullscreen();
+            }
+         } else {
+            document.getElementById("fullscreen icon").src = "Icons\\fullscreen.svg"
+            document.exitFullscreen();
+         }
       }
-   } else {
-      document.getElementById("fullscreen icon").src = "Icons\\fullscreen.svg"
-      document.exitFullscreen();
-   }
-}
 
 function formatValue(value, key) {
-   if (key == "magnitude") {
-      return value.toFixed(2) + " N"
-   }
+         if (key == "magnitude") {
+            return value.toFixed(2) + " N"
+         }
 
-   if (key == "angle") {
-      return String(value) + "°"
-   }
+         if (key == "angle") {
+            return String(value) + "°"
+         }
 
-   if (key != "magnitude" && key != "angle") {
-      return String(value)
-   }
-}
+         if (key != "magnitude" && key != "angle") {
+            return String(value)
+         }
+      }
+

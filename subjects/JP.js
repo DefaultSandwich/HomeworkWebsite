@@ -33,9 +33,9 @@ function JPquestions(){
       
       i = nextWord("words",operation)
 
-      statement += '<span>Translate "</span>'
+      statement += '<span>Translate 「</span>'
       statement += "<span id = 'question'></span>"
-      statement += '<span>" into English </span>'
+      statement += '<span>」  into English </span>'
       statement += "<br><span id = 'answer0'></span>"
       statement += "<br><input id = 'input0'></input>"
 
@@ -52,9 +52,9 @@ function JPquestions(){
       
       i = nextWord("kana","kana")
 
-      statement += '<span>Translate "</span>'
+      statement += '<span>Translate </span>'
       statement += "<span id = 'question'></span>"
-      statement += '<span>" into Romaji </span>'
+      statement += '<span> into Romaji </span>'
       statement += "<br><span id = 'answer0'></span>"
       statement += "<br><input id = 'input0'></input>"
 

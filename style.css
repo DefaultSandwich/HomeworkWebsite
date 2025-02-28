@@ -107,6 +107,7 @@ a:not(a.link) {
   display: flex;
   line-height: normal;
 
+  margin-bottom: 0.5em;
   padding: 0.5em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -184,7 +185,7 @@ input.error {
   grid-template-columns: auto auto;
   grid-column-gap: 1em;
   grid-row-gap: 1em;
-  line-height: 0.5em;
+
 
 
 
@@ -233,13 +234,14 @@ footer {
 }
 
 header {
+  width: fit-content;
   font-size: 0.75em;
   font-weight: 500;
   padding: 1em;
   padding-left: 2em;
   padding-right: 2em;
   position: fixed;
-  left: 0;
+ 
   right: 0;
   top: 0;
   border-width: 100%;

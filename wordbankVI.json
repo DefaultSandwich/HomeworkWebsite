@@ -11,8 +11,23 @@
     {"if":"nếu mà"},
     {"then":"sau đó"},
     {"Japan":"Nhật"},
+    {"China":"trung quốc"},
+    {"India":"Ấn Độ"},
     {"how":"làm sao"},
     {"much":"nhiều"},
-    {"how much":"bao nhiều"}
+    {"how much":"bao nhiều"},
+    {"before":"trước"},
+    {"remember":"trí nhớ"},
+    {"for":"vì"},
+    {"until":"đến"},
+    {"maths":"toán"},
+    {"history":"lịch sử"},
+    {"geography":"địa lý"},
+    {"tomorrow":"ngày mai"},
+    {"yesterday":"hôm qua"},
+    {"thousand":"ngàn"},
+    {"hundered":"trăm"},
+    {"steel":"thép"},
+    {"weekweek":"tuần"}
     ]
 }
