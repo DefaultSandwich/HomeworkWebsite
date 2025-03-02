@@ -16,6 +16,7 @@ html {
   --primary-color: royalblue;
   --accent-shade: rgba(0,0,0,0.2);
   --accent-color: cornflowerblue;
+  
 
 
   background-color: var(--background-color);
@@ -29,6 +30,17 @@ html {
     --primary-color: cornflowerblue;
     --accent-shade: rgba(255,255,255,0.2);
     --accent-color: royalblue;
+  
+  }
+  svg {
+    filter: invert(100%)  hue-rotate(-45deg)
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  
+  svg {
+    filter: none
   }
 }
 
@@ -265,3 +277,4 @@ header {
   background-color: var(--background-color);
   line-height: 0
 }
+

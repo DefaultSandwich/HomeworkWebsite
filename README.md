@@ -17,3 +17,7 @@ https://defaultsandwich.github.io/HomeworkWebsite/
 ### V1.3.4b 
 *28/2/25*
 - Vietnamese bug fix
+
+### V1.3.5 
+*2/3/25*
+- Improved vector contrast in dark mode
