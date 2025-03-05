@@ -15,12 +15,20 @@ const options = {
         "language":"JP",
         "modes": [
             "eng-hir"
-            , "hir-eng"
+            , "hir-eng",
+            "kanji-ro",
+            "ro-kanji",
+            "kana-ro",
+            "ro-kana"
 
         ],
         "modeLabel": [
             "English to Hirigana",
             "Hirigana to English",
+            "Kanji to Romaji",
+            "Romaji to Kanji",
+            "Kana to Romaji",
+            "Romaji to Kana"
 
         ]
     },

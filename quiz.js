@@ -226,10 +226,11 @@ function submitInput() {
 
 function showResults() {
 
-
+   //Clear results
    document.getElementById("results").innerHTML = ""
    document.getElementById("counter").innerHTML = "Results"
 
+   //hide buttons
    document.getElementById("next").hidden = true
    document.getElementById("answer0").hidden = true
    document.getElementById("statement").hidden = true
@@ -237,6 +238,7 @@ function showResults() {
    document.getElementById("check").hidden = true
    document.getElementById("stopwatch").hidden = true
 
+   //show buttons
    document.getElementById("home").hidden = false
    document.getElementById("retry").hidden = false
    document.getElementById("results").hidden = false
@@ -248,11 +250,7 @@ function showResults() {
    for (let i = 0; i < quizLength; i++) {
       //run for every question
 
-
-
-
-
-
+      //results is one row of content in results html
       let results
 
       //add question
@@ -262,9 +260,6 @@ function showResults() {
          //add image
          results += "<br><div id= 'image" + String(i) + "' style='width: auto; max-width: 50vw; height:5em;overflow:scroll'>"
          results += quiz[i]["image"] + "</div>"
-
-
-
       }
 
 
@@ -274,20 +269,13 @@ function showResults() {
 
       if (quiz[i]["image"]) {
          requestAnimationFrame(() => {
-
+            //scroll images to middle after frame refreshes
             document.getElementById("image" + String(i)).scrollTop = 150; // Scroll down
             document.getElementById("image" + String(i)).scrollLeft = 100; // Scroll right
 
          }
          )
       }
-
-
-
-
-
-
-
 
       let correct = true
       let answers
@@ -316,6 +304,7 @@ function showResults() {
 
          if (quiz[i]["userInput"][a] == null) {
             if (a == 0) {
+               //set user input to skipped if first input
                userInput += "skipped"
             }
             correct = false
@@ -354,7 +343,7 @@ function showResults() {
          answers += "</div>"
       }
 
-      console.log(answers)
+
       document.getElementById("results").innerHTML += answers
 
 
@@ -364,7 +353,7 @@ function showResults() {
 
          let time
 
-         if (userInput) {
+         if (userInput != null) {
             time = quiz[i]["time"]
             totalTime += Number(time)
 
@@ -415,9 +404,11 @@ function showResults() {
 
       document.querySelectorAll('.empty').forEach(e => e.remove());
 
-      document.getElementById("results").style = 'grid-template-columns: auto auto'
+
       if (gameMode == "timed") {
          document.getElementById("results").style = 'grid-template-columns: auto auto auto'
+      } else {
+         document.getElementById("results").style = 'grid-template-columns: auto auto'
       }
    }
 
@@ -431,96 +422,96 @@ function setupQuiz() {
 
    //scroll to the top
    requestAnimationFrame(() => {
-     window.scrollTo( {top:"0", behavior: "instant"})
-      })
+      window.scrollTo({ top: "0", behavior: "instant" })
+   })
 
 
 
-      document.getElementById("statement").hidden = false
+   document.getElementById("statement").hidden = false
 
-      document.getElementById("next").hidden = false
-      questionID = -1
+   document.getElementById("next").hidden = false
+   questionID = -1
 
 
-      //start stopwatch
-      if (gameMode == "timed") {
-         document.getElementById("stopwatch").hidden = false
-      } else {
-         document.getElementById("stopwatch").hidden = true
-      }
+   //start stopwatch
+   if (gameMode == "timed") {
+      document.getElementById("stopwatch").hidden = false
+   } else {
+      document.getElementById("stopwatch").hidden = true
    }
+}
 
 async function appendInput() {
-         //Append elements to statement
-         document.getElementById("statement").innerHTML = quiz[questionID]["statement"]
+   //Append elements to statement
+   document.getElementById("statement").innerHTML = quiz[questionID]["statement"]
 
-         let input
-         let statement = document.getElementById("statement")
-         for (let i = 0; i < statement.getElementsByTagName("input").length; i++) {
-            input = document.getElementById("input" + String(i))
-            input.required = "true"
-
-
-            if (category == "maths") {
-
-               input.type = "number"
-               input.inputMode = "numeric"
-               input.style.width = "4em"
-               input.max = "9999"
-
-            }
-
-            if (category == "physics") {
-               input.type = "number"
-               input.inputMode = "decimal"
-               input.max = "9999"
-               input.style.width = "4em"
-               input.step = "any"
-            }
+   let input
+   let statement = document.getElementById("statement")
+   for (let i = 0; i < statement.getElementsByTagName("input").length; i++) {
+      input = document.getElementById("input" + String(i))
+      input.required = "true"
 
 
-            if (category == "lang") {
+      if (category == "maths") {
 
+         input.type = "number"
+         input.inputMode = "numeric"
+         input.style.width = "4em"
+         input.max = "9999"
 
-
-               input.type = "text"
-               input.lang = language
-               input.autocapitalize = "off"
-               input.autocorrect = "off"
-
-
-            }
-
-            checkInput();
-         }
       }
+
+      if (category == "physics") {
+         input.type = "number"
+         input.inputMode = "decimal"
+         input.max = "9999"
+         input.style.width = "4em"
+         input.step = "any"
+      }
+
+
+      if (category == "lang") {
+
+
+
+         input.type = "text"
+         input.lang = language
+         input.autocapitalize = "off"
+         input.autocorrect = "off"
+
+
+      }
+
+      checkInput();
+   }
+}
 
 function goFullScreen() {
 
-         if (!document.fullscreenElement) {
+   if (!document.fullscreenElement) {
 
-            document.getElementById("fullscreen icon").src = "Icons\\close_fullscreen.svg"
+      document.getElementById("fullscreen icon").src = "Icons\\close_fullscreen.svg"
 
-            if (document.documentElement.requestFullscreen) {
-               document.documentElement.requestFullscreen();
-            }
-         } else {
-            document.getElementById("fullscreen icon").src = "Icons\\fullscreen.svg"
-            document.exitFullscreen();
-         }
+      if (document.documentElement.requestFullscreen) {
+         document.documentElement.requestFullscreen();
       }
+   } else {
+      document.getElementById("fullscreen icon").src = "Icons\\fullscreen.svg"
+      document.exitFullscreen();
+   }
+}
 
 function formatValue(value, key) {
-         if (key == "magnitude") {
-            return value.toFixed(2) + " N"
-         }
+   if (key == "magnitude") {
+      return value.toFixed(2) + " N"
+   }
 
-         if (key == "angle") {
-            return String(value) + "°"
-         }
+   if (key == "angle") {
+      return String(value) + "°"
+   }
 
-         if (key != "magnitude" && key != "angle") {
-            return String(value)
-         }
-      }
+   if (key != "magnitude" && key != "angle") {
+      return String(value)
+   }
+}
 

@@ -21,3 +21,9 @@ https://defaultsandwich.github.io/HomeworkWebsite/
 ### V1.3.5 
 *2/3/25*
 - Improved vector contrast in dark mode
+
+### V1.3.6
+*5/3/25*
+- Added months to Vietnamese wordbank
+- Added more comments to code
+- Added kanji and romaji to JP wordbank
