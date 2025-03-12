@@ -52,6 +52,18 @@
         {"steel":"thép"},
         {"much":"nhiều"},
         {"how much":"bao nhiều"},
-        {"remember":"trí nhớ"}
+        {"remember":"trí nhớ"},
+
+        {"from":"từ đâu"},
+        {"same":"bằng"},
+        {"so far":"điều này"},
+        {"notice":"để ý"},
+        {"just like that":"cứ như thế"},
+        {"ready":"sẵn sàng"},
+        {"be reserved":"khép mình"},
+        {"hope":"hy vọng"},
+        {"night":"đêm"},
+        {"vẫn chưa":"not yet"}
+
     ]
 }

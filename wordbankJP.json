@@ -26,7 +26,13 @@
                 {"daijoubu":"大丈夫"},
                 {"tokyo":"東京"},
                 {"densha":"電車"},
-                {"jishin":"地震"}
+                {"jishin":"地震"},
+                {"mori":"森"},
+                {"michi":"道"},
+                {"yama":"山"},
+                {"kawa":"川"},
+                {"umi":"海"},
+                {"denki":"電気"}
         ],
 
         
