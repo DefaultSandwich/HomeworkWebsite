@@ -1,5 +1,5 @@
 
-let quiz = []
+let quiz = {}
 
 
 let wordbankJP = null
@@ -7,17 +7,7 @@ let wordbankVI = null
 let wordbank = null
 // let language = null
 
-let words = {
-    ["eng-hir"]: [],
-    ["hir-eng"]: [],
-    ["kana"]: [],
-    ["kanji-ro"]: [],
-    ["ro-kanji"]: [],
-    ["ro-kana"]: [],
-    ["kana-ro"]: [],
-    ["eng-vi"]: [],
-    ["vi-eng"]: []
-}
+clearWords()
 
 async function loadWordbank(language) {
     try {
@@ -54,17 +44,8 @@ async function startQuiz() {
     console.log("Generate quiz")
     await newQuiz(language);
 
-    words = {
-        ["eng-hir"]: [],
-        ["hir-eng"]: [],
-        ["kana"]: [],
-        ["kanji-ro"]: [],
-        ["ro-kanji"]: [],
-        ["ro-kana"]: [],
-        ["kana-ro"]: [],
-        ["eng-vi"]: [],
-        ["vi-eng"]: []
-    }
+    clearWords()
+
     wordbank = null
     nextQuestion();
 }
@@ -82,7 +63,11 @@ async function newQuiz(language) {
 
 
     let question
-
+    quiz = {
+        gameMode:"",
+        category:"",
+        questions:[]
+    }
 
 
     for (let i = 0; i < quizLength; i++) {
@@ -127,7 +112,7 @@ async function newQuiz(language) {
 
         }
 
-        quiz.push(question)
+        quiz.questions.push(question)
 
     }
 }
@@ -145,3 +130,16 @@ function nextWord(mode, operation_) {
 }
 
 
+function clearWords(){
+ words = {
+    ["eng-hir"]: [],
+    ["hir-eng"]: [],
+    ["kana"]: [],
+    ["kanji-ro"]: [],
+    ["ro-kanji"]: [],
+    ["ro-kana"]: [],
+    ["kana-ro"]: [],
+    ["eng-vi"]: [],
+    ["vi-eng"]: []
+}
+}
