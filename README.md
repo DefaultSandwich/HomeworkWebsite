@@ -4,10 +4,6 @@ https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
 
-### V1.3.8
-*13/3/25*
-- Result column not reappearing after retry, bug fix
-
 ### V1.3.7
 *12/3/25*
 - Expanded vietnamese vocab
