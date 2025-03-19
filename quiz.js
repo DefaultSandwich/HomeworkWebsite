@@ -366,7 +366,7 @@ function showResults() {
          }
 
          document.getElementById("results").innerHTML += time
-      }else{
+      } else {
          document.getElementById("results").style = "grid-template-columns: auto auto auto;"
 
 
