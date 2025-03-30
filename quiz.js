@@ -19,7 +19,8 @@ async function nextQuestion() {
       if (gameMode == "timed") {
          resetStopwatch()
          timer = true
-         startStopWatch()
+
+         stopWatch()
       }
       document.getElementById("counter").innerHTML = "Question " + String(questionID + 1) + " of " + String(quizLength)
       document.getElementById("question").innerHTML = quiz[questionID]["phrase"]
@@ -132,16 +133,7 @@ function submitAnswer(skipped) {
       //Make input uneditable
       input.disabled = true
    }
-
-   quiz[questionID]["time"] = Number(JSON.parse(JSON.stringify(count)));
-
-   //log quiz
-   // for (let a = 0; a < 5; a++) {
-   //    console.log(quiz[a]["time"])
-   // }
-
-
-
+   quiz[questionID]["time"] = count
 
 }
 
@@ -165,7 +157,7 @@ function showAnswer() {
    let key
 
    for (let i = 0; i < statement.getElementsByTagName("input").length; i++) {
-
+      console.log(String(statement))
       answerElement = document.getElementById("answer" + String(i))
 
       answerElement.style.visibility = "visible"
@@ -226,11 +218,10 @@ function submitInput() {
 
 function showResults() {
 
-   //Clear results
+
    document.getElementById("results").innerHTML = ""
    document.getElementById("counter").innerHTML = "Results"
 
-   //hide buttons
    document.getElementById("next").hidden = true
    document.getElementById("answer0").hidden = true
    document.getElementById("statement").hidden = true
@@ -238,7 +229,6 @@ function showResults() {
    document.getElementById("check").hidden = true
    document.getElementById("stopwatch").hidden = true
 
-   //show buttons
    document.getElementById("home").hidden = false
    document.getElementById("retry").hidden = false
    document.getElementById("results").hidden = false
@@ -250,7 +240,11 @@ function showResults() {
    for (let i = 0; i < quizLength; i++) {
       //run for every question
 
-      //results is one row of content in results html
+
+
+
+
+
       let results
 
       //add question
@@ -258,8 +252,9 @@ function showResults() {
 
       if (quiz[i]["image"]) {
          //add image
-         results += "<br><div id= 'image" + String(i) + "' style='width: auto; max-width: 50vw; height:5em;overflow:scroll'>"
+         results += "<br><div style='width: auto;height:5em;overflow:scroll'>"
          results += quiz[i]["image"] + "</div>"
+
       }
 
 
@@ -267,15 +262,9 @@ function showResults() {
       document.getElementById("results").innerHTML += results
 
 
-      if (quiz[i]["image"]) {
-         requestAnimationFrame(() => {
-            //scroll images to middle after frame refreshes
-            document.getElementById("image" + String(i)).scrollTop = 150; // Scroll down
-            document.getElementById("image" + String(i)).scrollLeft = 100; // Scroll right
 
-         }
-         )
-      }
+
+
 
       let correct = true
       let answers
@@ -299,12 +288,10 @@ function showResults() {
 
 
          key = Object.keys(quiz[i]["answer"])[a]
-         answers += "<span style = 'white-space: nowrap'>"
-         answers += "= " + formatValue(quiz[i]["answer"][key], key) + "<br></span>"
+         answers += "= " + formatValue(quiz[i]["answer"][key], key) + "<br>"
 
          if (quiz[i]["userInput"][a] == null) {
             if (a == 0) {
-               //set user input to skipped if first input
                userInput += "skipped"
             }
             correct = false
@@ -343,7 +330,7 @@ function showResults() {
          answers += "</div>"
       }
 
-
+      console.log(answers)
       document.getElementById("results").innerHTML += answers
 
 
@@ -353,7 +340,7 @@ function showResults() {
 
          let time
 
-         if (userInput != null) {
+         if (userInput) {
             time = quiz[i]["time"]
             totalTime += Number(time)
 
@@ -366,8 +353,7 @@ function showResults() {
          }
 
          document.getElementById("results").innerHTML += time
-      } else {
-         document.getElementById("results").style = "grid-template-columns: auto auto auto;"
+      }
 
 
    }
@@ -405,11 +391,9 @@ function showResults() {
 
       document.querySelectorAll('.empty').forEach(e => e.remove());
 
-
+      document.getElementById("results").style = 'grid-template-columns: auto auto'
       if (gameMode == "timed") {
          document.getElementById("results").style = 'grid-template-columns: auto auto auto'
-      } else {
-         document.getElementById("results").style = 'grid-template-columns: auto auto'
       }
    }
 
@@ -420,12 +404,6 @@ function setupQuiz() {
    document.getElementById("retry").hidden = true
    document.getElementById("home").hidden = true
    document.getElementById("results").innerHTML = ""
-
-   //scroll to the top
-   requestAnimationFrame(() => {
-      window.scrollTo({ top: "0", behavior: "instant" })
-   })
-
 
 
    document.getElementById("statement").hidden = false
@@ -457,7 +435,6 @@ async function appendInput() {
 
          input.type = "number"
          input.inputMode = "numeric"
-         input.style.width = "4em"
          input.max = "9999"
 
       }
@@ -466,7 +443,7 @@ async function appendInput() {
          input.type = "number"
          input.inputMode = "decimal"
          input.max = "9999"
-         input.style.width = "4em"
+         input.style.width = "3em"
          input.step = "any"
       }
 
@@ -515,4 +492,3 @@ function formatValue(value, key) {
       return String(value)
    }
 }
-

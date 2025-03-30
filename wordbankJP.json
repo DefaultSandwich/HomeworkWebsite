@@ -3,37 +3,17 @@
 {   
     
         "words":[
-                {"train":"でんしあ"},
-                {"thank you very much":"ありがとうございます"},
-                {"water":"みず"},
-                {"tokyo":"とうきう"},
-                {"person":"ひと"},
-                {"good morning":"おはよう"},   
-                {"magic":"まほう"}
-        ],
-
-        "romaji":[
-                {"sumimasen":"すみません"},
-                {"daijoubu":"だいじょうぶ"},
-                {"kurai":"くらい "},
-                {"takoyaki":"たこやき"},
-                {"yappari":"やっぱり"},
-                {"eto":"えと"},
-                {"hai":"はい"}
-        ],
-        "kanji":[
-                {"shinkansen":"新幹線"},
-                {"daijoubu":"大丈夫"},
-                {"tokyo":"東京"},
-                {"densha":"電車"},
-                {"jishin":"地震"},
-                {"mori":"森"},
-                {"michi":"道"},
-                {"yama":"山"},
-                {"kawa":"川"},
-                {"umi":"海"},
-                {"denki":"電気"}
-        ],
+        {"train":"でんしあ"},
+        {"thank you very much":"ありがとうございます"},
+        {"water":"みず"},
+        {"tokyo":"とうきう"},
+        {"person":"ひと"},
+        {"I'm fine":"だいじょうぶ"},
+        {"good morning":"おはよう"},
+        {"takoyaki":"たこやき"},
+        {"excuse me":"すみません"},
+        {"gloomy":"くらい "},
+        {"magic":"まほう"}],
 
         
         "kana": [

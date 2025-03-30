@@ -1,77 +1,45 @@
-html {
+
+
+html{
   scroll-behavior: smooth;
   margin: 0em;
   padding: 1em;
-
-  font-family: "Inter", "Sawarabi Gothic", Arial, sans-serif;
-  font-feature-settings: 'liga' 1, 'calt' 1;
-  /* fix for Chrome */
+  background-color: white;
+  font-family: "Inter","Sawarabi Gothic", Arial, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
   font-size: 18px;
   font-optical-sizing: auto;
   font-weight: 400;
-
-  /* declare custom colours */
-  --background-color: white;
-  --text-color: #1B2021;
-  --primary-color: royalblue;
-  --accent-shade: rgba(0,0,0,0.2);
-  --accent-color: cornflowerblue;
-  
-
-
-  background-color: var(--background-color);
-  color: var(--text-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    --background-color: #1B2021;
-    --text-color: #f1eee2;
-    --primary-color: cornflowerblue;
-    --accent-shade: rgba(255,255,255,0.2);
-    --accent-color: royalblue;
-  
-  }
-  svg {
-    filter: invert(100%)  hue-rotate(-45deg)
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  
-  svg {
-    filter: none
-  }
-}
-
-body {
-  margin: 4em;
+ body {
+  margin : 4em;
   font-size: 1.5em;
   line-height: 2em;
 }
-
+  
 
 
 h3 {
-  font-family: "Space Mono", "Sawarabi Gothic", Arial, sans-serif;
+  font-family: "Space Mono","Sawarabi Gothic", Arial, sans-serif;
 }
-
-
-@media (max-device-width:768px) {
+  
+  
+@media (min-device-width:300px) and (max-device-width:768px) {
   html {
     margin: 0em;
     font-size: 14px;
   }
-
-  body {
+  
+  body{
     margin: 1em;
   }
 
-  /* .tabContent {
+    /* .tabContent {
       display:none;
   } */
 
-  .container.report {
+  .container.report{
     font-size: 0.75em;
   }
 }
@@ -81,13 +49,13 @@ h3 {
 h1 {
   margin: 0em;
   padding: 0;
+  background-color: white;
   font-size: 1.5em;
-
+  
 }
 
 
-button,
-input[type="submit"] {
+button,input[type = "submit"]{
   margin-right: 0.2em;
   line-height: 1.2em;
   font-family: "Space Mono", Arial, sans-serif;
@@ -95,96 +63,91 @@ input[type="submit"] {
   border-style: solid;
   border-color: royalblue;
   background-color: royalblue;
-  color: var(--background-color);
+  color: white;
   border-radius: 0.25rem;
   border-width: 0.15rem;
-
+  
   transition: color .2s ease, background-color .2s ease;
   text-decoration: none;
 
-
+  
 }
-
-button:hover,
-input[type="submit"]:hover {
-  color: var(--text-color);
+button:hover,input[type = "submit"]:hover {
+  color: black;
   border-style: solid;
-  background-color: var(--background-color);
-  border-color: royalblue;
-
+  background-color: white;
+  border-color: royalblue; 
+  
 }
 
 
-a:not(a.link) {
+a:not(a.link){
   display: flex;
   line-height: normal;
-
-  margin-bottom: 0.5em;
+ 
   padding: 0.5em;
   padding-left: 0.5em;
   padding-right: 0.5em;
   font-size: 1em;
   border-style: solid;
-  border-color: var(--text-color);
-  background-color: var(--background-color);
-  color: var(--text-color);
+  border-color: black;
+  background-color: white;
+  color: black;
   border-radius: 0.2em;
   border-width: 0.1em;
 
-
+  
   text-decoration: none;
   transition: color .2s ease, border-color .2s ease, background-color .2s ease;
 
-  justify-content: space-between;
+  justify-content: space-between; 
   width: auto;
 
-
+  
 }
 
-a.link {
-  color: var(--text-color);
+a.link{
+  color: black;
 }
 
 a:hover {
-  transform: translateY(-0.2em);
-  box-shadow: 0 0.2em var(--accent-shade);
-
+  transform:  translateY(-0.2em);
+  box-shadow:  0 0.2em rgba(0,0,0,0.2);
+  
 }
 
 
 
-input {
+input{
   font-family: inherit;
   font-size: 1em;
-  border: .1em solid var(--accent-color);
-  background-color: var(--background-color);
-  color: var(--text-color);
+  border:.1em solid cornflowerblue;
   border-radius: 0.2em;
 
-
+  
 }
 
-input[type="number"] {
+input[type = "number"] {
 
   width: 10em;
-
+  
 }
 
-input[type="checkbox"] {
+input[type = "checkbox"] {
 
   height: 0.75em;
   width: 0.75em;
-
+  
 }
 
-input[type="radio"] {
+input[type = "radio"] {
 
   height: 0.75em;
   width: 0.75em;
-
+  
 }
 
-input:disabled {
+input:disabled{
   appearance: textfield;
 }
 
@@ -194,42 +157,41 @@ input.error {
 
 .container.menu {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto ;
   grid-column-gap: 1em;
   grid-row-gap: 1em;
-
-
-
-
+  line-height: 0.5em;
+ 
+  
+  
 
 }
-
-.container.menu>div {
+.container.menu > div {
   padding: 1em;
   text-align: left;
-  border: 0.1em solid var(--text-color);
+  border: 0.1em solid black;
   border-radius: 0.2em;
-  box-shadow: 0 0.2em var(--accent-color);
-
+  box-shadow:  0 0.2em cornflowerblue;
+ 
 }
 
 .container.report {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-column-gap: 1em;
-
+  
 
 }
 
 
 
-.container.report>div {
+.container.report > div {
 
   text-align: left;
-  border-bottom: 0.08em solid var(--accent-shade);
+  border-bottom: 0.08em solid rgba(0,0,0,0.2);
 }
 
-footer {
+footer{
   font-size: 0.75em;
   font-weight: 500;
   padding: 1em;
@@ -238,22 +200,21 @@ footer {
   position: fixed;
   left: 0;
   right: 0;
-  top: calc(100svh - 4em);
+  top: calc( 100svh - 4em);
   border-width: 100%;
-  color: var(--text-color);
-  text-shadow: 0.1em 0em 0 var(--background-color);
+  color: black;
+  text-shadow: 0.1em 0em 0 white;
   text-align: right;
 }
 
-header {
-  width: fit-content;
+header{
   font-size: 0.75em;
   font-weight: 500;
   padding: 1em;
   padding-left: 2em;
   padding-right: 2em;
   position: fixed;
- 
+  left: 0;
   right: 0;
   top: 0;
   border-width: 100%;
@@ -262,19 +223,8 @@ header {
   text-align: right;
 }
 
-.fullscreen {
-  margin: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  border-color: var(--background-color);
-  line-height: 0;
-  transition: color .2s ease, border-color .2s ease, background-color .2s ease;
-}
+.fullscreen{margin:0; padding:0; background-color: white;border-color: white; line-height:0; 
+  transition:  color .2s ease, border-color .2s ease, background-color .2s ease;}
 
-:hover.fullscreen {
-  margin: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  line-height: 0
-}
+:hover.fullscreen{margin:0; padding:0; background-color: white; line-height:0}
 

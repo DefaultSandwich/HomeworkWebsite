@@ -12,15 +12,17 @@ let countString = count;
 
 let start
 
-function startStopWatch() {
+function stopWatch() {
 
     start = Date.now()
-    stopwatchLoop()
+    startStopwatch()
     
+
+
     
 }
 
-function stopwatchLoop(){
+function startStopwatch(){
     if (timer) {
         
         
@@ -43,7 +45,7 @@ function stopwatchLoop(){
        document.getElementById('sec').innerHTML = secString;
        document.getElementById('count').innerHTML = countString
        
-       requestAnimationFrame(stopwatchLoop)
+       setTimeout(startStopwatch,1)
    }
 }
 

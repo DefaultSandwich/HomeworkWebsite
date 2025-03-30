@@ -35,11 +35,6 @@
         const subject = urlParams.get("subject");
         const gameMode = urlParams.get("gameMode");
         const quizLength = Number(urlParams.get("quizLength"));
-        let language
-        if(category == "lang")
-        {language = urlParams.get("language");
-         
-        }
     
     </script>       
 
@@ -50,7 +45,7 @@
 
       if(category == "lang"){
         var langScript = document.createElement("script");
-        langScript.src = "subjects\\"+ language + ".js";  // Dynamically set the script source
+        langScript.src = "subjects\\"+ subject + ".js";  // Dynamically set the script source
         langScript.async = true;  // Ensures non-blocking load
         document.head.appendChild(langScript);
       }
@@ -129,7 +124,7 @@
 
 
     
-      <div id="results" class="container report" style="overflow: auto;"></div>
+      <div id="results" class="container report"></div>
   
       <button type = button id="retry" onclick = "startQuiz()" > Retry </button>
       <button type = button id="home" onclick = "document.location='index.html'" > Home </button>
