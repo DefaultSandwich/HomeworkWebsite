@@ -4,6 +4,33 @@ https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
 
+### V1.4.0
+*20/4/25*
+- Units now displayed
+- Properly shows answers for multiple inputs
+- Quiz cannot be continued after 100 questions
+
+*17/4/25*
+- Reimplemented Vietnamese
+- Reimplemented vectors
+- Fix retry button not working
+
+*16/4/25*
+- Reimplemented Japanese
+- Added retry and next buttons to results page
+- Ask to reload quiz if quiz found in local storage when opening index html
+
+*undated*
+- Made questions and results seperate pages
+- Quiz now saved on local storage
+- Files reorganised
+- New subject js format
+- New question HTML structure 
+
+### V1.3.8
+*13/3/25*
+- Result column not reappearing after retry bug fix
+
 ### V1.3.7
 *12/3/25*
 - Expanded vietnamese vocab

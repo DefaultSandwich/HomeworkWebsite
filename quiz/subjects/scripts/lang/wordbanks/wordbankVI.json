@@ -1,0 +1,69 @@
+
+
+{
+
+"words":[
+        {"how":"làm sao"},
+        {"and":"và"},
+        {"with":"với"},
+        {"which":"cái nào"},
+        {"but":"nhưng"},
+        {"because":"tại vì"},
+        {"so":"nên"},
+        {"if":"nếu mà"},
+        {"then":"sau đó"},
+        {"for":"vì"},
+        {"before":"trước"},
+        {"until":"đến"},
+
+        {"maths":"toán"},
+        {"history":"lịch sử"},
+        {"geography":"địa lý"},
+        {"physics":"vật lý"},
+
+ 
+        {"Japan":"Nhật"},
+        {"China":"trung quốc"},
+        {"India":"Ấn Độ"},
+ 
+
+ 
+        {"tomorrow":"ngày mai"},
+        {"yesterday":"hôm qua"},
+        {"thousand":"ngàn"},
+        {"hundered":"trăm"},
+        {"week":"tuần"},
+        {"month":"tháng"},
+
+        {"January":"tháng một"},
+        {"Feburary":"tháng hai"},
+        {"March":"tháng ba"},
+        {"April":"tháng bốn"},
+        {"May":"tháng năm"},
+        {"June":"tháng sáu"},
+        {"July":"tháng bảy"},
+        {"August":"tháng tám"},
+        {"September":"tháng chín"},
+        {"October":"tháng mười"},
+        {"November":"tháng mười một"},
+        {"December":"tháng mười hai"},
+
+ 
+        {"steel":"thép"},
+        {"much":"nhiều"},
+        {"how much":"bao nhiều"},
+        {"remember":"trí nhớ"},
+
+        {"from":"từ đâu"},
+        {"same":"bằng"},
+        {"so far":"điều này"},
+        {"notice":"để ý"},
+        {"just like that":"cứ như thế"},
+        {"ready":"sẵn sàng"},
+        {"be reserved":"khép mình"},
+        {"hope":"hy vọng"},
+        {"night":"đêm"},
+        {"not yet":"vẫn chưa"}
+
+    ]
+}

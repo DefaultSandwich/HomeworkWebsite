@@ -12,17 +12,20 @@ let countString = count;
 
 let start
 
-function stopWatch() {
+function startStopWatch() {
 
     start = Date.now()
-    startStopwatch()
+    timer = true
+    stopwatchLoop()
     
-
-
     
 }
 
-function startStopwatch(){
+function stopStopwatch(){
+    timer = false
+}
+
+function stopwatchLoop(){
     if (timer) {
         
         
@@ -45,7 +48,7 @@ function startStopwatch(){
        document.getElementById('sec').innerHTML = secString;
        document.getElementById('count').innerHTML = countString
        
-       setTimeout(startStopwatch,1)
+       requestAnimationFrame(stopwatchLoop)
    }
 }
 
@@ -73,4 +76,8 @@ function countToTime(count){
     hour = String(hour).padStart(2,"0")
  
     return([hour,minute,second,countString])
+ }
+
+ function fetchTime(){
+    return count
  }
