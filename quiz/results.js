@@ -46,12 +46,20 @@ function showResults() {
          }
 
 
-         if (questions[i].userInput[f] == questions[i].answer[f]) {
+         if (compare(questions[i].userInput[f], questions[i].answer[f])) {
             //if answered correctly
             score++
             //add  tick to input
             inputs += tick
-            answers += "<div class = 'empty'>"
+
+            if (questions[i].answer[f].tolerance == null) {
+               answers += "<div class = 'empty'>"
+            } else {
+               // if answer has tolerance display error amount input vs answer
+               answers += "<div style='white-space:nowrap'>"
+               answers += (((questions[i].userInput[f] - questions[i].answer[f].value) / questions[i].answer[f].value) * 100).toFixed(0) + "%"
+            }
+
 
          } else {
 
@@ -145,7 +153,7 @@ function showResults() {
 
 function contQuiz() {
    //check if quiz is too long
-   if(quizCache.questions.length + 10 > 100){
+   if (quizCache.questions.length + 10 > 100) {
       alert("the quiz is too long")
       return
    }

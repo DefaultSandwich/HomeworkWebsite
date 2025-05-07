@@ -59,6 +59,7 @@ function loadQuestion() {
     question.statement.HTML.start = questionString[0]
     question.statement.HTML.middle = questionString[1]
     question.statement.HTML.end = questionString[2]
+    
 
     return question
 }

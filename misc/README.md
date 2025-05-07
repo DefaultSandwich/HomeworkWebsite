@@ -3,9 +3,18 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.4.1
+*7/5/25*
+- Quiz saves every question
+- Added tolerance to vector questions
+- Fixed answers not checking if answer is JSON
+- In results page correct answers have margin of error displayed
+
+*undated*
+- Added maths & physics resources page
 
 ### V1.4.0b
-- fixed icons not displaying
+- Fixed icons not displaying
 
 ### V1.4.0
 *20/4/25*

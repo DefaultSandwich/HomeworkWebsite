@@ -40,3 +40,20 @@ function formatValue(JSON) {
 
     return string
 }
+
+function compare(value, answer){
+
+    let tolerance = 0
+    let answer_ = answer
+
+    if(typeof answer == "object"){
+        answer_ = answer.value
+        tolerance = answer.tolerance
+    }
+
+    if(value >= answer_ - (answer_ * tolerance) && value <= answer_ + (answer_ * tolerance))
+       return true
+    else{
+       return false
+    }
+  }

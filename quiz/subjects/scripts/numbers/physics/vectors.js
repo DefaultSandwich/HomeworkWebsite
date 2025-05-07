@@ -121,10 +121,10 @@ function loadQuestion() {
 
     let questionString
 
-    questionString = "What is the Net force? (2dp)"
+    questionString = "What is the Net force? ±10%"
 
-    question.answer[0] = {"value": answer["magnitude"], "unit": "newton"}
-    question.answer[1] = {"value": answer["angle"], "unit": "degree"}
+    question.answer[0] = {"value": answer["magnitude"], "unit": "newton", "tolerance":0.1}
+    question.answer[1] = {"value": answer["angle"], "unit": "degree", "tolerance":0.1}
 
     question.statement.image = svg
 
@@ -135,10 +135,12 @@ function loadQuestion() {
     question.statement.HTML.start = questionString + "<div style = 'width : auto; height: 10em; overflow: scroll' >" + svg + "</div>" + "<br>"
 
     question.statement.HTML.end = "Magnitude = "
-    question.statement.HTML.end += " <input id = 'input0' style = 'width:3em' type = 'number' inputMode = 'decimal' max='9999' required = 'true'></input>N" 
+    question.statement.HTML.end += " <input id = 'input0' style = 'width:3em' type = 'number' inputMode = 'decimal' max='9999' step='0.01' required = 'true'></input>N"
+    question.statement.HTML.end += "<span id = 'answer0'></span>" 
     question.statement.HTML.end += "<br>"
     question.statement.HTML.end += "Angle = "
-    question.statement.HTML.end += " <input id = 'input1' style = 'width:3em' type = 'number' inputMode = 'decimal' max='9999' required = 'true'></input>°"
+    question.statement.HTML.end += " <input id = 'input1' style = 'width:3em' type = 'number' inputMode = 'decimal' max='9999' step='1' required = 'true'></input>°"
+    question.statement.HTML.end += "<span id = 'answer1'></span>" 
 
     return question
 }

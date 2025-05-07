@@ -171,13 +171,16 @@ function checkQuestion() {
 
     for (let i = 0; i < answerList.length; i++) {
         let value = document.getElementById("input" + String(i)).value
-        if (answerList[i] == value) {
+
+
+        console.log(answerList[i])
+        if (compare(value, answerList[i])) {
             console.log("correct")
-            document.getElementById("input" + String(i)).insertAdjacentHTML( "afterend",tick)
+            document.getElementById("answer" + String(i)).innerHTML = tick
 
         } else {
             console.log("wrong")
-            document.getElementById("input" + String(i)).insertAdjacentHTML( "afterend", formatValue(answerList[i]) + cross)
+            document.getElementById("answer" + String(i)).innerHTML = formatValue(answerList[i]) + cross
 
         }
         document.getElementById("input" + String(i)).value = value
@@ -233,6 +236,9 @@ function submitAnswer() {
         console.log(document.getElementById("input" + String(i)).value)
         quizCache.questions[questionID].userInput[i] = document.getElementById("input" + String(i)).value.trim()
     }
+
+    //save quiz to storage
+    localStorage.setItem('quiz', JSON.stringify(quizCache))
 
 
 

@@ -53,6 +53,7 @@ function loadQuestion() {
     question.statement.HTML.start = questionString
     question.statement.HTML.middle = " = "
     question.statement.HTML.end = " <input id = 'input0' style = 'width:3em' type = 'number' inputMode = 'decimal' max='9999' required = 'true'></input>"
+    question.statement.HTML.end += "<span id = 'answer0'></span>"
 
     return question
 }

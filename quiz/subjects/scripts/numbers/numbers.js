@@ -28,3 +28,4 @@ function convertUnits(value, unit) {
  function degToRad(angle) {
     return angle / 180 * Math.PI
  }
+
