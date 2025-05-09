@@ -24,8 +24,8 @@ function loadQuestion() {
       //viet to english
       word = nextWord("words", operation)
 
-      x = Object.keys(word)[0]
-      answer = Object.values(word)[0]
+      x = Object.values(word)[0]
+      answer = Object.keys(word)[0]
 
       questionString[0] = "Translate \""
       questionString[1] = x
