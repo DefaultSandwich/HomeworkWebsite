@@ -1,7 +1,10 @@
 const symbols = ["+", "−", "×", "÷"]
+const G = 9.7803267715
 
 function convertUnits(value, unit) {
-    const G = 9.7803267715
+   // convert value to unit
+   // value is equal to 1 newton
+    
  
     if (unit == "N") {
        return value
@@ -12,11 +15,11 @@ function convertUnits(value, unit) {
     }
  
     if (unit == "g") {
-       return (value * G) / 1000
+       return ((value / G) * 1000)
     }
  
     if (unit == "kg") {
-       return value * G
+       return value / G
     }
  
  }

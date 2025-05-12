@@ -30,8 +30,8 @@ function loadQuestion() {
       questionString[0] = "Translate \""
       questionString[1] = x
       questionString[2] = "\" into English"
-      questionString[2] += "<br><span id = 'answer0'></span>"
       questionString[2] += "<br><input id = 'input0'></input>"
+      questionString[2] += "<span id = 'answer0'></span>"
 
 
 
@@ -47,8 +47,9 @@ function loadQuestion() {
       questionString[0] = "Translate \""
       questionString[1] = x
       questionString[2] = "\" into Vietnamese"
-      questionString[2] += "<br><span id = 'answer0'></span>"
       questionString[2] += "<br><input id = 'input0'></input>"
+      questionString[2] += "<span id = 'answer0'></span>"
+      
 
 
 

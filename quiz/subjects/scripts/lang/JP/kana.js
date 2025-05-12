@@ -39,8 +39,8 @@ function loadQuestion() {
         questionString[0] = "Translate 「"
         questionString[1] = x
         questionString[2] = "」into Romaji"
-        questionString[2] += "<br><span id = 'answer0'></span>"
         questionString[2] += "<br><input id = 'input0'></input>"
+        questionString[2] += "<span id = 'answer0'></span>"
 
 
 

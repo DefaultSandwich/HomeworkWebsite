@@ -55,8 +55,9 @@ function JPquestions() {
       statement += '<span>Translate </span>'
       statement += "<span id = 'question'></span>"
       statement += '<span> into Romaji </span>'
-      statement += "<br><span id = 'answer0'></span>"
       statement += "<br><input id = 'input0'></input>"
+      statement += "<span id = 'answer0'></span>"
+      
 
       if (operation == "hir") {
          x = words["kana"][i][0]
@@ -77,8 +78,9 @@ function JPquestions() {
       statement += '<span>Translate 「</span>'
       statement += "<span id = 'question'></span>"
       statement += '<span>」  into romaji </span>'
-      statement += "<br><span id = 'answer0'></span>"
       statement += "<br><input id = 'input0'></input>"
+      statement += "<span id = 'answer0'></span>"
+      
 
 
       x = Object.values(words[operation][i])[0]
@@ -94,8 +96,8 @@ function JPquestions() {
       statement += '<span>Translate 「</span>'
       statement += "<span id = 'question'></span>"
       statement += '<span>」  into kanji </span>'
-      statement += "<br><span id = 'answer0'></span>"
       statement += "<br><input id = 'input0'></input>"
+      statement += "<span id = 'answer0'></span>"
 
 
       x = Object.keys(words[operation][i])[0]
@@ -112,8 +114,9 @@ function JPquestions() {
       statement += '<span>Translate 「</span>'
       statement += "<span id = 'question'></span>"
       statement += '<span>」  into kana </span>'
-      statement += "<br><span id = 'answer0'></span>"
+      
       statement += "<br><input id = 'input0'></input>"
+      statement += "<span id = 'answer0'></span>"
 
 
       x = Object.keys(words[operation][i])[0]
@@ -128,8 +131,9 @@ function JPquestions() {
       statement += '<span>Translate 「</span>'
       statement += "<span id = 'question'></span>"
       statement += '<span>」  into romaji </span>'
-      statement += "<br><span id = 'answer0'></span>"
+      
       statement += "<br><input id = 'input0'></input>"
+      statement += "<span id = 'answer0'></span>"
 
 
       x = Object.values(words[operation][i])[0]

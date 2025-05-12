@@ -15,17 +15,17 @@ const options = {
             }
         },
         "physics": {
-            "vectors":{
+            "sumVectors":{
                 "modes": ["N",
-                    // "kN",
-                    // "g",
-                    // "kg"
+                    "kN",
+                    "g",
+                     "kg"
                 ],
                 "modeLabel": [
                     "Newtons",
-                    "kN",
-                    "grams",
-                    "kilograms"
+                    "Kilonewtons",
+                    "Grams",
+                    "Kilograms"
                 ]
             }
         },

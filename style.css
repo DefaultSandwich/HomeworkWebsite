@@ -33,9 +33,6 @@ html {
 
   }
 
-  svg {
-    filter: invert(100%) hue-rotate(-45deg)
-  }
 }
 
 @media (prefers-color-scheme: light) {

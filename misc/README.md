@@ -3,6 +3,19 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.4.2
+*10/5/25*
+- Added units to vectors
+
+*9/5/25*
+- Fixed Vietnamese viet to english not working
+- Fixed compare function not working with strings
+- Made newtons default unit
+
+*8/5/25*
+- Updated vector dark mode
+- Removed fullscreen button
+
 ### V1.4.1
 *7/5/25*
 - Quiz saves every question
