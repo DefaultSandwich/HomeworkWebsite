@@ -42,7 +42,7 @@ function loadQuestion() {
     }
 
     //if no elegible units use newtons
-    if(options = []){
+    if(options == []){
         options = ["N"]
     }
 
