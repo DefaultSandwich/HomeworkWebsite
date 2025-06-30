@@ -47,7 +47,7 @@ function compare(value, answer) {
     let answer_ = answer
 
     if (typeof answer == "string") {
-        if (value == answer) {
+        if (value.toLowerCase() == answer.toLowerCase()) {
             return true
         } else {
             return false
