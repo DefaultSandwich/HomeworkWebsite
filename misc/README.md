@@ -3,6 +3,11 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.4.4
+*1/7/25*
+- Fixed sum of vectors scale not working
+- Fixed next button not working for multiple categories
+
 ### V1.4.3
 *1/7/25*
 - Updated quiz support for multiple spellings

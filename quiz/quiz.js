@@ -40,6 +40,7 @@ async function startQuiz() {
 
         subject = decodeURIComponent(urlParams.get("subject"))
         category = urlParams.getAll("category")
+        console.log(category)
 
         quizLength = Number(urlParams.get("quizLength"))
 

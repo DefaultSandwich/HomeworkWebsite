@@ -157,6 +157,7 @@ function showResults() {
 }
 
 function contQuiz() {
+
    //check if quiz is too long
    if (quizCache.questions.length + 10 > 100) {
       alert("the quiz is too long")
@@ -166,10 +167,29 @@ function contQuiz() {
 
    //quizLength will be how many more questions added
    document.getElementById("quizLength").value = 10
-   document.getElementById("category").value = quizCache.meta.category
    document.getElementById("subject").value = quizCache.meta.subject
    document.getElementById("gameMode").value = quizCache.meta.gameMode
 
+
+
+   //append categories
+   if (Array.isArray(quizCache.meta.category)) {
+      for (let i = 0; i < quizCache.meta.category.length; i++) {
+         const input = document.createElement("input");
+         input.type = "hidden";
+         input.name = "category";
+         input.value = quizCache.meta.category[i];
+         document.getElementById("quizParams").appendChild(input);
+      }
+   } else {
+
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "category";
+      input.value = quizCache.meta.category;
+      document.getElementById("quizParams").appendChild(input);
+   }
+   console.log(document.getElementById("quizParams").innerHTML)
 
    document.getElementById("quizParams").submit()
 

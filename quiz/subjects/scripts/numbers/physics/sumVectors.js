@@ -13,7 +13,7 @@ function loadQuestion() {
     let operation = Math.floor(Math.random() * quizCache.meta.category.length);
 
     operation = quizCache.meta.category[operation]
-  
+
 
 
 
@@ -23,28 +23,40 @@ function loadQuestion() {
 
     svg = "<svg width = 600 height = 500>"
 
-    let scale = 1 / (1 + Math.exp(-20 * (Math.random() - 0.5))) * 1000
-    if (scale < 0) { console.log("negative") }
+    //calculate scale
+    // pick random value
+    let scale
+
+
+
+
     options = JSON.parse(JSON.stringify(category))
+    let min = 1
+    let max = 1
 
-    
-    if (scale < 100) {
-        options.splice(options.indexOf("kg"), 1)
-        options.splice(options.indexOf("kN"), 1)
+    if (options.includes("g")) {
+        min = 0.01
+        max = 0.1
     }
 
-    if (scale > 500) {
-        options.splice(options.indexOf("N"), 1)
+    if (options.includes("kg")) {
+        if (min > 100) { min = 100 }
+        if (max < 1000) { max = 1000 }
+    }
+    if (options.includes("kN")) {
+        if (min > 10) { min = 10 }
+        if (max < 100) { max = 100 }
+    }
+    if (options.includes("N")) {
+        if (min > 1) { min = 1 }
+        if (max < 1) { max = 1 }
     }
 
-    if (scale > 1) {
-        options.splice(options.indexOf("g"), 1)
-    }
+    console.log(max)
 
-    //if no elegible units use newtons
-    if(options == []){
-        options = ["N"]
-    }
+    scale = min + (Math.random() * (max - min))
+
+
 
 
     console.log(scale)
@@ -121,8 +133,8 @@ function loadQuestion() {
 
 
 
-        x2 = scale * 10 * Math.log(magnitude) * Math.cos(angle) + x1
-        y2 = (-scale) * 10 * Math.log(magnitude) * Math.sin(angle) + y1
+        x2 = scale * magnitude * Math.cos(angle) + x1
+        y2 = (-scale) * magnitude * Math.sin(angle) + y1
 
 
         svg += drawVector(x1, y1, x2, y2, i)
