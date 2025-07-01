@@ -8,11 +8,23 @@ function formatValue(JSON) {
     let string
 
     if (typeof JSON != "object") {
+
         string = String(JSON)
         if (typeof JSON == "number") {
             string = " = " + string
         }
         return string
+    }
+
+
+    if (Array.isArray(JSON)) {
+        string = ""
+        for (let i = 0; i < JSON.length - 1; i++) {
+            string += formatValue(JSON[i]) + "/"
+        }
+        string += formatValue(JSON[JSON.length - 1])
+        return string
+
     }
 
     let unit = JSON.unit
@@ -47,6 +59,11 @@ function compare(value, answer) {
     let answer_ = answer
 
     if (typeof answer == "string") {
+
+        if (value == undefined) {
+            return false
+        }
+
         if (value.toLowerCase() == answer.toLowerCase()) {
             return true
         } else {
@@ -54,7 +71,24 @@ function compare(value, answer) {
         }
     }
 
+
     if (typeof answer == "object") {
+        //check if object is array
+        if (Array.isArray(answer)) {
+            console.log("is array")
+            console.log(value)
+            let correct = false
+            for (let i = 0; i < answer.length; i++) {
+                if (compare(value, answer[i])) {
+                    correct = true
+                }
+
+            }
+            console.log(correct)
+            return correct
+        }
+
+        //else it is a tolerance value
         answer_ = answer.value
         tolerance = answer.tolerance
     }

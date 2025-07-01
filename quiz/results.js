@@ -32,9 +32,14 @@ function showResults() {
 
          //add input
          if (questions[i].userInput[f] != undefined) {
-            if (typeof questions[i].answer[f] == "object") {
+            if (typeof questions[i].userInput[f] == "object") {
+
+
                console.log(questions[i].answer[f].unit)
                inputs += formatValue({ "value": Number(questions[i].userInput[f]), "unit": questions[i].answer[f].unit })
+
+
+
             } else {
                inputs += formatValue(questions[i].userInput[f])
             }
@@ -74,9 +79,9 @@ function showResults() {
 
 
             //add answer
-
-
             answers += formatValue(questions[i].answer[f])
+
+
          }
          inputs += "<br>"
          answers += "<br>"

@@ -72,6 +72,6 @@ function loadQuestion() {
 
 async function appendDependencies() {
    await appendScripts("./subjects/scripts/lang/lang.js")
-   await loadWordbank("VI")
+   await loadWordbank("wordbankVI")
    console.log(wordbank)
 }

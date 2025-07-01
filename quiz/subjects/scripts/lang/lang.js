@@ -13,13 +13,14 @@ let words = {
     ["kanji-ro"]: [],
     ["ro-kanji"]: [],
     ["kana-ro"]: [],
-    ["ro-kana"]: []
+    ["ro-kana"]: [],
+    ["mtrls"]: []
 }
 
 async function loadWordbank(language) {
     try {
-        
-        const response = await fetch("./subjects/scripts/lang/wordbanks/wordbank"+ language + ".json");
+
+        const response = await fetch("./subjects/scripts/lang/wordbanks/" + language + ".json");
 
         wordbank = await response.json();
 
@@ -35,7 +36,7 @@ function nextWord(mode, operation_) {
 
     let i
     let word
-  
+
 
     if (words[operation_].length < 2) {
 

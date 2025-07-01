@@ -121,8 +121,8 @@ function loadQuestion() {
 
 
 
-        x2 = scale * magnitude * Math.cos(angle) + x1
-        y2 = (-scale) * magnitude * Math.sin(angle) + y1
+        x2 = scale * 10 * Math.log(magnitude) * Math.cos(angle) + x1
+        y2 = (-scale) * 10 * Math.log(magnitude) * Math.sin(angle) + y1
 
 
         svg += drawVector(x1, y1, x2, y2, i)

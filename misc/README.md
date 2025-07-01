@@ -3,6 +3,17 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.4.3
+*1/7/25*
+- Updated quiz support for multiple spellings
+
+*30/5/25*
+- Decapitalised inputs and answers when marking
+- Wordbank typo fixes
+
+*28/5/25*
+- Updated wordbank to r- kana to also include l- in romaji
+
 ### V1.4.2
 *10/5/25*
 - Added units to vectors

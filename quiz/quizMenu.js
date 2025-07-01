@@ -15,11 +15,11 @@ const options = {
             }
         },
         "physics": {
-            "sumVectors":{
+            "sumVectors": {
                 "modes": ["N",
                     "kN",
                     "g",
-                     "kg"
+                    "kg"
                 ],
                 "modeLabel": [
                     "Newtons",
@@ -33,7 +33,7 @@ const options = {
         "JP":
         {
             "vocab": {
-                
+
                 "language": "JP",
                 "modes": [
                     "eng-hir"
@@ -53,7 +53,7 @@ const options = {
                 ]
             },
             "kana": {
-             
+
                 "language": "JP",
                 "modes": [
                     "hir",
@@ -68,12 +68,20 @@ const options = {
             }
         },
         "VI": {
-        
-            
+
+
             "modes": ["eng-vi", "vi-eng"],
             "modeLabel": [
                 "English to Viet",
                 "Viet to English"
+            ]
+        },
+        "materials": {
+
+            "modes": ["mtrls"],
+            "modeLabel": [
+                "Materials"
+                
             ]
         }
     },
