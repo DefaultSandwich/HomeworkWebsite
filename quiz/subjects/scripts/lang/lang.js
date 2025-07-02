@@ -14,7 +14,8 @@ let words = {
     ["ro-kanji"]: [],
     ["kana-ro"]: [],
     ["ro-kana"]: [],
-    ["mtrls"]: []
+    ["mtrls"]: [],
+    ["rad"]: []
 }
 
 async function loadWordbank(language) {

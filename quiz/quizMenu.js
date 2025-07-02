@@ -65,6 +65,16 @@ const options = {
                     "Katakana"
                 ]
 
+            },
+            "rad":{
+                "language": "JP",
+                "modes": [
+                    "rad"
+                ],
+                "modeLabel": [
+
+                    "Radicals"
+                ]
             }
         },
         "VI": {

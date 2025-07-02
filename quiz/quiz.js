@@ -170,7 +170,7 @@ function checkQuestion() {
     //show answers
     let answerList = quizCache.questions[questionID].answer
 
-    for (let i = 0; i < answerList.length; i++) {
+    for (let i = 0; i < quizCache.questions[questionID].userInput.length; i++) {
         let value = document.getElementById("input" + String(i)).value
 
 

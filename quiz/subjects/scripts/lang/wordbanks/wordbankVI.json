@@ -22,8 +22,8 @@
         {"physics":"vật lý"},
 
  
-        {"Japan":"Nhật"},
-        {"China":"trung quốc"},
+        {"Japan":["Nhật Bản","Nhật"]},
+        {"China":"Trung Quốc"},
         {"India":"Ấn Độ"},
  
 
@@ -35,18 +35,18 @@
         {"week":"tuần"},
         {"month":"tháng"},
 
-        {"January":"tháng một"},
-        {"February":"tháng hai"},
-        {"March":"tháng ba"},
-        {"April":"tháng bốn"},
-        {"May":"tháng năm"},
-        {"June":"tháng sáu"},
-        {"July":"tháng bảy"},
-        {"August":"tháng tám"},
-        {"September":"tháng chín"},
-        {"October":"tháng mười"},
-        {"November":"tháng mười một"},
-        {"December":"tháng mười hai"},
+        {"January":["tháng một","tháng 1"]},
+        {"February":["tháng hai","tháng 2"]},
+        {"March":["tháng ba","tháng 3"]},
+        {"April":["tháng bốn","tháng 4"]},
+        {"May":["tháng năm","tháng 5"]},
+        {"June":["tháng sáu","tháng 6"]},
+        {"July":["tháng bảy","tháng 7"]},
+        {"August":["tháng tám","tháng 8"]},
+        {"September":["tháng chín","tháng 9"]},
+        {"October":["tháng mười","tháng 10"]},
+        {"November":["tháng mười một","tháng 11"]},
+        {"December":["tháng mười hai","tháng 12"]},
 
  
         {"steel":"thép"},

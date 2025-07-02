@@ -18,11 +18,7 @@ function formatValue(JSON) {
 
 
     if (Array.isArray(JSON)) {
-        string = ""
-        for (let i = 0; i < JSON.length - 1; i++) {
-            string += formatValue(JSON[i]) + "/"
-        }
-        string += formatValue(JSON[JSON.length - 1])
+        string = JSON[0]
         return string
 
     }

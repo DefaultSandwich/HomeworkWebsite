@@ -3,6 +3,13 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.4.5
+*2/7/25*
+- Added radicals
+
+*1/7/25*
+- Updated viet dictionary to include synonyms
+
 ### V1.4.4
 *1/7/25*
 - Fixed sum of vectors scale not working
