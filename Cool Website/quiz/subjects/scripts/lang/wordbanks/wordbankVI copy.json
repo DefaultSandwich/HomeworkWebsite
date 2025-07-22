@@ -1,0 +1,60 @@
+
+
+{
+
+    "conjunctions":[
+        {"how":"làm sao"},
+        {"and":"và"},
+        {"with":"với"},
+        {"which":"cái nào"},
+        {"but":"nhưng"},
+        {"because":"tại vì"},
+        {"so":"nên"},
+        {"if":"nếu mà"},
+        {"then":"sau đó"},
+        {"for":"vì"},
+        {"before":"trước"},
+        {"until":"đến"}
+    ],
+    "school":[
+        {"maths":"toán"},
+        {"history":"lịch sử"},
+        {"geography":"địa lý"},
+        {"physics":"vật lý"}
+    ],
+    "countries":[ 
+        {"Japan":"Nhật"},
+        {"China":"trung quốc"},
+        {"India":"Ấn Độ"}
+    ],
+
+    "time and numbers":[
+        {"tomorrow":"ngày mai"},
+        {"yesterday":"hôm qua"},
+        {"thousand":"ngàn"},
+        {"hundered":"trăm"},
+        {"week":"tuần"},
+        {"month":"tháng"}
+    ],
+    "months":[
+        {"January":"tháng một"},
+        {"February":"tháng hai"},
+        {"March":"tháng ba"},
+        {"April":"tháng một"},
+        {"May":"tháng bốn"},
+        {"June":"tháng sáu"},
+        {"July":"tháng bảy"},
+        {"August":"tháng tám"},
+        {"September":"tháng chín"},
+        {"October":"tháng mười"},
+        {"November":"tháng mười một"},
+        {"December":"tháng mười hai"}
+
+    ],
+    "other":[
+        {"steel":"thép"},
+        {"much":"nhiều"},
+        {"how much":"bao nhiều"},
+        {"remember":"trí nhớ"}
+    ]
+}

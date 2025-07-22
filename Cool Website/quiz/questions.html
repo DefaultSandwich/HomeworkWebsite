@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> -->
+
+    
+  <link rel="stylesheet" href="/path/to/mathquill.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="/path/to/mathquill.js"></script>
+  <script>
+    var MQ = MathQuill.getInterface(2);
+  </script>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sawarabi+Gothic&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+  <script src="../icons/icons.js"> </script>
+  <script src="quiz.js"> </script>
+  <script src="buttons.js"></script>
+  <script src="stopwatch.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="..\style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1" />
+
+  <link rel="icon" type="image/x-icon" href="icons\favicon.png">
+  <title>Alvin's Study Place</title>
+
+
+</head>
+
+
+<body>
+
+  <!-- <header style="padding:1em">
+    <button onclick="goFullScreen()" class="fullscreen">
+      <img id="fullscreen icon" src="icons\fullscreen.svg" alt="Icon" width="40" height="40"
+        style='display:"block"; filter: cornflowerblue;'>
+    </button>
+  </header> -->
+
+
+
+  <main>
+
+
+    <h3 id="heading">Question 1 of 10</h3>
+
+    <form onsubmit="checkQuestion();return false">
+      <div id="statement">
+        loading...
+      </div>
+
+      <!-- buttons -->
+      <div class="questionB">
+        <input type=submit id="check" value="Check"> </input>
+
+        <button type=button id="next" onclick=" nextQuestion()"> Next </button>
+        <button type=button id="skip" onclick=" skipQuestion()"> >> </button>
+      </div>
+
+
+
+
+    </form>
+
+
+
+
+
+  </main>
+  <footer id="stopwatch">
+    <div id="time" style="font-family: 'Space Mono', Arial, sans-serif; display: inline-flex;">
+      <span class="digit" id="hr">00</span><span class="txt">:</span>
+      <span class="digit" id="min">00</span><span class="txt">:</span>
+      <span class="digit" id="sec">00</span><span class="txt">.</span>
+      <span class="digit" id="count">00</span>
+    </div>
+  </footer>
+
+  <script>
+    function onPageLoad() {
+      startQuiz(); // Your quiz start logic
+    }
+
+    // Run on normal load
+    window.addEventListener("load", onPageLoad);
+
+    // Also run if the page is loaded from bfcache (back/forward button)
+    window.addEventListener("pageshow", function (event) {
+      if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+        onPageLoad();
+      }
+    });
+  </script>
+
+</body>
+
+<div style="height: max(calc(100svh - 8em),5em);"></div>
+
+
+
+
+
+</html>

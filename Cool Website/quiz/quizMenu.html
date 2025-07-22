@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> -->
+  <script src="quizMenu.js"></script>
+  <script src="buttons.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="..\style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1" />
+
+  <link rel="icon" type="image/x-icon" href="icons\favicon.png">
+  <title>Alvin's Study Place</title>
+
+  <script>
+    // Get the question mode from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Extract specific parameters
+    subject = urlParams.get("subject");
+
+  </script>
+
+</head>
+
+<body>
+
+  <form id="form" onsubmit="localStorage.removeItem('quiz'); return validateCheckboxes()" action="questions.html?">
+
+    <p>Questions</p>
+    <input type="number" min="1" max="100" value="10" name="quizLength"> </input>
+
+    <p>Mode</p>
+    <input type="radio" id="normal" name="gameMode" value="normal" checked="true" required>
+    <label for="normal">Normal</label><br>
+    <input type="radio" id="timed" name="gameMode" value="timed">
+    <label for="timed">Timed</label><br>
+
+
+
+    <p>Subjects</p>
+    <div id="subjects">
+      loading...
+    </div>
+
+    <br>
+    <br>
+    <input type="submit" value="Start"></input>
+   
+    <input id="subject" type="hidden" name="subject"></input>
+    
+    <script>document.getElementById("subject").value = subject</script>
+    
+
+  </form>
+  <script>subjectOptions()</script>
+  <script>
+    function validateCheckboxes() {
+      const checkboxes = document.querySelectorAll('input[name="category"]');
+      for (let checkbox of checkboxes) {
+        if (checkbox.checked) {
+          return true; // At least one is checked
+        }
+      }
+      alert("Please select at least one subject.");
+      return false; // Prevent form submission
+    }
+  </script>
+
+</body>
+
+
+</html>
