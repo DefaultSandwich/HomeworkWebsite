@@ -48,12 +48,16 @@ function loadQuestion() {
     questionString = String(x) + symbols[operations.indexOf(operation)] + String(y)
 
 
+
     question.answer[0] = answer
     question.statement.question = questionString
     question.statement.HTML.start = questionString
     question.statement.HTML.middle = " = "
     question.statement.HTML.end = " <input id = 'input0' style = 'width:3em' type = 'number' inputMode = 'decimal' max='9999' required = 'true'></input>"
+    question.statement.HTML.end += "<button type = 'button' id = 'speaker'></button>"
     question.statement.HTML.end += "<span id = 'answer0'></span>"
+
+    question.statement.tts = { "text": questionString, "lang": "en" }
 
     return question
 }

@@ -3,6 +3,11 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.4.6
+*21/7/25*
+- Added text to speech
+- Added beta suffix (prior to this the website was still considered beta)
+
 ### V1.4.5
 *2/7/25*
 - Added radicals

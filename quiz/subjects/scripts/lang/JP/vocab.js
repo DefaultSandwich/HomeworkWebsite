@@ -2,12 +2,13 @@
 
 function loadQuestion() {
     let question = questionJSON
+    let speech = {}
 
     let answer = null
 
     let x = Math.random();
     let word
-  
+
 
     let operation = Math.floor(Math.random() * quizCache.meta.category.length);
 
@@ -20,16 +21,23 @@ function loadQuestion() {
         //english to hiragana
 
         word = nextWord("words", operation)
-  
+
 
         x = Object.keys(word)[0]
         answer = Object.values(word)[0]
 
         questionString[0] = "Translate \""
         questionString[1] = x
-        questionString[2] = "\" into Hirigana"
+        questionString[2] = "\""
+        questionString[2] += "<button type='button' id = 'speaker'></button>"
+        questionString[2] += "into Hirigana"
         questionString[2] += "<br><input id = 'input0'></input>"
         questionString[2] += "<span id = 'answer0'></span>"
+
+        speech.text = questionString[1]
+        speech.lang = "en"
+
+        question.statement.tts = speech
 
 
 
@@ -46,9 +54,16 @@ function loadQuestion() {
 
         questionString[0] = "Translate 「"
         questionString[1] = x
-        questionString[2] = "」into English"
+        questionString[2] = "」"
+        questionString[2] += "<button type='button' id = 'speaker'></button>"
+        questionString[2] += "into English"
         questionString[2] += "<br><input id = 'input0'></input>"
-         questionString[2] += "<span id = 'answer0'></span>"
+        questionString[2] += "<span id = 'answer0'></span>"
+
+        speech.text = questionString[1]
+        speech.lang = "ja"
+
+        question.statement.tts = speech
 
     }
 
@@ -68,7 +83,7 @@ function loadQuestion() {
         questionString[2] += "<span id = 'answer0'></span>"
 
 
-        
+
 
     }
     if (operation == "ro-kanji") {
@@ -84,10 +99,10 @@ function loadQuestion() {
         questionString[1] = x
         questionString[2] = "」into Kanji"
         questionString[2] += "<br><input id = 'input0'></input>"
-          questionString[2] += "<span id = 'answer0'></span>"
+        questionString[2] += "<span id = 'answer0'></span>"
 
 
-        
+
     }
 
 

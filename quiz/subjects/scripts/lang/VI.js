@@ -6,6 +6,7 @@
 
 function loadQuestion() {
    let question = questionJSON
+   let speech = {}
 
    let answer = null
 
@@ -29,10 +30,12 @@ function loadQuestion() {
 
       questionString[0] = "Translate \""
       questionString[1] = formatValue(x)
-      questionString[2] = "\" into English"
+      questionString[2] = "\""
+      questionString[2] += "<button  type = 'button' id = 'speaker'></button>"
+      questionString[2] += " into English"
       questionString[2] += "<br><input id = 'input0'></input>"
       questionString[2] += "<span id = 'answer0'></span>"
-
+      speech.lang = "vi"
 
 
    }
@@ -46,10 +49,12 @@ function loadQuestion() {
 
       questionString[0] = "Translate \""
       questionString[1] = formatValue(x)
-      questionString[2] = "\" into Vietnamese"
+      questionString[2] = "\""
+      questionString[2] += "<button  type = 'button' id = 'speaker'></button>"
+      questionString[2] += " into Vietnamese"
       questionString[2] += "<br><input id = 'input0'></input>"
       questionString[2] += "<span id = 'answer0'></span>"
-      
+      speech.lang = "en"
 
 
 
@@ -66,6 +71,11 @@ function loadQuestion() {
    question.statement.HTML.start = questionString[0]
    question.statement.HTML.middle = questionString[1]
    question.statement.HTML.end = questionString[2]
+
+   speech.text = questionString[1]
+
+
+   question.statement.tts = speech
 
    return question
 }

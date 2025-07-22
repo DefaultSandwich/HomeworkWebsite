@@ -3,6 +3,7 @@
 
 function loadQuestion() {
     let question = questionJSON
+    let speech = {}
 
     let answer = null
     let word = null
@@ -38,9 +39,13 @@ function loadQuestion() {
 
         questionString[0] = "Translate 「"
         questionString[1] = x
-        questionString[2] = "」into Romaji"
+        questionString[2] = "」"
+        // questionString[2] += "<button id = 'speaker'></button>"
+        questionString[2] += "into Romaji"
         questionString[2] += "<br><input id = 'input0'></input>"
         questionString[2] += "<span id = 'answer0'></span>"
+
+        
 
 
 
@@ -59,7 +64,13 @@ function loadQuestion() {
     question.statement.HTML.start = questionString[0]
     question.statement.HTML.middle = questionString[1]
     question.statement.HTML.end = questionString[2]
-    
+
+    // speech.text = questionString[1]
+    // speech.lang = "ja"
+
+    // question.statement.tts = speech
+
+
 
     return question
 }

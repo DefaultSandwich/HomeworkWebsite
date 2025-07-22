@@ -75,6 +75,30 @@ input[type="submit"] {
 
 }
 
+select {
+
+  line-height: normal;
+
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-size: 0.7em;
+  border-style: solid;
+  border-color: var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: 0.2em;
+  border-width: 0.1em;
+
+
+  text-decoration: none;
+  transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+
+  justify-content: space-between;
+  width: auto;
+}
+
 @media (max-device-width:768px) {
   html {
     margin: 0em;
@@ -104,7 +128,7 @@ input[type="submit"] {
     padding-top: 0.5em;
   }
 
-  h3{
+  h3 {
     font-size: 23px;
   }
 }
@@ -293,4 +317,3 @@ header {
   background-color: var(--background-color);
   line-height: 0
 }
-

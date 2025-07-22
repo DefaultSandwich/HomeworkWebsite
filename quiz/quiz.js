@@ -2,6 +2,7 @@ let quizCache = null
 let questionID
 let category = []
 let gameMode = null
+let tts
 
 
 const questionJSON = {
@@ -12,7 +13,8 @@ const questionJSON = {
             "start": "",
             "middle": "",
             "end": ""
-        }
+        },
+        "tts": null
     },
     "answer": [],
     "userInput": [],
@@ -149,6 +151,22 @@ function renderQuestion() {
         document.getElementById("statement").innerHTML = quizCache.questions[questionID].statement.HTML.start
         document.getElementById("statement").innerHTML += quizCache.questions[questionID].statement.HTML.middle
         document.getElementById("statement").innerHTML += quizCache.questions[questionID].statement.HTML.end
+        //update txt speech button
+        if (document.getElementById("speaker")) {
+
+            tts = new SpeechSynthesisUtterance()
+            tts.text = quizCache.questions[questionID].statement.tts.text
+            tts.lang = quizCache.questions[questionID].statement.tts.lang
+            // tts.voice = quizCache.questions[questionID].statement.tts.voice
+            if (localStorage.getItem("settings") != null) {
+                tts.voice = window.speechSynthesis.getVoices().find(voice => voice.name == JSON.parse(localStorage.getItem("settings")).voices[tts.lang])
+            }
+
+            document.getElementById("speaker").innerHTML = speechIcon
+            document.getElementById("speaker").onclick = function () { speechSynthesis.speak(tts); return false }
+        }
+
+
         //hover on first input
         document.getElementById("input0").focus()
 
