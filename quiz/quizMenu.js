@@ -42,6 +42,7 @@ const options = {
                     "ro-kanji",
 
 
+
                 ],
                 "modeLabel": [
                     "English to Hirigana",
@@ -66,7 +67,7 @@ const options = {
                 ]
 
             },
-            "rad":{
+            "rad": {
                 "language": "JP",
                 "modes": [
                     "rad"
@@ -74,7 +75,24 @@ const options = {
                 "modeLabel": [
 
                     "Radicals"
-                ]
+                ],
+
+            }, "nmbr": {
+                "language": "JP",
+                "modes": [
+                    "1",
+                    "10",
+                    "100",
+                    "1000"
+                ],
+                "modeLabel": [
+
+                    "Ones",
+                    "Tens",
+                    "Hundreds",
+                    "Thousands"
+
+                ],
             }
         },
         "VI": {
@@ -91,7 +109,7 @@ const options = {
             "modes": ["mtrls"],
             "modeLabel": [
                 "Materials"
-                
+
             ]
         }
     },

@@ -23,6 +23,9 @@ function showResults() {
       row += "</div>"
 
 
+
+
+
       // input loop
       let inputs = "<div>"
       let answers = ""
@@ -105,6 +108,11 @@ function showResults() {
 
       //add row
       results.innerHTML += row
+
+      if (document.getElementById("speaker")) {
+         document.getElementById("speaker").id = `speaker${i}`
+      }
+      formatSpchButton(i, i)
    }
 
    //total
@@ -191,6 +199,7 @@ function contQuiz() {
    }
    console.log(document.getElementById("quizParams").innerHTML)
 
+   document.getElementById("quizParams").action = "questions.html?"
    document.getElementById("quizParams").submit()
 
 }
@@ -202,4 +211,13 @@ function retryQuiz() {
    }
    );
    localStorage.setItem('quiz', JSON.stringify(quizCache))
+}
+
+function newQuiz() {
+   //quizLength will be how many more questions added
+
+   document.getElementById("subject").value = quizCache.meta.subject
+
+   document.getElementById("quizParams").action = "quizMenu.html?"
+   document.getElementById("quizParams").submit()
 }

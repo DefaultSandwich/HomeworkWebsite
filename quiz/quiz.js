@@ -152,19 +152,7 @@ function renderQuestion() {
         document.getElementById("statement").innerHTML += quizCache.questions[questionID].statement.HTML.middle
         document.getElementById("statement").innerHTML += quizCache.questions[questionID].statement.HTML.end
         //update txt speech button
-        if (document.getElementById("speaker")) {
-
-            tts = new SpeechSynthesisUtterance()
-            tts.text = quizCache.questions[questionID].statement.tts.text
-            tts.lang = quizCache.questions[questionID].statement.tts.lang
-            // tts.voice = quizCache.questions[questionID].statement.tts.voice
-            if (localStorage.getItem("settings") != null) {
-                tts.voice = window.speechSynthesis.getVoices().find(voice => voice.name == JSON.parse(localStorage.getItem("settings")).voices[tts.lang])
-            }
-
-            document.getElementById("speaker").innerHTML = speechIcon
-            document.getElementById("speaker").onclick = function () { speechSynthesis.speak(tts); return false }
-        }
+        formatSpchButton(questionID,"")
 
 
         //hover on first input
@@ -172,6 +160,8 @@ function renderQuestion() {
 
 
         startStopWatch()
+
+        if(quizCache.questions[questionID].statement.tts.autoplay != undefined) {speak(questionID)}
 
     } else {
         //go to results page

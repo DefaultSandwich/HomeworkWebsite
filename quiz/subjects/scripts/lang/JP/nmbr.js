@@ -16,34 +16,28 @@ function loadQuestion() {
     console.log(operation)
 
     let questionString = [null, null, null]
-   
+
+    let speech = {}
+
+    //generate random number
+    x = Math.random()*10
+    //multiply by 1,10,100 or 1000 then floor
+    x = Math.floor(x * Number(operation))
+    console.log(x)
+
+    answer = x
+
+    questionString[0] = "Listen and write number "
+    questionString[1] = "<button type='button' id = 'speaker'></button>"
+    questionString[2] = "<br><input id = 'input0'></input>"
+    questionString[2] += "<span id = 'answer0'></span>"
 
 
-    if (operation == "rad") {
-        //hiragana/kata to romaji
+    speech.text = x
+    speech.lang = "ja"
+    speech.autoplay = true
 
-
-
-        word = nextWord("rad", "rad")
-        console.log(word)
-        x = Object.keys(word)[0]
-
-        operation = "rad"
-
-        answer = Object.values(word)[0]
-
-        questionString[0] = "Translate 「"
-        questionString[1] = x
-        questionString[2] = "」into English"
-        questionString[2] += "<br><input id = 'input0'></input>"
-        questionString[2] += "<span id = 'answer0'></span>"
-
-       
-
-
-
-    }
-
+    question.statement.tts = speech
 
 
 
@@ -56,7 +50,7 @@ function loadQuestion() {
     question.statement.HTML.start = questionString[0]
     question.statement.HTML.middle = questionString[1]
     question.statement.HTML.end = questionString[2]
-    
+
 
     return question
 }

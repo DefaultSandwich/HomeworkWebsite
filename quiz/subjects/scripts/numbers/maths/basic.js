@@ -12,6 +12,7 @@ function loadQuestion() {
 
     operation = quizCache.meta.category[operation]
     console.log(operation)
+    question.statement.tts = { "text": "", "lang": "en" }
 
 
     if (operation == "add") {
@@ -19,6 +20,7 @@ function loadQuestion() {
         x = Math.floor(x * 89) + 10
         y = Math.floor(y * 8) + 2
         answer = x + y;
+        question.statement.tts.text = x + "plus" + y
     }
     if (operation == "sub") {
         //subtraction
@@ -26,6 +28,7 @@ function loadQuestion() {
         y = Math.floor(y * 8) + 2
 
         answer = x - y;
+        question.statement.tts.text = x + "minus" + y
     }
     if (operation == "mul") {
         //multiplication
@@ -33,6 +36,7 @@ function loadQuestion() {
         y = Math.floor(y * 10) + 2
 
         answer = x * y;
+        question.statement.tts.text = x + "times" + y
     }
     if (operation == "div") {
         //division
@@ -42,6 +46,7 @@ function loadQuestion() {
         x = x * y
 
         answer = x / y;
+        question.statement.tts.text = x + "divided by" + y
     }
     let questionString
 
@@ -57,7 +62,7 @@ function loadQuestion() {
     question.statement.HTML.end += "<button type = 'button' id = 'speaker'></button>"
     question.statement.HTML.end += "<span id = 'answer0'></span>"
 
-    question.statement.tts = { "text": questionString, "lang": "en" }
+ 
 
     return question
 }

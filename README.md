@@ -3,6 +3,67 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.4.7
+*4/8/25*
+- Added Japanese numbers
+- Added change voice button
+- Added speech button support to results
+- Deleted misc folder
+
+
+### V1.4.6
+*21/7/25*
+- Added text to speech
+- Added beta suffix (prior to this the website was still considered beta)
+
+### V1.4.5
+*2/7/25*
+- Added radicals
+
+*1/7/25*
+- Updated viet dictionary to include synonyms
+
+### V1.4.4
+*1/7/25*
+- Fixed sum of vectors scale not working
+- Fixed next button not working for multiple categories
+
+### V1.4.3
+*1/7/25*
+- Updated quiz support for multiple spellings
+
+*30/5/25*
+- Decapitalised inputs and answers when marking
+- Wordbank typo fixes
+
+*28/5/25*
+- Updated wordbank to r- kana to also include l- in romaji
+
+### V1.4.2
+*10/5/25*
+- Added units to vectors
+
+*9/5/25*
+- Fixed Vietnamese viet to english not working
+- Fixed compare function not working with strings
+- Made newtons default unit
+
+*8/5/25*
+- Updated vector dark mode
+- Removed fullscreen button
+
+### V1.4.1
+*7/5/25*
+- Quiz saves every question
+- Added tolerance to vector questions
+- Fixed answers not checking if answer is JSON
+- In results page correct answers have margin of error displayed
+
+*undated*
+- Added maths & physics resources page
+
+### V1.4.0b
+- Fixed icons not displaying
 
 ### V1.4.0
 *20/4/25*

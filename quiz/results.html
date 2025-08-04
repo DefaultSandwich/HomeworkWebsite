@@ -56,17 +56,17 @@
 
     <div class="questionB" style="grid-template-columns: auto auto auto;">
         <button type=button id="retry" onclick="retryQuiz(); document.location='questions.html';"> Retry </button>
-        <button type=button id="next" onclick="contQuiz();"> Next </button>
+        <button type=button id="next" onclick="contQuiz();"> Continue </button>
+        <button type=button id="new" onclick="newQuiz();"> New </button>
         <button type=button id="home" onclick="localStorage.clear();document.location='../index.html'"> Home </button>
     </div>
-    
-    <form id = "quizParams" action="questions.html?">
+
+    <form id="quizParams" action="questions.html?" method="get">
         <!-- Quiz Parameters for continue quiz -->
         <input id="quizLength" type="hidden" name="quizLength"></input>
-        
         <input id="subject" type="hidden" name="subject"></input>
         <input id="gameMode" type="hidden" name="gameMode"></input>
-        <input id="cont" type="hidden" name="continue" value = true></input>
+        <input id="cont" type="hidden" name="continue" value=true></input>
     </form>
 
 
