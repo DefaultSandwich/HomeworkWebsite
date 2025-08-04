@@ -20,16 +20,15 @@ function loadQuestion() {
     let speech = {}
 
     //generate random number
-    x = Math.random()*10
-    //multiply by 1,10,100 or 1000 then floor
-    x = Math.floor(x * Number(operation))
-    console.log(x)
+    let min = Math.pow(10, operation - 1)
+    let max = Math.pow(10, operation) - 1
+    x = Math.floor(Math.random() * (max - min + 1)) + min
 
     answer = x
 
     questionString[0] = "Listen and write number "
     questionString[1] = "<button type='button' id = 'speaker'></button>"
-    questionString[2] = "<br><input id = 'input0'></input>"
+    questionString[2] = "<br><input id = 'input0'  type = 'number' inputMode = 'decimal' max='999999'></input>"
     questionString[2] += "<span id = 'answer0'></span>"
 
 
@@ -45,7 +44,7 @@ function loadQuestion() {
 
 
 
-    question.answer[0] = answer
+    question.answer[0] = {"unit":"unit","value":answer}
     question.statement.question = questionString[1]
     question.statement.HTML.start = questionString[0]
     question.statement.HTML.middle = questionString[1]

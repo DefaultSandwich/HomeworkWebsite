@@ -80,17 +80,21 @@ const options = {
             }, "nmbr": {
                 "language": "JP",
                 "modes": [
-                    "1",
-                    "10",
-                    "100",
-                    "1000"
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
                 ],
                 "modeLabel": [
 
                     "Ones",
                     "Tens",
                     "Hundreds",
-                    "Thousands"
+                    "Thousands",
+                    "Ten Thousands",
+                    "Hundred Thousands"
 
                 ],
             }

@@ -32,6 +32,7 @@ function formatValue(JSON) {
     if (typeof value == "number") {
         string = " = "
 
+
         if (unit == "newton") {
             string += value.toFixed(2) + " N"
         }
@@ -39,13 +40,17 @@ function formatValue(JSON) {
         if (unit == "degree") {
             string += String(value) + "°"
         }
+
+        if (unit == "unit") {
+            string += value.toLocaleString()
+        }
+
+
     }
 
 
 
-    if (typeof value == "number") {
 
-    }
 
     return string
 }
@@ -89,6 +94,16 @@ function compare(value, answer) {
         answer_ = answer.value
         tolerance = answer.tolerance
     }
+
+    if (tolerance == undefined) {
+        if (answer_ == value) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+
 
     if (value >= answer_ - (answer_ * tolerance) && value <= answer_ + (answer_ * tolerance))
         return true

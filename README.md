@@ -3,6 +3,11 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.4.9
+*4/8/25*
+- Updated japanese number generation
+- Added tooltip to change voice button
+
 ### V1.4.8
 *4/8/25*
 - Updated Japanese dictionary
