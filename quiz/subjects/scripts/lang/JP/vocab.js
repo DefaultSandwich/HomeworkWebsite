@@ -20,7 +20,7 @@ function loadQuestion() {
     if (operation == "eng-hir") {
         //english to hiragana
 
-        word = nextWord("words", operation)
+        word = nextWord("en-jp", operation)
 
 
         x = Object.keys(word)[0]
@@ -30,7 +30,7 @@ function loadQuestion() {
         questionString[1] = x
         questionString[2] = "\""
         questionString[2] += "<button type='button' id = 'speaker'></button>"
-        questionString[2] += "into Hirigana"
+        questionString[2] += "into Japanese"
         questionString[2] += "<br><input id = 'input0'></input>"
         questionString[2] += "<span id = 'answer0'></span>"
 
@@ -47,10 +47,10 @@ function loadQuestion() {
         //english to hiragana
 
 
-        word = nextWord("words", operation)
+        word = nextWord("jp-en", operation)
 
-        x = Object.values(word)[0]
-        answer = Object.keys(word)[0]
+        x = Object.keys(word)[0]
+        answer = Object.values(word)[0]
 
         questionString[0] = "Translate 「"
         questionString[1] = x

@@ -2,14 +2,51 @@
 
 {   
     
-        "words":[
-                {"train":"でんしあ"},
-                {"thank you very much":"ありがとうございます"},
-                {"water":"みず"},
-                {"tokyo":"とうきょう"},
-                {"person":"ひと"},
-                {"good morning":"おはよう"},   
-                {"magic":"まほう"}
+        "en-jp":[
+                {"train (electric)":["電車"]},
+                {"thank you":["ありがとう","ありがとうございます"]},
+                {"water":"水"},
+                {"food":"食べ物"},
+                {"hello (formal)":"こんにちは"},
+                {"good morning":"おはよう"},
+                {"good evening":"こんばんは"},
+                {"goodbye (formal)":"さようなら"},
+                {"please":["お願いします","ください"]},
+                {"earthquake":"地震"},
+                {"tsunami":"津波"},
+                {"yen":["円","¥"]},
+                {"teacher":"先生"},
+                {"tasty":"おいしい"},
+                {"no thanks":["大丈夫です","大丈夫"]},
+                {"I'm ok":["大丈夫です","大丈夫"]},
+                {"yes":"はい"},
+                {"sorry":"すみません"},
+                {"excuse me":"すみません"}
+        ],
+        "jp-en":[
+                {"電車":["train","electric train"]},
+                {"ありがとう":["thank you","thanks"]},
+                {"水":"water"},
+                {"食べ物":"food"},
+                {"こんにちは":"hello"},
+                {"おはよう":["good morning","morning"]},
+                {"こんばんは":["good evening","evening"]},
+                {"お願いします":"please"},
+                {"人":"person"},
+                {"地震":"earthquake"},
+                {"津波":"tsunami"},
+                {"さようなら":["goodbye","farewell"]},
+                {"円":"yen"},
+                {"先生":"teacher"},
+                {"おいしい":["tasty","yummy","delicious","yum"]},
+                {"大丈夫":["no thanks/i'm ok","no thanks","no thank you","i'm okay","im okay","im ok"]},
+                {"はい":["yes"]},
+                {"すみません":["sorry/excuse me","sorry","excuse me"]},
+                {"東京":["Tokyo","tokyo"]},
+                {"京都":["Kyoto","kyoto"]},
+                {"大阪":["Osaka","osaka"]},
+                {"広島":["Hiroshima","hiroshima"]},
+                {"奈良":["Nara","nara"]}
         ],
 
         "romaji":[

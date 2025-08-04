@@ -3,13 +3,17 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.4.8
+*4/8/25*
+- Updated Japanese dictionary
+- Deprecated kanji to romaji
+
 ### V1.4.7
 *4/8/25*
 - Added Japanese numbers
 - Added change voice button
 - Added speech button support to results
 - Deleted misc folder
-
 
 ### V1.4.6
 *21/7/25*

@@ -37,7 +37,7 @@ function nextWord(mode, operation_) {
 
     let i
     let word
-
+    
 
     if (words[operation_].length < 2) {
 

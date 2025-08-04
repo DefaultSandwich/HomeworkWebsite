@@ -38,15 +38,15 @@ const options = {
                 "modes": [
                     "eng-hir"
                     , "hir-eng",
-                    "kanji-ro",
-                    "ro-kanji",
+                    // "kanji-ro",
+                    // "ro-kanji",
 
 
 
                 ],
                 "modeLabel": [
-                    "English to Hirigana",
-                    "Hirigana to English",
+                    "English to Japanese",
+                    "Japanese to English",
                     "Kanji to Romaji",
                     "Romaji to Kanji",
 
