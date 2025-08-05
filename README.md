@@ -3,6 +3,10 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.5.0
+- Minor UI changes
+- Minor Japanese dictionary changes
+
 ### V1.4.9
 *4/8/25*
 - Updated japanese number generation

@@ -27,6 +27,23 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1" />
 
     <link rel="icon" type="image/x-icon" href="Icons\favicon.png">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24;
+            font-size: 1em;
+            height: 1.2em;
+            width: 1.2em;
+            vertical-align: baseline;
+            position: relative;
+            top: calc((0.9em - 0.735em) / 2)
+        }
+    </style>
     <title>Alvin's Study Place</title>
 
 
@@ -54,11 +71,14 @@
 
     <div id="results" class="container report" style="overflow: auto;"></div>
 
-    <div class="questionB" style="grid-template-columns: auto auto auto;">
+    <div class="questionB" style="grid-template-columns: auto auto auto auto;">
         <button type=button id="retry" onclick="retryQuiz(); document.location='questions.html';"> Retry </button>
         <button type=button id="next" onclick="contQuiz();"> Continue </button>
         <button type=button id="new" onclick="newQuiz();"> New </button>
-        <button type=button id="home" onclick="localStorage.clear();document.location='../index.html'"> Home </button>
+        <button type=button id="home" onclick="localStorage.clear();document.location='../index.html'"><span
+                class="material-symbols-outlined">
+                home
+            </span></button>
     </div>
 
     <form id="quizParams" action="questions.html?" method="get">
