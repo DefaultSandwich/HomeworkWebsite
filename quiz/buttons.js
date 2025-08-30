@@ -13,7 +13,7 @@ function next() {
 
 function formatSpchButton(questionID_, i) {
     if (document.getElementById("speaker" + `${i}`)) {
-        document.getElementById("speaker" + `${i}`).innerHTML = speechIcon
+        // document.getElementById("speaker" + `${i}`).className = "material-symbols-outlined"
         document.getElementById("speaker" + `${i}`).setAttribute("onclick", `speak(${questionID_})`)
     }
 }

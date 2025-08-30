@@ -26,11 +26,11 @@ function loadQuestion() {
         x = Object.keys(word)[0]
         answer = Object.values(word)[0]
 
-        questionString[0] = "Translate \""
+        questionString[0] = "Translate to Japanese <br> \""
         questionString[1] = x
         questionString[2] = "\""
-        questionString[2] += "<button type='button' id = 'speaker'></button>"
-        questionString[2] += "into Japanese"
+        questionString[2] += "<button type='button' id = 'speaker'><span class='material-symbols-outlined'>text_to_speech</span ></button>"
+       
         questionString[2] += "<br><input id = 'input0'></input>"
         questionString[2] += "<span id = 'answer0'></span>"
 
@@ -52,11 +52,11 @@ function loadQuestion() {
         x = Object.keys(word)[0]
         answer = Object.values(word)[0]
 
-        questionString[0] = "Translate 「"
+        questionString[0] = "Translate to English <br>「"
         questionString[1] = x
         questionString[2] = "」"
-        questionString[2] += "<button type='button' id = 'speaker'></button>"
-        questionString[2] += "into English"
+        questionString[2] += "<button type='button' id = 'speaker'><span class='material-symbols-outlined'>text_to_speech</span ></button>"
+ 
         questionString[2] += "<br><input id = 'input0'></input>"
         questionString[2] += "<span id = 'answer0'></span>"
 
@@ -95,9 +95,9 @@ function loadQuestion() {
         x = Object.keys(word)[0]
         answer = Object.values(word)[0]
 
-        questionString[0] = "Translate 「"
+        questionString[0] = "Write in Kanji「"
         questionString[1] = x
-        questionString[2] = "」into Kanji"
+        questionString[2] = "」"
         questionString[2] += "<br><input id = 'input0'></input>"
         questionString[2] += "<span id = 'answer0'></span>"
 

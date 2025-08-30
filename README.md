@@ -3,7 +3,26 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.5.1
+*30/8/26*
+- Modified Header
+- Added progress bar
+- Updated speech icon
+
+*13/8/25*
+- Question UI changes
+
+*12/8/25*
+- Quiz Menu UI changes
+
+*11/8/25*
+- Updated Vietnamese dictionary
+
+*4/8/25*
+- Updated Japanese radical dictionary
+
 ### V1.5.0
+*4/8/25*
 - Minor UI changes
 - Minor Japanese dictionary changes
 

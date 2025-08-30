@@ -27,7 +27,7 @@ function loadQuestion() {
     answer = x
 
     questionString[0] = "Listen and write number "
-    questionString[1] = "<button type='button' id = 'speaker'></button>"
+    questionString[1] = "<button type='button' id = 'speaker'><span class='material-symbols-outlined'>text_to_speech</span ></button>"
     questionString[2] = "<br><input id = 'input0'  type = 'number' inputMode = 'decimal' max='999999'></input>"
     questionString[2] += "<span id = 'answer0'></span>"
 

@@ -2,40 +2,49 @@
 
 {
 
-"words":[
+    "conjunctions":[
         {"how":"làm sao"},
         {"and":"và"},
-        {"with":"với"},
-        {"which":"cái nào"},
-        {"but":"nhưng"},
+        {"or":["hoặc","hay"]},
+        {"but":["nhưng","nhưng mà"]},
+        {"nor":"cũng không"},
+        {"as":["trong khi","khi"]},
+        {"while":["trong khi","khi"]},
+        {"when":["trong khi","khi"]},
+        {"whenever":["mỗi khi","khi"]},
+        {"before":["trước khi","trước"]},
+        {"after":["sau khi","sau"]},
+        {"since":["kể từ khi","từ","từ khi"]},
+        {"until":["cho đến khi","đến khi","đến"]},
         {"because":"tại vì"},
         {"so":"nên"},
-        {"if":"nếu mà"},
+        {"if":["nếu mà","nếu"]},
         {"then":"sau đó"},
         {"for":"vì"},
-        {"before":"trước"},
-        {"until":"đến"},
-        {"will":"sẽ"},
-
+        {"so that":"dể mà"}
+        
+    ],
+    "school":[
         {"maths":"toán"},
         {"history":"lịch sử"},
         {"geography":"địa lý"},
-        {"physics":"vật lý"},
-
- 
+        {"physics":"vật lý"}
+    ],
+    "countries":[ 
         {"Japan":["Nhật Bản","Nhật"]},
         {"China":"Trung Quốc"},
-        {"India":"Ấn Độ"},
- 
+        {"India":"Ấn Độ"}
+    ],
 
- 
+    "time and numbers":[
         {"tomorrow":"ngày mai"},
         {"yesterday":"hôm qua"},
         {"thousand":"ngàn"},
         {"hundered":"trăm"},
         {"week":"tuần"},
-        {"month":"tháng"},
-
+        {"month":"tháng"}
+    ],
+    "months":[
         {"January":["tháng một","tháng 1"]},
         {"February":["tháng hai","tháng 2"]},
         {"March":["tháng ba","tháng 3"]},
@@ -47,24 +56,15 @@
         {"September":["tháng chín","tháng 9"]},
         {"October":["tháng mười","tháng 10"]},
         {"November":["tháng mười một","tháng 11"]},
-        {"December":["tháng mười hai","tháng 12"]},
+        {"December":["tháng mười hai","tháng 12"]}
 
- 
+    ],
+    "other":[
         {"steel":"thép"},
         {"much":"nhiều"},
         {"how much":"bao nhiều"},
         {"remember":"trí nhớ"},
-
-        {"from":"từ đâu"},
-        {"same":"bằng"},
-        {"so far":"điều này"},
-        {"notice":"để ý"},
-            
-        {"ready":"sẵn sàng"},
-        {"be reserved":"khép mình"},
-        {"hope":"hi vọng"},
-        {"night":"đêm"},
-        {"not yet":"vẫn chưa"}
-
+        {"which":"cái nào"},
+        {"with":"với"}
     ]
 }

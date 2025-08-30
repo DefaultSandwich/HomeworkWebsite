@@ -141,8 +141,7 @@ function renderQuestion() {
     //check if end question
     if (questionID < quizCache.questions.length && questionID >= 0) {
         //update heading
-        document.getElementById("heading").innerHTML = "Question " + String(questionID + 1) + " of " + String(quizLength)
-        //hide buttons
+        document.getElementById("heading").innerHTML = "Type the answer"
         document.getElementById("next").hidden = true
         //show buttons
         document.getElementById("check").hidden = false
@@ -152,16 +151,18 @@ function renderQuestion() {
         document.getElementById("statement").innerHTML += quizCache.questions[questionID].statement.HTML.middle
         document.getElementById("statement").innerHTML += quizCache.questions[questionID].statement.HTML.end
         //update txt speech button
-        formatSpchButton(questionID,"")
+        formatSpchButton(questionID, "")
+        //update progress bar
+        document.getElementById("progressFill").style.width = `${((questionID + 0.5) / quizCache.questions.length) * 100}%`
 
 
         //hover on first input
         document.getElementById("input0").focus()
-
+        document.getElementById("progressLabel").innerHTML = "Q" + String(questionID + 1) + " of " + String(quizLength)
 
         startStopWatch()
 
-        if(quizCache.questions[questionID].statement.tts.autoplay != undefined) {speak(questionID)}
+        if (quizCache.questions[questionID].statement.tts.autoplay != undefined) { speak(questionID) }
 
     } else {
         //go to results page

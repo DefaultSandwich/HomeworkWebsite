@@ -4,6 +4,11 @@
 <head>
   <!-- <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sawarabi+Gothic&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
   <script src="quizMenu.js"></script>
   <script src="buttons.js"></script>
 
@@ -25,7 +30,7 @@
 
 </head>
 
-<body>
+<body style="width: 50vw; margin: auto;">
 
   <form id="form" onsubmit="localStorage.removeItem('quiz'); return validateCheckboxes()" action="questions.html?">
 
@@ -33,10 +38,16 @@
     <input type="number" min="1" max="100" value="10" name="quizLength"> </input>
 
     <p>Mode</p>
-    <input type="radio" id="normal" name="gameMode" value="normal" checked="true" required>
-    <label for="normal">Normal</label><br>
-    <input type="radio" id="timed" name="gameMode" value="timed">
-    <label for="timed">Timed</label><br>
+
+    <label for="normal">
+      <input type="radio" id="normal" name="gameMode" value="normal" checked="true" required>
+      <span>Normal</span>
+    </label>
+
+    <label for="timed">
+      <input type="radio" id="timed" name="gameMode" value="timed">
+      <span>Timed</span>
+    </label><br>
 
 
 
@@ -46,13 +57,16 @@
     </div>
 
     <br>
-    <br>
-    <input type="submit" value="Start"></input>
-   
+
+    <div style="display: flex;">
+      <input type="submit" value="Start" style="flex: auto;"></input>
+
+    </div>
     <input id="subject" type="hidden" name="subject"></input>
-    
+    <br>
+
     <script>document.getElementById("subject").value = subject</script>
-    
+
 
   </form>
   <script>subjectOptions()</script>

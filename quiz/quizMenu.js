@@ -102,11 +102,20 @@ const options = {
         "VI": {
 
 
-            "modes": ["eng-vi", "vi-eng"],
-            "modeLabel": [
-                "English to Viet",
-                "Viet to English"
-            ]
+            "conj": {
+                "modes": ["eng-vi", "vi-eng"],
+                "modeLabel": [
+                    "English to Viet",
+                    "Viet to English"
+                ]
+            },
+            "months": {
+                "modes": ["eng-vi", "vi-eng"],
+                "modeLabel": [
+                    "English to Viet",
+                    "Viet to English"
+                ]
+            }
         },
         "materials": {
 
@@ -156,16 +165,15 @@ function subjectOptions() {
     radio.innerHTML = ""
     for (let i = 0; i < modes.length; i++) {
         //add checkbox
-        radio.innerHTML += "<input type='checkbox' id=" + String(modes[i]) + "></input>"
-        document.getElementById(String(modes[i])).value = modes[i]
-        document.getElementById(String(modes[i])).name = "category"
+        let checkbox
+        checkbox = document.createElement("input")
+        checkbox.type = "checkbox"
+        checkbox.id = String(modes[i])
+        checkbox.value = modes[i]
+        checkbox.name = "category"
 
-
-
-
-
-        //add label
-        radio.innerHTML += "<label for=" + String(modes[i]) + ">" + String(parsePath(options, subject)["modeLabel"][i]) + "</label><br>"
+        //add labels
+        radio.innerHTML += "<label for=" + String(modes[i]) + ">" + checkbox.outerHTML + `<span>${String(parsePath(options, subject)["modeLabel"][i])}</span>` + "</label>"
 
 
 
