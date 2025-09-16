@@ -23,10 +23,10 @@ function loadQuestion() {
 
    if (operation == "vi-eng") {
       //viet to english
-      word = nextWord("conjunctions", operation)
+      word = nextWord("vi-en", operation)
 
-      x = Object.values(word)[0]
-      answer = Object.keys(word)[0]
+      x = Object.keys(word)[0]
+      answer = Object.values(word)[0]
 
       questionString[0] = "Translate into English<br>\""
       questionString[1] = formatValue(x)
@@ -42,7 +42,7 @@ function loadQuestion() {
 
    if (operation == "eng-vi") {
       //english to viet
-      word = nextWord("conjunctions", operation)
+      word = nextWord("en-vi", operation)
 
       x = Object.keys(word)[0]
       answer = Object.values(word)[0]

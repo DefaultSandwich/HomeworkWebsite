@@ -42,6 +42,10 @@ function nextWord(mode, operation_) {
     if (words[operation_].length < 2) {
 
         words[operation_] = JSON.parse(JSON.stringify(wordbank[mode]))
+        if(JSON.parse(JSON.stringify(wordbank[mode])) == null){
+            console.warn(`words[${operation_}] is set to empty`)
+        }
+      
 
     }
 
@@ -49,6 +53,7 @@ function nextWord(mode, operation_) {
     word = words[operation_][i]
 
     //remove word from list of words
+    console.log(operation_)
     words[operation_].splice(i, 1)
 
     return word

@@ -1,27 +1,49 @@
 
 
 {
-
-    "conjunctions":[
-        {"how":"làm sao"},
-        {"and":"và"},
-        {"or":["hoặc","hay"]},
-        {"but":["nhưng","nhưng mà"]},
-        {"nor":"cũng không"},
-        {"as":["trong khi","khi"]},
-        {"while":["trong khi","khi"]},
-        {"when":["trong khi","khi"]},
-        {"whenever":["mỗi khi","khi"]},
-        {"before":["trước khi","trước"]},
-        {"after":["sau khi","sau"]},
-        {"since":["kể từ khi","từ","từ khi"]},
-        {"until":["cho đến khi","đến khi","đến"]},
-        {"because":"tại vì"},
-        {"so":"nên"},
-        {"if":["nếu mà","nếu"]},
-        {"then":"sau đó"},
-        {"for":"vì"},
-        {"so that":"dể mà"}
+    "en-vi":[
+       
+            {"how":"làm sao"},
+            {"and":"và"},
+            {"or":["hoặc","hay"]},
+            {"but":["nhưng","nhưng mà"]},
+            {"nor":"cũng không"},
+            {"as":["trong khi","khi"]},
+            {"while":["trong khi","khi"]},
+            {"when":["trong khi","khi"]},
+            {"whenever":["mỗi khi","khi"]},
+            {"before":["trước khi","trước"]},
+            {"after":["sau khi","sau"]},
+            {"since":["kể từ khi","từ","từ khi"]},
+            {"until":["cho đến khi","đến khi","đến"]},
+            {"because":"tại vì"},
+            {"so":"nên"},
+            {"if":["nếu mà","nếu"]},
+            {"then":"sau đó"},
+            {"for":"vì"},
+            {"so that":"dể mà"}
+        
+    ],
+    "vi-en":[
+      
+        {"làm sao": "how"},
+        {"và": "and"},
+        {"hoặc":"or"},
+        {"hay":"or"},
+        {"nhưng mà":"but"},
+        {"cũng không": "nor"},
+        {"trong khi":["as","while","when"]},
+        {"mỗi khi":"whenever"},
+        {"trước khi":["before","before that"]},
+        {"sau khi":["after","after that"]},
+        {"từ khi":"since"},
+        {"đến khi":"until"},
+        {"tại vì": "because"},
+        {"nên": "so"},
+        {"nếu mà":["if so","if"]},
+        {"sau đó": ["then","after","after that"]},
+        {"vì": "for"},
+        {"dể mà": "so that"} 
         
     ],
     "school":[

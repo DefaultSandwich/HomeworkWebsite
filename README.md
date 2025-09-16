@@ -3,8 +3,14 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.5.2
+*16/9/25*
+- Fixed txt-speech button in render page
+- Fixed txt-speech selection in settings page
+- Updated Viet wordbank
+
 ### V1.5.1
-*30/8/26*
+*30/8/25*
 - Modified Header
 - Added progress bar
 - Updated speech icon

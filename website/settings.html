@@ -69,14 +69,18 @@
                 "vi": ""
             }
         }
+
+
         //run function when page loads
         updateOptions()
 
         //define function
         function updateOptions() {
+          
             if (localStorage.getItem("settings") != null) {
                 settings = JSON.parse(localStorage.getItem("settings"))
             }
+         
 
 
             let voice
@@ -98,19 +102,20 @@
                 };
                 document.getElementById("voice").appendChild(voice)
             })
-            settings.voice = JSON.parse(localStorage.getItem("settings"))
-            if (settings.voice != null) {
-                //select option which was selecetd previously
-                document.getElementById("voice").value = settings.voices[lang]
+           
 
-            }
-            else {
-                //make first voice default
+
+            console.log(settings.voices[lang])
+            if (settings.voices[lang] == null || settings.voices[lang] == "") {
+                //if no voice selected make first voice default
                 document.getElementById("voice").selectedIndex = 0;
                 console.log("e")
                 settings.voices[lang] = document.getElementById("voice").value
                 storeSettings()
             }
+
+            //select option which was selected previously
+            document.getElementById("voice").value = settings.voices[lang]
 
 
 
