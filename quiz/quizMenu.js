@@ -13,6 +13,15 @@ const options = {
                 "modes": ["add", "sub", "mul", "div"],
                 "modeLabel": ["+", "−", "×", "÷"]
             }
+,
+            "mul":{
+                "modes":["2","3","4","5","6","7","8","9","10","11","12"],
+                "modeLabel":["2","3","4","5","6","7","8","9","10","11","12"]
+            },
+            "div":{
+                "modes":["2","3","4","5","6","7","8","9","10","11","12"],
+                "modeLabel":["2","3","4","5","6","7","8","9","10","11","12"]
+            }
         },
         "physics": {
             "sumVectors": {
@@ -26,6 +35,16 @@ const options = {
                     "Kilonewtons",
                     "Grams",
                     "Kilograms"
+                ]
+            },
+            "velocity": {
+                "modes": [
+                    "norm",
+                    "shinkansen"
+                ],
+                "modeLabel": [
+                    "Normal",
+                    "Shinkansen"
                 ]
             }
         },

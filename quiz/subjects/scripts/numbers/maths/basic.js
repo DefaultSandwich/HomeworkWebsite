@@ -20,7 +20,7 @@ function loadQuestion() {
         x = Math.floor(x * 89) + 10
         y = Math.floor(y * 8) + 2
         answer = x + y;
-        question.statement.tts.text = x + "plus" + y
+        question.statement.tts.text = x + " plus " + y
     }
     if (operation == "sub") {
         //subtraction
@@ -28,7 +28,7 @@ function loadQuestion() {
         y = Math.floor(y * 8) + 2
 
         answer = x - y;
-        question.statement.tts.text = x + "minus" + y
+        question.statement.tts.text = x + " minus " + y
     }
     if (operation == "mul") {
         //multiplication
@@ -36,7 +36,7 @@ function loadQuestion() {
         y = Math.floor(y * 10) + 2
 
         answer = x * y;
-        question.statement.tts.text = x + "times" + y
+        question.statement.tts.text = x + " times " + y
     }
     if (operation == "div") {
         //division
@@ -46,7 +46,7 @@ function loadQuestion() {
         x = x * y
 
         answer = x / y;
-        question.statement.tts.text = x + "divided by" + y
+        question.statement.tts.text = x + " divided by " + y
     }
     let questionString
 

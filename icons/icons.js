@@ -41,6 +41,10 @@ function formatValue(JSON) {
             string += String(value) + "°"
         }
 
+        if (unit == "kph") {
+            string += String(value) + "km/h"
+        }
+
         if (unit == "unit") {
             string += value.toLocaleString()
         }

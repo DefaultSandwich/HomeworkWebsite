@@ -3,6 +3,11 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.5.3
+*20/1/26*
+- Fixed TTS for maths
+- Made Basic Maths seperate modes
+
 ### V1.5.2
 *16/9/25*
 - Fixed txt-speech button in render page

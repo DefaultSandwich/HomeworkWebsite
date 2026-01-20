@@ -77,8 +77,14 @@ function showResults() {
                //add cross to input if not skipped
                inputs += cross
 
+               if (questions[i].answer[f].tolerance != null) {
+                  // if answer has tolerance display error amount input vs answer
+
+                  answers += (((questions[i].userInput[f] - questions[i].answer[f].value) / questions[i].answer[f].value) * 100).toFixed(0) + "%,"
+               }
 
             }
+
 
 
             //add answer
