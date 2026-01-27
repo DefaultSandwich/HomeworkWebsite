@@ -5,23 +5,27 @@ function loadQuestion() {
     let question = questionJSON
     let answer = null
 
-    let x = Math.random();
-    let y = Math.random();
+    let x = Math.floor(Math.random() * quizCache.meta.category.length);
+    x = quizCache.meta.category[x]
+
+    let y 
 
 
 
-    
+
 
     question.statement.tts = { "text": "", "lang": "en" }
 
 
 
     //multiplication
-   
 
-    x = quizCache.meta.category
-     console.log(x)
-    y = Math.floor(y * 10) + 2
+
+
+    console.log(questionID)
+    y = (questionID % 11) + 1
+
+ 
 
     answer = x * y;
     question.statement.tts.text = x + " times " + y

@@ -111,16 +111,18 @@ function newQuiz() {
     quizCache.meta.category = category
     quizCache.meta.gameMode = gameMode
     quizCache.meta.subject = subject
-
+    questionID = 0
 
 
 
     //generate questions
 
     for (let i = 0; i < quizLength; i++) {
+        questionID++
         console.log("newQ")
-        newQuestion()
+        newQuestion() 
     }
+    questionID = 0
 
 }
 

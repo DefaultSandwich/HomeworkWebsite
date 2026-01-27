@@ -5,8 +5,9 @@ function loadQuestion() {
     let question = questionJSON
     let answer = null
 
-    let x = Math.random();
-    let y = Math.random();
+    let y = Math.floor(Math.random() * quizCache.meta.category.length);
+    y = quizCache.meta.category[y]
+
 
 
 
@@ -18,7 +19,7 @@ function loadQuestion() {
 
     //division
     x = Math.floor(x * 10) + 2
-    y = quizCache.meta.category
+
 
     x = x * y
 

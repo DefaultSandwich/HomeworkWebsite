@@ -3,6 +3,11 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.5.4
+*27/1/26*
+- Fixed mul and div incorrectly handling multiple selections
+- Improved number generation for mul
+
 ### V1.5.3
 *20/1/26*
 - Fixed TTS for maths
