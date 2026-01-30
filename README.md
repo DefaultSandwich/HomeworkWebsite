@@ -4,7 +4,7 @@ https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
 ### V1.5.5
-*27/1/26*
+*30/1/26*
 - Hid question buttons when still loading
 - Fixed div.js incorrect question generation
 
@@ -173,6 +173,7 @@ https://defaultsandwich.github.io/HomeworkWebsite/
 - Added credits page
 - Expanded Vietnamese wordbank
 - Fixed header blocking retry buttons
+
 
 
 
