@@ -3,6 +3,11 @@
 https://defaultsandwich.github.io/HomeworkWebsite/
 
 ## Changelog
+### V1.5.5
+*27/1/26*
+- Hid question buttons when still loading
+- Fixed div.js incorrect question generation
+
 ### V1.5.4
 *27/1/26*
 - Fixed mul and div incorrectly handling multiple selections
