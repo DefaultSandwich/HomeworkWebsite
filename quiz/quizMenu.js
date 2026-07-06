@@ -81,7 +81,7 @@ const options = {
                 ],
                 "modeLabel": [
 
-                    "Hirigana",
+                    "Hiragana",
                     "Katakana"
                 ]
 
